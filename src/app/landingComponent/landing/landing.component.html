@@ -1,0 +1,481 @@
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+      <!-- División izquierda del header con el logo -->
+      <div class="izq">
+        <img src="../../../assets/images/dog.png" alt="logo" class="headerLogo" />
+        <h1 class="tituloHeader">Petly</h1>
+      </div>
+  
+      <!-- División central del header con los botones de navegación -->
+      <div class="container">
+        <button class="btn espacioDer">
+          <a class="linkHeader" href="#info">Información</a>
+        </button>
+  
+        <button class="btn espacioDer">
+          <a class="linkHeader" href="#servi">Servicios</a>
+        </button>
+  
+        <button class="btn espacioDer">
+          <a class="linkHeader" href="#vets">Veterinarios</a>
+        </button>
+  
+        <button class="btn">
+          <a class="linkHeader" href="#ubi">Ubicación</a>
+        </button>
+      </div>
+  
+      <!-- División derecha del header con botone de inicio de sesión -->
+      <div class="der">
+        <button class="loginButton btn">
+          <a th:href="@{/login/cliente}">Iniciar sesión</a>
+        </button>
+      </div>
+    </header>
+    <!-- termina el Header -->
+  
+    <!-- Contenido principal del landing -->
+    <!-- 1ra sección del landing: presentacion del slogan -->
+    <section class="tituloPrincipal">
+      <div class="image-container">
+        <img
+          src="../../../assets/images/Dog-Group.png"
+          alt="Imagen Grupo Perros"
+        />
+      </div>
+  
+      <h4 class="slogan">
+        Donde el amor y la salud se encuentran en cada ladrido
+      </h4>
+  
+      <div class="curva">
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+            class="shape-fill"
+          ></path>
+        </svg>
+      </div>
+    </section>
+    <!-- termina la 1ra sección del landing -->
+  
+    <!-- 2da sección del landing: información general -->
+    <section class="infoGeneral naranja" id="info">
+      <div class="txtInfoGeneral">
+        <h1>¡Bienvenido a <u style="text-decoration-color: white">Petly!</u></h1>
+        <p>
+          <br />
+          Nuestra clínica veterinaria da la bienvenida a todos los amantes de los
+          perros que buscan brindar el mejor cuidado a sus fieles compañeros. Nos
+          especializamos en la atención médica dedicada y compasiva para perros de
+          todas las edades. Con años de experiencia y un equipo comprometido,
+          garantizamos la salud y el bienestar de cada perro que pasa por nuestras
+          puertas.
+        </p>
+  
+        <h2>
+          ¡Confía en nosotros para mantener a tus mascotas felices y saludables!
+        </h2>
+      </div>
+  
+      <div class="perroInfoGeneral">
+        <img
+          src="../../../assets/images/goldenRetriever.png"
+          alt="Perro Golden Retriever"
+        />
+      </div>
+  
+      <div class="curvaBienvenida-Servicios">
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+            class="shape-fill"
+          ></path>
+        </svg>
+      </div>
+    </section>
+    <!-- termina la 2da sección del landing -->
+  
+    <!-- 3ra sección del landing: Servicios -->
+    <section class="servicios azulClaro" id="servi">
+      <h1>Servicios</h1>
+  
+      <div class="contenedorServ">
+        <div class="carruselServ">
+          <article class="card">
+            <div class="card-image-container">
+              <img
+                src="https://www.animalshealth.es/fileuploads/news/perro-vacunacion-guia-mascota-veterinaria-216624624471.jpg"
+                alt="vacunacion"
+              />
+            </div>
+            <p class="card-title">Vacunación</p>
+            <p class="card-des">
+              Protege a tu perro contra enfermedades con nuestros programas de
+              vacunación.
+            </p>
+          </article>
+  
+          <article class="card">
+            <div class="card-image-container">
+              <img
+                src="https://cdn.colombia.com/sdi/2022/10/10/veterinario-y-auxiliar-sacrificaron-perros-de-calle-ofrecer-capacitaciones-cirugias-1073793.jpg"
+                alt="cirugia"
+              />
+            </div>
+            <p class="card-title">Cirugía Veterinaria:</p>
+            <p class="card-des">
+              Cuida la salud de tu perro con nuestros procedimientos quirúrgicos
+              especializados.
+            </p>
+          </article>
+  
+          <article class="card">
+            <div class="card-image-container">
+              <img
+                src="https://www.zooplus.es/magazine/wp-content/uploads/2017/10/fotolia_107403823-768x512.jpg"
+                alt="consulta"
+              />
+            </div>
+            <p class="card-title">Consulta Veterinaria:</p>
+            <p class="card-des">
+              Diagnóstico y tratamiento personalizado para mantener a tu perro
+              sano y feliz.
+            </p>
+          </article>
+  
+          <article class="card">
+            <div class="card-image-container">
+              <img
+                src="https://escuelaversailles.com/wp-content/uploads/shutterstock_1569883195.jpg"
+                alt="spa"
+              />
+            </div>
+            <p class="card-title">Spa - Peluquería:</p>
+            <p class="card-des">
+              Tratamientos de belleza relajantes para que tu perro luzca y se
+              sienta bien.
+            </p>
+          </article>
+  
+          <article class="card">
+            <div class="card-image-container">
+              <img
+                src="https://www.mitiendademascotas.com/web/wp-content/uploads/2017/07/Apertura1-648x324.jpg"
+                alt="guarderia"
+              />
+            </div>
+            <p class="card-title">Guardería:</p>
+            <p class="card-des">
+              Un lugar seguro y divertido para que tu perro socialice y se
+              divierta mientras estás ocupado.
+            </p>
+          </article>
+  
+          <article class="card">
+            <div class="card-image-container">
+              <img
+                src="https://www.francebleu.fr/s3/cruiser-production/2021/09/7ac6a77d-3b8d-47c2-8c79-7373bd1ba831/1200x680_artemis.jpg"
+                alt="fisioterapia"
+              />
+            </div>
+            <p class="card-title">Fisioterapia:</p>
+            <p class="card-des">
+              Recupera la movilidad y alivia los dolores de tu perro con nuestra
+              terapia personalizada de fisioterapia y rehabilitación.
+            </p>
+          </article>
+  
+          <article class="card">
+            <div class="card-image-container">
+              <img
+                src="https://renacerpets.cl/img/imagenes/50/analisis-vet-post.jpg"
+                alt="laboratorios"
+              />
+            </div>
+            <p class="card-title">Laboratorio - Diagnóstico:</p>
+            <p class="card-des">
+              Diagnóstico preciso con tecnología de punta para perros, porque un
+              diganostico temprano evita futuras complicaciones.
+            </p>
+          </article>
+  
+          <article class="card">
+            <div class="card-image-container">
+              <img
+                src="https://puppis.blog/wp-content/uploads/2020/01/La-importancia-de-la-higiene-dental-en-mascotas.jpg"
+                alt="cuidadoDental"
+              />
+            </div>
+            <p class="card-title">Cuidado Dental:</p>
+            <p class="card-des">
+              Cuida la sonrisa de tu perro con nuestros tratamientos dentales
+              especializados para evitar el sarro y la gingivitis.
+            </p>
+          </article>
+        </div>
+      </div>
+  
+      <!-- Botón izquierdo para desplazar hacia la izquierda en el carrusel de servicios -->
+      <button
+        class="carrusel-control carrusel-servicios-control izquierda"
+        id="btn-left-serv"
+        aria-label="Anterior"
+      >
+        &lt;
+      </button>
+  
+      <!-- Botón derecho para desplazar hacia la derecha en el carrusel de servicios -->
+      <button
+        class="carrusel-control carrusel-servicios-control derecha"
+        id="btn-right-serv"
+        aria-label="Siguiente"
+      >
+        &gt;
+      </button>
+  
+      <div class="curvaServicios-Ubicacion">
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+            class="shape-fill"
+          ></path>
+        </svg>
+      </div>
+    </section>
+    <!-- termina la 3ra sección del landing -->
+  
+    <!-- 4ta sección del landing: Veterinarios -->
+    <section class="veterinarios azulOscuro" id="vets">
+      <h1>Veterinarios</h1>
+  
+      <div class="contenedorVet">
+        <div class="carruselVet">
+          <article class="vetCard">
+            <img
+              class="vetImage"
+              src="../../../assets/images/vet1.jpg"
+              alt="Veterinario1"
+            />
+            <div class="vet-card-info">
+              <span>Dr. Alexander García</span>
+              <p>Veterinario General</p>
+            </div>
+          </article>
+  
+          <article class="vetCard">
+            <img
+              class="vetImage"
+              src="../../../assets/images/vet2.jpg"
+              alt="Veterinario2"
+            />
+            <div class="vet-card-info">
+              <span>Dra. Isabella Martínez</span>
+              <p>Veterinario Quirurgico</p>
+            </div>
+          </article>
+  
+          <article class="vetCard">
+            <img
+              class="vetImage"
+              src="../../../assets/images/vet3.jpg"
+              alt="Veterinario3"
+            />
+            <div class="vet-card-info">
+              <span>Dr. Sebastián Rojas</span>
+              <p>Veterinario Intensivista</p>
+            </div>
+          </article>
+  
+          <article class="vetCard">
+            <img
+              class="vetImage"
+              src="../../../assets/images/vet4.png"
+              alt="Veterinario4"
+            />
+            <div class="vet-card-info">
+              <span>Dra. Valentina López</span>
+              <p>Veterinario de Medicina Interna</p>
+            </div>
+          </article>
+  
+          <article class="vetCard">
+            <img
+              class="vetImage"
+              src="../../../assets/images/vet5.jpg"
+              alt="Veterinario5"
+            />
+            <div class="vet-card-info">
+              <span> Dra. Sofia Herrera</span>
+              <p>Veterinario - Dermatologo</p>
+            </div>
+          </article>
+  
+          <article class="vetCard">
+            <img
+              class="vetImage"
+              src="../../../assets/images/vet6.jpg"
+              alt="Veterinario6"
+            />
+            <div class="vet-card-info">
+              <span>Dr. Mateo González</span>
+              <p>Veterinario Quirurgico</p>
+            </div>
+          </article>
+  
+          <article class="vetCard">
+            <img
+              class="vetImage"
+              src="../../../assets/images/vet7.jpg"
+              alt="Veterinario6"
+            />
+            <div class="vet-card-info">
+              <span>Dra. Natalia Silva</span>
+              <p>Veterinario de Medicina Interna</p>
+            </div>
+          </article>
+  
+          <article class="vetCard">
+            <img
+              class="vetImage"
+              src="../../../assets/images/vet8.png"
+              alt="Veterinario8"
+            />
+            <div class="vet-card-info">
+              <span>Dr. Leonardo Pérez</span>
+              <p>Veterinario - Odontologo</p>
+            </div>
+          </article>
+        </div>
+      </div>
+  
+      <!-- Botón izquierdo para desplazar hacia la izquierda en el carrusel de veterinarios -->
+      <button
+        class="carrusel-control carrusel-veterinarios-control izquierda"
+        id="btn-left-vet"
+        aria-label="Anterior"
+      >
+        &lt;
+      </button>
+      <!-- Botón derecho para desplazar hacia la derecha en el carrusel de veterinarios -->
+      <button
+        class="carrusel-control carrusel-veterinarios-control derecha"
+        id="btn-right-vet"
+        aria-label="Siguiente"
+      >
+        &gt;
+      </button>
+  
+      <div class="curvaUbicacion">
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+            class="shape-fill"
+          ></path>
+        </svg>
+      </div>
+    </section>
+    <!-- Termina la 4ta sección del landing -->
+  
+    <!-- 5ta sección del landing: ubicación, horarios y contacto -->
+    <section class="ubicacion" id="ubi">
+      <div class="txtUbicacion">
+        <h1>¡Como encontrarnos!</h1>
+        <p>
+          <br />
+          Carrera 7 #40-62
+          <br />
+          Edificio José Gabriel Maldonado
+          <br />
+          <br />
+          Martes de 4:00 p.m. a 6:00 p.m. (salón 805)
+          <br />
+          Jueves de 4:00 p.m. a 6:00 p.m. (salón 10-4)
+          <br />
+          <br />
+        </p>
+  
+        <a class="btnUbi" onclick="mostrarContacto()">
+          <p class="linkUbi">Puedes contactarnos dando click aqui</p>
+        </a>
+  
+        <p>
+          <br />
+        </p>
+  
+        <div class="goTop">
+          <a class="backTop" href="#header">
+            <svg class="svgIcon" viewBox="0 0 384 512">
+              <path
+                d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+  
+      <div class="containerMapa">
+        <div class="borde">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.8130784853784!2d-74.06497765665863!3d4.627413682888567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a27c29a9fe1%3A0xb7c4f8c5e924eecc!2sJaveriana!5e0!3m2!1sen!2sco!4v1707768688722!5m2!1sen!2sco"
+            width="700"
+            height="100%"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+    <!-- Termina la 5ta sección del landing -->
+  
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footerIzq">
+        <p>Donde el amor y la salud se encuentran en cada ladrido</p>
+      </div>
+  
+      <img
+        src="../../../assets/images/logoMini.png"
+        alt="Petly"
+        class="footerLogo"
+      />
+  
+      <div class="footerDer">
+        <a
+          id="anchorFooter"
+          href="https://github.com/suaracost/Petly"
+          target="_blank"
+        >
+          <img
+            src="../../../assets/images/redes.png"
+            alt="redes"
+            class="footerRedes"
+          />
+        </a>
+      </div>
+    </footer>
+    <!-- Termina el footer -->
+  </body>
