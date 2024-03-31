@@ -1,0 +1,79 @@
+<app-vet-sidebar class="sidebar"></app-vet-sidebar>
+
+<!-- Contenido principal -->
+<div class = "main-content">
+
+    <!-- Apartado para la barra de busqueda para filtrar las mascotas por estado y nombre -->
+    <div class="search">
+        <h1>Mascotas de Petly</h1>
+
+        <!-- Radio buttons para filtrar las mascotas por estado -->
+        <div class="radio-input">
+            <label>
+                <input value="Disponible" name="value-radio" id="value-1" type="radio" onchange="filterTableByState()">
+                <span>Disponibles</span>
+            </label>
+            <label>
+                <input value="Inactivo" name="value-radio" id="value-2" type="radio" onchange="filterTableByState()">
+                <span>Inactivas</span>
+            </label>
+            <label>
+                <input value="Todas" name="value-radio" id="value-3" type="radio" checked="" onchange="filterTableByState()">
+                <span>Todas</span>
+            </label>
+            <span class="selection"></span>
+        </div>
+
+        <!-- input de busqueda para filtrar las mascotas por nombre -->
+        <app-searchbar-mascota-nombre class="searchbar"></app-searchbar-mascota-nombre>
+
+    </div>
+    
+    <!-- Tabla con todas las mascotas de la base de datos (cambia con los filtros) -->
+    <div>
+        <table id="myTable" class="tablita">
+            <thead>
+                <tr>
+                    <th>Foto</th>
+                    <th>Nombre</th>
+                    <th>Raza</th>
+                    <th>Edad</th>
+                    <th>Peso</th>
+                    <th>Enfermedad</th>
+                    <th>Estado</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <!-- Cuerpo de la tabla con las mascotas de la base de datos -->
+            <tbody>
+                <!-- por cada mascota de la base de datos se crea una fila de la tabla con sus datos -->
+                <tr th:each="mascota : ${mascotas}">
+                    <td><img cLass="fotoPerro" th:src="${mascota.foto}"/></td>
+                    <td th:text="${mascota.nombre}"></td>
+                    <td th:text="${mascota.raza}"></td>
+                    <td th:text="${mascota.edad}"></td>
+                    <td th:text="${mascota.peso}"></td>
+                    <td th:text="${mascota.enfermedad}"></td>
+                    <td th:text="${mascota.estado}"></td>
+                    <!-- opciones CRUD de cada mascota -->
+                    <td class="opciones">
+                        <!-- enlace para ver la informacion de la mascota -->
+                        <a class="links informa" th:href="@{/veterinario/mascotas/find/{id}(id=${mascota.id})}">
+                            <i class='bx bx-info-circle'></i>
+                        </a>
+                        <!-- enlace para editar la informacion de la mascota -->
+                        <a class="links edit" th:href="@{/veterinario/mascotas/update/{id}(id=${mascota.id})}">
+                            <i class='bx bxs-edit'></i>
+                        </a>
+                        <!-- enlace para cambiar el estado de la mascota (popup de alerta para confirmar) -->
+                        <a th:id="${mascota.id}" class="links delete" onclick="mostrarAlerta(id)">
+                            <i class='bx bx-transfer'></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Fin de la tabla -->
+</div>
+<!-- Fin de contenido principal -->

@@ -1,0 +1,240 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100px;
+    padding: .4rem 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    transition: all 0.5s ease;
+}
+
+.sidebar.active ~ .main-content {
+    left: 250px;
+    width: calc(100% - 250px);
+}
+
+.sidebar.active {
+    width: 250px;
+}
+
+.main-content {
+    position: relative;
+    min-height: 100vh;
+    top: 0;
+    left: 100px;
+    transition: all 0.5s ease;
+    width: calc(100% - 100px);
+    padding: 1rem;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 50px;
+    padding-right: 50px;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.search {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    align-items: center;
+    height: 10%;
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.search h1 {
+    margin: 0;
+    font-size: 40px;
+}
+
+.searchbar {
+    font-size: 1.5em;
+    width: 50%;
+    height: 40px;
+    outline: none;
+}
+
+.left-side {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 25px;
+
+}
+
+.right-side {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 25px;
+
+}
+
+.cabeza {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    align-items: center;
+    height: 10%;
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.cabeza h1 {
+    margin: 0;
+    font-size: 40px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 780px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.08),
+        -4px -4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.card-image-container {
+    width: 100%;
+    height: 800px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: rgb(165, 165, 165);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-user-container {
+    width: 100%;
+    height: 800px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25em;
+}
+
+.info img {
+    height: 100%;
+    margin-right: 50px;
+}
+
+.info-texto {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.info-dog h2 , .info-dueño h2 {
+    width: 100%;
+    text-align: center; 
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    font-size: 2em;
+}
+
+.info-dog h2 {
+    padding-top: 20px;
+}
+
+.lista {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 1.5em;
+}
+
+table.tablita {
+    font-size: 1.5em;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0px;
+}
+
+.tablita th, .tablita td {
+    
+    padding: 10px;
+    text-align: center;
+}
+
+.tablita th:first-child {
+    border-top-left-radius: 10px;
+}
+
+.tablita th:last-child {
+    border-top-right-radius: 10px;
+}
+
+.tablita th {
+    background-color: #3468c0;
+    color: white;
+}
+
+.tablita tr:nth-child(even) {
+    background-color: #eeeeee;
+}
+
+.tablita tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+.tablita tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+.fotoPerro {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.opciones {
+    height: 120px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.links {
+    font-size: 1.3em;
+    color: #898989;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.icono:hover {
+    color: #ff9c35;
+    text-shadow: 0 4px 16px #ff9c35;
+    transition: all 0.2s ease;
+}

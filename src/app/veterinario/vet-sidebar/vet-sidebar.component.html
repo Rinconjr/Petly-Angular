@@ -1,0 +1,83 @@
+<head>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+</head>
+
+<!-- Sidebar del veterinario -->
+<div class = "sidebar_ok">
+
+    <!-- Parte superior del sidebar para el logo -->
+    <div class = "top">
+        <img src="../../../assets/images/dog.png" alt="logo" id="btn"/>
+        <div class = "logo">
+            <span>Petly</span>
+        </div>
+    </div>
+
+    <!-- Apartado para Foto y Nombre del veterinario -->
+    <div class = "user">
+        <img src="../../../assets/images/vet1.jpg" alt="Veterinario" class="user-img"/>
+        <p>Dr. Alexander García</p>           
+    </div>
+    
+    <!-- Apartado para las opciones de navegación del veterinario -->
+    <div class = "nav">
+        <ul>
+            <!-- opcion para ver todas las mascotas -->
+            <li>
+                <a th:href="@{/veterinario/mascotas/all}">
+                    <i class="bx bx-table"></i>
+                    <span class="nav-item">Ver mascotas</span>
+                </a>
+            </li>
+
+            <!-- opcion para registrar una nueva mascota -->
+            <li>
+                <a th:href="@{/veterinario/mascotas/add}">
+                    <i class="bx bxs-dog"></i>
+                    <span class="nav-item">Registrar mascota</span>
+                </a>
+            </li>
+
+            <!-- opcion para ver todos los tratamientos -->
+            <li>
+                <a href="">
+                    <i class="bx bx-capsule"></i>
+                    <span class="nav-item">Ver tratamientos</span>
+                </a>
+            </li>
+        
+            <!-- opcion para ver todas las atenciones medicas -->
+            <li>
+                <a href="">
+                    <i class="bx bx-plus-medical"></i>
+                    <span class="nav-item">Atención medica</span>
+                </a>
+            </li>
+
+            <!-- opcion para ver todos los clientes -->
+            <li>
+                <a th:href="@{/veterinario/clientes/all}">
+                    <i class="bx bx-group"></i>
+                    <span class="nav-item">Ver clientes</span>
+                </a>
+            </li>
+
+            <!-- opcion para registrar un nuevo cliente -->
+            <li>
+                <a th:href="@{/veterinario/clientes/add}">
+                    <i class="bx bx-user-plus"></i>
+                    <span class="nav-item">Registrar cliente</span>
+                </a>
+            </li>
+
+            <!-- opcion para cerrar sesión -->
+            <li id="logout">
+                <a href="/">
+                    <i class="bx bx-log-out"></i>
+                    <span class="nav-item">Cerrar sesión</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div> 
+<!-- Termina sidebar del veterinario  -->

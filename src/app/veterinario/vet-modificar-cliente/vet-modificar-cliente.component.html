@@ -1,0 +1,143 @@
+<app-vet-sidebar class="sidebar"></app-vet-sidebar>
+
+<!-- Encabezado de la pagina para el titulo y subtitulo del main-content -->
+<div class = "titulo">
+    <h1 class="main-title">Modificar Cliente</h1>
+    <h1 class="main-subtitle">Actualizar un cliente en la base de datos de Petly</h1>
+</div>
+
+<!-- Contenido principal de la pagina -->
+<div class = "main-content">
+
+    <!-- Apartado (izquierdo) para modificar la informacion del cliente -->
+    <div class = "left-side">
+
+        <h1> Informacion Modificada </h1>
+
+        <!-- Formulario para modificar la informacion del cliente -->
+        <form th:object="${cliente}" th:action="@{/veterinario/clientes/update/{id}(id=${cliente.id})}" method="post">
+            
+            <!-- Campos para modificar la informacion del cliente -->
+            <div class="formulario">
+
+                <!-- Campo para modificar la cedula del cliente -->
+                <div class="form-group input-container">
+                    <input th:field="*{cedula}" type="text" id="cedula" required>
+                    <label class="label" for="cedula">Cedula Cliente</label>
+                    <div class="underline"></div>
+                </div>
+                
+                <!-- Campo para modificar el nombre del cliente -->
+                <div class="form-group input-container">
+                    <input th:field="*{nombre}" type="text" id="nombre" required>
+                    <label class="label" for="nombre">Nombre Cliente</label>
+                    <div class="underline"></div>
+                </div>
+        
+                <!-- Campo para modificar el apellido del cliente -->
+                <div class="form-group input-container">
+                    <input th:field="*{apellido}" type="text" id="apellido" required>
+                    <label class="label" for="apellido">Apellido Cliente</label>
+                    <div class="underline"></div>
+                </div>
+        
+                <!-- Campo para modificar el correo del cliente -->
+                <div class="form-group input-container">
+                    <input th:field="*{correo}" type="text" id="correo" required>
+                    <label class="label" for="correo">Correo Cliente</label>
+                    <div class="underline"></div>
+                </div>
+        
+                <!-- Campo para modificar el celular del cliente -->
+                <div class="form-group input-container">
+                    <input th:field="*{celular}" type="text" id="celular" required>
+                    <label class="label" for="celular">Celular Cliente</label>
+                    <div class="underline"></div>
+                </div>
+        
+                <!-- Boton para enviar el formulario -->
+                <button type="submit" class="btn btn-primary btn-enviar">Enviar</button>
+
+            </div>
+            
+        </form>
+    </div>
+    <!-- Fin del apartado (izquierdo) -->
+
+    <!-- Apartado (derecho) para ver la informacion del cliente -->
+    <div class="right-side">
+
+        <!-- Encabezado de la informacion actual del cliente -->
+        <div class = "cabeza">
+            <h1> Información actual: <span th:text=${cliente.nombre}></span></h1>
+        </div>
+            
+        <!-- Card para mostrar la informacion del cliente -->
+        <div class = "info">
+            
+            <!-- Imagen del cliente -->
+            <div class="card-user-container">
+                <i class='bx bxs-user' style='color:#898989'></i>
+            </div> 
+
+            <!-- Informacion de la card -->
+            <div class = info-texto>
+
+                <!-- Informacion del cliente -->
+                <div class = info-personal>
+                    <h2>Información Personal</h2>
+                    <div class="lista">
+                        <ul class="card-des">
+                            <li>Cedula: <span th:text="${cliente.cedula}"></span></li>
+                            <li>Nombre: <span th:text="${cliente.nombre}"></span></li>
+                            <li>Apellido: <span th:text="${cliente.apellido}"></span></li>
+                            <li>Correo: <span th:text="${cliente.correo}"></span></li>
+                            <li>Celular: <span th:text="${cliente.celular}"></span></li>
+                        </ul>
+                    </div>
+                    
+                </div>
+                
+            </div>                     
+            
+        </div>
+    </div>
+
+</div>
+
+<!-- Apartado inferior para ver la informacion de las mascotas -->
+<div class="bottom-part">
+
+    <!-- Tabla para ver la informacion de las mascotas -->
+    <table class="tablita">
+        <thead>
+            <tr>
+                <th>Foto</th>
+                <th>Nombre</th>
+                <th>Raza</th>
+                <th>Edad</th>
+                <th>Peso</th>
+                <th>Enfermedad</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <!-- Cuerpo de la tabla con las mascotas del cliente -->
+        <tbody>
+            <!-- por cada mascota del cliente se crea una fila de la tabla -->
+            <tr th:each="mascota : ${cliente.mascotas}">
+                <td><img class="fotoPerro" th:src="${mascota.foto}" alt="Foto Mascota"/></td>
+                <td th:text="${mascota.nombre}"></td>
+                <td th:text="${mascota.raza}"></td>
+                <td th:text="${mascota.edad}"></td>
+                <td th:text="${mascota.peso}"></td>
+                <td th:text="${mascota.enfermedad}"></td>
+                <!-- Boton para ver la informacion de la mascota -->
+                <td class="opciones">
+                    <a class="links icono" th:href="@{/veterinario/mascotas/find/{id}(id=${mascota.id})}">
+                        <i class='bx bx-info-circle'></i>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

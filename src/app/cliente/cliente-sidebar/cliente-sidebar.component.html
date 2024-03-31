@@ -1,0 +1,68 @@
+<head>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+</head>
+
+<!-- Sidebar del Cliente con sus datos -->
+<div class = "sidebar_ok">
+
+    <!-- Parte superior del sidebar para el logo -->
+    <div class = "top">
+        <img src="../../../assets/images/dog.png" alt="logo" id="btn"/>
+        <div class = "logo">
+            <span>Petly</span>
+        </div>
+    </div>
+
+    <!-- Apartado para Icono y Nombre del usuario -->
+    <div class = "user">
+        <i class="bx bxs-user-circle" id="raro"></i>
+        <p><span th:text="${cliente.nombre} + ' ' + ${cliente.apellido}"></span></p>
+    </div>
+    
+    <!-- Apartado para presentar los datos del usuario -->
+    <div class = "nav">
+        <ul>
+            <li>
+                <a>
+                <i class="bx bx-id-card"></i>
+                <span th:text="${cliente.cedula}" class="nav-item especial"></span>
+                </a>
+            </li>
+
+            <li>
+                <a>
+                    <i class="bx bxs-phone"></i>
+                    <span th:text="${cliente.celular}" class="nav-item especial"></span>
+                </a>
+            </li>
+
+            <li>
+                <a>
+                    <i class="bx bx-envelope"></i>
+                    <span th:text="${cliente.correo}" class="nav-item especial"></span>
+                </a>
+            </li>
+            
+            <li>
+                
+            </li>
+            
+            <li>
+                
+            </li>
+
+            <li>
+
+            </li>
+
+            <!-- Redireccionamiento a la pagina principal (cerrar sesión) -->
+            <li id="logout">
+                <a href="/">
+                    <i class="bx bx-log-out"></i>
+                    <span class="nav-item">Cerrar sesión</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- Fin Sidebar -->

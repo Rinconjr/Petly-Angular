@@ -1,0 +1,39 @@
+<!-- boton para volver al landing -->
+<a th:href="@{/}">
+    <img src="../../../assets/images/dog.png" class="logoLogin" />
+  </a>
+
+  <div class="container">
+    <!-- imagen de la izquierda -->
+    <img src="../../../assets/images/loginCliente.jpg" class="fotoLogin" />
+
+    <!-- informacion de la derecha -->
+    <div class="info">
+      <h1>Iniciar sesión</h1>
+      <h3>¡Inicia sesión a tu cuenta de Petly!</h3>
+
+      <!-- formulario de inicio de sesion para veterinario -->
+      <form class="formulario" method="post">
+        <div class="datos">
+          <label for="cedula">Cédula</label>
+          <input type="text" id="cedula" name="cedula" />
+        </div>
+        
+        <div class="datos">
+          <label for="contra" id="contra-label">Contraseña</label>
+          <input type="password" id="contra" name="contrasenia" />
+        </div>
+
+        <!-- boton de inicio de sesion para veterinario -->
+        <button type="submit" class="boton">
+          Iniciar sesión
+        </button>
+
+        <!-- redireccion para iniciar sesion de cliente -->
+        <p class="redirect">
+          ¿Eres un cliente? 
+          <a th:href="@{/login/cliente}">Inicia sesión aqui</a>
+        </p>
+      </form>
+    </div>
+  </div>

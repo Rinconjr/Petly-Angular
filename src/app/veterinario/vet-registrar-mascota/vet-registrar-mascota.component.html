@@ -1,0 +1,81 @@
+<body>
+
+    <!-- Formulario para registrar nueva mascota (presentado en card) -->
+    <form th:object="${mascota}" th:action="@{/veterinario/mascotas/agregar}" method="post" class="card">
+        
+        <!-- Parte siperior de la card para el logo y el titulo -->
+        <div class="card-top">
+            <img src="../../../assets/images/logo.png" alt="logo"/>          
+            <h1>Registrar nueva mascota</h1>
+        </div>
+
+        <!-- Cuerpo de la card, contiene el formulario -->
+        <div class="formulario">
+
+            <!-- division superior del formulario para nombre y raza -->
+            <div class="form-div">
+
+                <div class="form-group input-container">
+                    <input th:field="*{nombre}" type="text" id="nombre" required>
+                    <label class="label" for="nombre">Nombre de la mascota</label>
+                    <div class="underline"></div>
+                </div>
+                
+                <div class="form-group input-container">
+                    <input th:field="*{raza}" type="text" id="raza" required>
+                    <label class="label" for="raza">Raza</label>
+                    <div class="underline"></div>
+                </div>
+
+            </div>
+
+            <!-- division central 1 del formulario para edad y peso -->
+            <div class="form-div">
+
+                <div class="form-group input-container">
+                    <input th:field="*{edad}" type="number" id="edad" required>
+                    <label class="label" for="edad">Edad</label>
+                    <div class="underline"></div>
+                </div>
+        
+                <div class="form-group input-container">
+                    <input th:field="*{peso}" type="number" id="peso" required>
+                    <label class="label" for="peso">Peso</label>
+                    <div class="underline"></div>
+                </div>
+
+            </div>
+
+            <!-- division central 2 del formulario para la enfermedad y la foto -->
+            <div class="form-div">
+
+                <div class="form-group input-container">
+                    <input th:field="*{enfermedad}" type="text" id="enfermedad" required>
+                    <label class="label" for="enfermedad">Enfermedad</label>
+                    <div class="underline"></div>
+                </div>
+        
+                <div class="form-group input-container">
+                    <input th:field="*{foto}" type="url" id="foto" required>
+                    <label class="label" for="foto">Foto</label>
+                    <div class="underline"></div>
+                </div>
+
+            </div>   
+    
+            <!-- division inferior del formulario para la cedula del duenho -->
+            <div class="form-group input-container form-div">
+                <input type="text" id="cedulaDueno" name="cedulaDueno" required>
+                <label class="label" for="cedulaDueno">Cedula Dueño</label>
+                <div class="underline"></div>
+            </div>
+            
+            <!-- Botones para enviar el formulario y volver -->
+            <div class="form-div">
+                <button class="btn-secondary" onclick="window.location.href='/veterinario/mascotas/all'">Volver</button>
+                <button type="submit" class="btn-primary">Registrar</button>
+            </div>
+
+        </div>
+    </form>
+</body>
