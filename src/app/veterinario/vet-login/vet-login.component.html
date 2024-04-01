@@ -1,5 +1,5 @@
 <!-- boton para volver al landing -->
-<a th:href="@{/}">
+<a [routerLink]="['../../']">
     <img src="../../../assets/images/dog.png" class="logoLogin" />
   </a>
 
@@ -32,7 +32,7 @@
         <!-- redireccion para iniciar sesion de cliente -->
         <p class="redirect">
           ¿Eres un cliente? 
-          <a th:href="@{/login/cliente}">Inicia sesión aqui</a>
+          <a [routerLink]="['../cliente']">Inicia sesión aqui</a>
         </p>
       </form>
     </div>

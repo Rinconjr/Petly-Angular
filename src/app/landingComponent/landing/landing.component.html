@@ -10,26 +10,26 @@
       <!-- División central del header con los botones de navegación -->
       <div class="container">
         <button class="btn espacioDer">
-          <a class="linkHeader" href="#info">Información</a>
+          <a class="linkHeader" href="#infoSection">Información</a>
         </button>
   
         <button class="btn espacioDer">
-          <a class="linkHeader" href="#servi">Servicios</a>
+          <a class="linkHeader" href="#serviSection">Servicios</a>
         </button>
   
         <button class="btn espacioDer">
-          <a class="linkHeader" href="#vets">Veterinarios</a>
+          <a class="linkHeader" href="#vetSection">Veterinarios</a>
         </button>
   
         <button class="btn">
-          <a class="linkHeader" href="#ubi">Ubicación</a>
+          <a class="linkHeader" href="#ubiSection">Ubicación</a>
         </button>
       </div>
   
       <!-- División derecha del header con botone de inicio de sesión -->
       <div class="der">
         <button class="loginButton btn">
-          <a th:href="@{/login/cliente}">Iniciar sesión</a>
+          <a [routerLink]="['/login/cliente']">Iniciar sesión</a>
         </button>
       </div>
     </header>
@@ -48,6 +48,8 @@
       <h4 class="slogan">
         Donde el amor y la salud se encuentran en cada ladrido
       </h4>
+
+      <div id="infoSection"></div>
   
       <div class="curva">
         <svg
@@ -91,7 +93,7 @@
         />
       </div>
   
-      <div class="curvaBienvenida-Servicios">
+      <div class="curvaBienvenida-Servicios" id="serviSection">
         <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
@@ -229,7 +231,7 @@
   
       <!-- Botón izquierdo para desplazar hacia la izquierda en el carrusel de servicios -->
       <button
-        class="carrusel-control carrusel-servicios-control izquierda"
+        class="carrusel-control carrusel-servicios-control izquierda brillo"
         id="btn-left-serv"
         aria-label="Anterior"
       >
@@ -238,12 +240,14 @@
   
       <!-- Botón derecho para desplazar hacia la derecha en el carrusel de servicios -->
       <button
-        class="carrusel-control carrusel-servicios-control derecha"
+        class="carrusel-control carrusel-servicios-control derecha brillo"
         id="btn-right-serv"
         aria-label="Siguiente"
       >
         &gt;
       </button>
+
+      <div id="vetSection"></div>
   
       <div class="curvaServicios-Ubicacion">
         <svg
@@ -367,7 +371,7 @@
   
       <!-- Botón izquierdo para desplazar hacia la izquierda en el carrusel de veterinarios -->
       <button
-        class="carrusel-control carrusel-veterinarios-control izquierda"
+        class="carrusel-control carrusel-veterinarios-control izquierda brillo"
         id="btn-left-vet"
         aria-label="Anterior"
       >
@@ -375,7 +379,7 @@
       </button>
       <!-- Botón derecho para desplazar hacia la derecha en el carrusel de veterinarios -->
       <button
-        class="carrusel-control carrusel-veterinarios-control derecha"
+        class="carrusel-control carrusel-veterinarios-control derecha brillo"
         id="btn-right-vet"
         aria-label="Siguiente"
       >
@@ -399,7 +403,7 @@
     <!-- Termina la 4ta sección del landing -->
   
     <!-- 5ta sección del landing: ubicación, horarios y contacto -->
-    <section class="ubicacion" id="ubi">
+    <section class="ubicacion" id="ubiSection">
       <div class="txtUbicacion">
         <h1>¡Como encontrarnos!</h1>
         <p>

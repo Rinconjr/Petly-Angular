@@ -1,5 +1,5 @@
 <!-- boton para volver al landing -->
-<a th:href="@{/}">
+<a [routerLink]="['../../']">
     <img src="../../../assets/images/dog.png" class="logoLogin" />
   </a>
   
@@ -27,7 +27,7 @@
         <!-- redireccion para iniciar sesion de veterinario -->
         <p class="redirect">
           ¿Eres un veterinario? 
-          <a th:href="@{/login/vet}">Inicia sesión aqui</a>
+          <a [routerLink]="['../veterinario']">Inicia sesión aqui</a>
         </p>
       </form>
     </div>
