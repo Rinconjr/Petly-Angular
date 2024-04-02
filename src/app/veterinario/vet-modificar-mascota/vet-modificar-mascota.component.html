@@ -15,56 +15,56 @@
         <h1> Informacion Modificada </h1>
 
         <!-- Formulario para modificar la informacion actual de la mascota -->
-        <form th:object="${mascota}" th:action="@{/veterinario/mascotas/update/{id}(id=${mascota.id})}" method="post">
+        <form method="post">
             
             <!-- Campos para modificar la informacion de la mascota -->
             <div class ="formulario">
 
                 <!-- Campo para modificar el nombre de la mascota -->
                 <div class="form-group input-container">
-                    <input th:field="*{nombre}" type="text" id="nombre" required>
+                    <input type="text" id="nombre" name="nombre" [(ngModel)]="formMascota.nombre" required>
                     <label class="label" for="nombre">Nombre de la mascota</label>
                     <div class="underline"></div>
                 </div>
                 
                 <!-- Campo para modificar la raza de la mascota -->
                 <div class="form-group input-container">
-                    <input th:field="*{raza}" type="text" id="raza" required>
+                    <input type="text" id="raza" name="raza" [(ngModel)]="formMascota.raza" required>
                     <label class="label" for="raza">Raza</label>
                     <div class="underline"></div>
                 </div>
     
                 <!-- Campo para modificar la edad de la mascota -->
                 <div class="form-group input-container">
-                    <input th:field="*{edad}" type="number" id="edad" required>
+                    <input type="number" id="edad" name="edad" [(ngModel)]="formMascota.edad" required>
                     <label class="label" for="edad">Edad</label>
                     <div class="underline"></div>
                 </div>
     
                 <!-- Campo para modificar el peso de la mascota -->
                 <div class="form-group input-container">
-                    <input th:field="*{peso}" type="number" id="peso" required>
+                    <input type="number" id="peso" name="peso" [(ngModel)]="formMascota.peso" required>
                     <label class="label" for="peso">Peso</label>
                     <div class="underline"></div>
                 </div>
     
                 <!-- Campo para modificar la enfermedad de la mascota -->
                 <div class="form-group input-container">
-                    <input th:field="*{enfermedad}" type="text" id="enfermedad" required>
+                    <input type="text" id="enfermedad" name="enfermedad" [(ngModel)]="formMascota.enfermedad" required>
                     <label class="label" for="enfermedad">Enfermedad</label>
                     <div class="underline"></div>
                 </div>
     
                 <!-- Campo para modificar la foto de la mascota -->
                 <div class="form-group input-container">
-                    <input th:field="*{foto}" type="url" id="foto" required>
+                    <input type="url" id="foto" name="foto" [(ngModel)]="formMascota.foto" required>
                     <label class="label" for="foto">Foto</label>
                     <div class="underline"></div>
                 </div>
     
                 <!-- Checkbox para cambiar el estado de la mascota -->
                 <div class="form-group input-container">
-                    <select th:field="*{estado}" id="estado" required>
+                    <select id="estado" name="estado" [(ngModel)]="formMascota.estado" required>
                         
                         <option value="Disponible">Disponible</option>
                         
@@ -76,7 +76,7 @@
                 </div>
     
                 <!-- Boton para enviar el formulario -->
-                <button type="submit" class="btn btn-primary btn-enviar">Enviar</button>
+                <button type="submit" class="btn btn-primary btn-enviar" (click)="actualizarMascota()">Enviar</button>
 
             </div>
             
@@ -89,7 +89,7 @@
 
         <!-- Encabezado de la informacion actual de la mascota -->
         <div class = "cabeza">
-            <h1> Información actual: <span th:text=${mascota.nombre}></span></h1>
+            <h1> Información actual: <span>{{llegaMascota.nombre}}</span></h1>
         </div>
             
         <!-- Card para mostrar la información de la mascota -->
@@ -97,7 +97,7 @@
             
             <!-- Imagen de la mascota -->
             <div class="card-image-container">
-                <img th:src="${mascota.foto}" alt="fotoPerro"/>
+                <img alt="fotoPerro" [src]="llegaMascota.foto"/>
             </div> 
 
             <!-- Informacion de la card -->
@@ -108,11 +108,11 @@
                     <h2>Información Mascota</h2>
                     <div class="lista">
                         <ul class="card-des">
-                            <li>Raza: <span th:text="${mascota.raza}"></span></li>
-                            <li>Edad: <span th:text="${mascota.edad}"></span></li>
-                            <li>Peso: <span th:text="${mascota.peso}"></span></li>
-                            <li>Enfermedad: <span th:text="${mascota.enfermedad}"></span></li>
-                            <!-- <li>Estado: <span th:text="${mascota.estado}"></span></li> -->
+                            <li>Raza: <span>{{llegaMascota.raza}}</span></li>
+                            <li>Edad: <span>{{llegaMascota.edad}}</span></li>
+                            <li>Peso: <span>{{llegaMascota.peso}}</span></li>
+                            <li>Enfermedad: <span>{{llegaMascota.enfermedad}}</span></li>
+                            <li>Estado: <span>{{llegaMascota.estado}}</span></li>
                         </ul>
                     </div>
                     
@@ -123,13 +123,12 @@
                     <h2>Información Dueño</h2>
                     <div class="lista">
                         <ul class="card-des">
-                            <li>Cedula: <span th:text="${mascota.cliente.cedula}"></span></li>
-                            <li>Nombre: <span th:text="${mascota.cliente.nombre}"></span></li>
-                            <li>Apellido: <span th:text="${mascota.cliente.apellido}"></span></li>
-                            <li>Celular: <span th:text="${mascota.cliente.celular}"></span></li>
+                            <li>Cedula: <span>{{llegaMascota.cliente.cedula}}</span></li>
+                            <li>Nombre: <span>{{llegaMascota.cliente.nombre}}</span></li>
+                            <li>Apellido: <span>{{llegaMascota.cliente.apellido}}</span></li>
+                            <li>Celular: <span>{{llegaMascota.cliente.celular}}</span></li>
                         </ul>
                     </div>
-                    
                 </div> 
             </div>                     
             

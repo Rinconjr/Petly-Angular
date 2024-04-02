@@ -1,4 +1,4 @@
-import { Tratamiento } from "../tratamiento/tratamiento";
+import { Tratamiento } from "./tratamiento";
 
 export interface Veterinario {
     // Revisar si es necesario incluir lo del id aqui

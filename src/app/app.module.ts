@@ -19,6 +19,7 @@ import { VetMostrarMascotaComponent } from './veterinario/vet-mostrar-mascota/ve
 import { VetModificarMascotaComponent } from './veterinario/vet-modificar-mascota/vet-modificar-mascota.component';
 import { VetLoginComponent } from './veterinario/vet-login/vet-login.component';
 import { ClienteLoginComponent } from './cliente/cliente-login/cliente-login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ClienteLoginComponent } from './cliente/cliente-login/cliente-login.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

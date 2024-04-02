@@ -47,26 +47,26 @@
             <!-- Cuerpo de la tabla con las mascotas de la base de datos -->
             <tbody>
                 <!-- por cada mascota de la base de datos se crea una fila de la tabla con sus datos -->
-                <tr th:each="mascota : ${mascotas}">
-                    <td><img cLass="fotoPerro" th:src="${mascota.foto}"/></td>
-                    <td th:text="${mascota.nombre}"></td>
-                    <td th:text="${mascota.raza}"></td>
-                    <td th:text="${mascota.edad}"></td>
-                    <td th:text="${mascota.peso}"></td>
-                    <td th:text="${mascota.enfermedad}"></td>
-                    <td th:text="${mascota.estado}"></td>
+                <tr *ngFor="let mascota of listaMascotas">
+                    <td><img cLass="fotoPerro" [src]="mascota.foto"/></td>
+                    <td> {{mascota.nombre}} </td>
+                    <td> {{mascota.raza}} </td>
+                    <td> {{mascota.edad}} </td>
+                    <td> {{mascota.peso}} </td>
+                    <td> {{mascota.enfermedad}} </td>
+                    <td> {{mascota.estado}} </td>
                     <!-- opciones CRUD de cada mascota -->
                     <td class="opciones">
                         <!-- enlace para ver la informacion de la mascota -->
-                        <a class="links informa" th:href="@{/veterinario/mascotas/find/{id}(id=${mascota.id})}">
+                        <a class="links informa" [routerLink]="['../find/', mascota.id]">
                             <i class='bx bx-info-circle'></i>
                         </a>
                         <!-- enlace para editar la informacion de la mascota -->
-                        <a class="links edit" th:href="@{/veterinario/mascotas/update/{id}(id=${mascota.id})}">
+                        <a class="links edit" [routerLink]="['../update/', mascota.id]">
                             <i class='bx bxs-edit'></i>
                         </a>
                         <!-- enlace para cambiar el estado de la mascota (popup de alerta para confirmar) -->
-                        <a th:id="${mascota.id}" class="links delete" onclick="mostrarAlerta(id)">
+                        <a class="links delete" (click)="mostrarAlerta(mascota.id)">
                             <i class='bx bx-transfer'></i>
                         </a>
                     </td>

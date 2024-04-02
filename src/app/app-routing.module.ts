@@ -8,6 +8,7 @@ import { ClienteMostrarMascotaComponent } from './cliente/cliente-mostrar-mascot
 import { VetMostrarMascotaTodasComponent } from './veterinario/vet-mostrar-mascota-todas/vet-mostrar-mascota-todas.component';
 import { VetMostrarMascotaComponent } from './veterinario/vet-mostrar-mascota/vet-mostrar-mascota.component';
 import { VetRegistrarMascotaComponent } from './veterinario/vet-registrar-mascota/vet-registrar-mascota.component';
+import { VetModificarMascotaComponent } from './veterinario/vet-modificar-mascota/vet-modificar-mascota.component';
 import { VetMostrarClienteTodosComponent } from './veterinario/vet-mostrar-cliente-todos/vet-mostrar-cliente-todos.component';
 import { VetMostrarClienteComponent } from './veterinario/vet-mostrar-cliente/vet-mostrar-cliente.component';
 import { VetRegistrarClienteComponent } from './veterinario/vet-registrar-cliente/vet-registrar-cliente.component';
@@ -35,7 +36,7 @@ const routes: Routes = [
   //? estos van a quedar como hijos del anterior
   { path: 'veterinario/mascotas/find/:id', component:  VetMostrarMascotaComponent},
   { path: 'veterinario/mascotas/add', component: VetRegistrarMascotaComponent },
-  { path: 'veterinario/mascotas/update/:id', component: VetRegistrarMascotaComponent},
+  { path: 'veterinario/mascotas/update/:id', component: VetModificarMascotaComponent},
   //TODO: todo lo de los clientes
   { path: 'veterinario/clientes/all', component:  VetMostrarClienteTodosComponent },
   //? estos van a quedar como hijos del anterior

@@ -1,4 +1,4 @@
-import { Mascota } from "../mascota/mascota";
+import { Mascota } from "./mascota";
 
 export interface Cliente {
     // Revisar si es necesario incluir lo del id aqui
@@ -11,5 +11,6 @@ export interface Cliente {
     celular: string;
 
     // Atributo mascotas que es una lista de tipo Mascota
-    mascotas: Mascota[];
+    //TODO: por ahora dejar asi
+    //mascotas: Mascota[];
 }

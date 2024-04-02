@@ -1,14 +1,13 @@
-import { Cliente } from "../cliente/cliente";
-import { Tratamiento } from "../tratamiento/tratamiento";
+import { Cliente } from "./cliente";
+import { Tratamiento } from "./tratamiento";
 
 export interface Mascota {
     // Revisar si es necesario incluir lo del id aqui
-    // id: number;
-
+    id: number;
     nombre: string;
     raza: string;
-    edad: number;
-    peso: number;
+    edad: number | null;
+    peso: number | null;
     enfermedad: string; // Revisar si es opcional o no para especidfiacarlo aqui
     foto: string;
     estado: string;
@@ -17,5 +16,6 @@ export interface Mascota {
     cliente: Cliente;
 
     // Atributo tratamientos que es una lista de tipo Tratamiento
-    tratamientos: Tratamiento[];
+    //TODO: por ahora dejar asi
+    //tratamientos: Tratamiento[];
 }

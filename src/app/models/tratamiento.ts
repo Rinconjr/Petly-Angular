@@ -1,5 +1,5 @@
-import { Droga } from "../droga/droga";
-import { Veterinario } from "../veterinario/veterinario";
+import { Droga } from "./droga";
+import { Veterinario } from "./veterinario";
 
 export interface Tratamiento {
     // Revisar si es necesario incluir lo del id aqui

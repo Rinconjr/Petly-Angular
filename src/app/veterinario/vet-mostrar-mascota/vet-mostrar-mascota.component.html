@@ -8,7 +8,7 @@
 
         <!-- Nombre de la mascota -->
         <div class = "cabeza">
-            <h1> NombreMascota </h1>
+            <h1> {{mascota.nombre}} </h1>
         </div>
         
         <!-- Card para presentar la información de la mascota -->
@@ -16,7 +16,7 @@
             
             <!-- Imagen de la mascota -->
             <div class="card-image-container">
-                <img th:src="${mascota.foto}" alt="fotoPerro"/>
+                <img alt="fotoPerro" [src]="mascota.foto"/>
             </div> 
 
             <!-- informacion de la card -->
@@ -27,11 +27,11 @@
                     <h2>Información Mascota</h2>
                     <div class="lista">
                         <ul class="card-des">
-                            <li>Raza: <span th:text="${mascota.raza}"></span></li>
-                            <li>Edad: <span th:text="${mascota.edad}"></span></li>
-                            <li>Peso: <span th:text="${mascota.peso}"></span></li>
-                            <li>Enfermedad: <span th:text="${mascota.enfermedad}"></span></li>
-                            <!-- <li>Estado: <span th:text="${mascota.estado}"></span></li> -->
+                            <li>Raza: <span>{{mascota.raza}}</span></li>
+                            <li>Edad: <span>{{mascota.edad}}</span></li>
+                            <li>Peso: <span>{{mascota.peso}}</span></li>
+                            <li>Enfermedad: <span>{{mascota.enfermedad}}</span></li>
+                            <li>Estado: <span>{{mascota.estado}}</span></li>
                         </ul>
                     </div>
                     
@@ -42,10 +42,10 @@
                     <h2>Información Dueño</h2>
                     <div class="lista">
                         <ul class="card-des">
-                            <li>Cedula: <span th:text="${mascota.cliente.cedula}"></span></li>
-                            <li>Nombre: <span th:text="${mascota.cliente.nombre}"></span></li>
-                            <li>Apellido: <span th:text="${mascota.cliente.apellido}"></span></li>
-                            <li>Celular: <span th:text="${mascota.cliente.celular}"></span></li>
+                            <li>Cedula: <span>{{mascota.cliente.cedula}}</span></li>
+                            <li>Nombre: <span>{{mascota.cliente.nombre}}</span></li>
+                            <li>Apellido: <span>{{mascota.cliente.apellido}}</span></li>
+                            <li>Celular: <span>{{mascota.cliente.celular}}</span></li>
                         </ul>
                     </div>
                     
@@ -77,6 +77,7 @@
             <!-- Cuerpo de la tabla con los tratamientos de la mascota -->
             <tbody>
                 <!-- por cada tratamiento de la mascota se crea una fila de la tabla con sus datos (los datos de la base de datos) -->
+                <!-- TODO: Cambiar esto cuando este lo de la base -->
                 <tr th:each="tratamiento : ${tratamientos}">
                     <td th:text="${tratamiento.droga}"></td>
                     <td th:text="${tratamiento.fecha}"></td>
