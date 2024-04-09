@@ -16,11 +16,11 @@
       <form class="formulario" method="post">
         <div class="datos">
           <label for="cedula">Cédula</label>
-          <input type="text" id="cedula" name="cedula" />
+          <input type="text" id="cedula" name="cedula" [(ngModel)]="cedulaCliente">
         </div>
 
         <!-- boton de inicio de sesion para cliente -->
-        <button type="submit" class="boton">
+        <button type="submit" class="boton" (click)="loginCliente()">
           Iniciar sesión
         </button>
 
