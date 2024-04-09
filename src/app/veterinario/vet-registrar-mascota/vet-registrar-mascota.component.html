@@ -1,7 +1,5 @@
 <body>
 
-    <!-- <img src="../../../assets/images/registroMascota.jpeg" alt="logo" class="fondo"/> -->
-
     <!-- Formulario para registrar nueva mascota (presentado en card) -->
     <form method="post" class="card">
         
@@ -67,7 +65,7 @@
     
             <!-- division inferior del formulario para la cedula del duenho -->
             <div class="form-group input-container form-div">
-                <input type="text" id="cedulaDueno" name="cedulaDueno" required>
+                <input type="text" id="cedulaDueno" name="cedulaDueno" [(ngModel)]="formMascota.cliente.id" required>
                 <label class="label" for="cedulaDueno">Cedula Dueño</label>
                 <div class="underline"></div>
             </div>
@@ -75,7 +73,7 @@
             <!-- Botones para enviar el formulario y volver -->
             <div class="form-div">
                 <button class="btn-secondary" onclick="window.location.href='/#/veterinario/mascotas/all'">Volver</button>
-                <button type="submit" class="btn-primary" (click)="addMascota()">Registrar</button>
+                <button type="submit" class="btn-primary" (click)="agregarMascota()">Registrar</button>
             </div>
 
         </div>

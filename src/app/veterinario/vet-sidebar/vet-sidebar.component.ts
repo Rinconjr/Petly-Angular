@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-declare var Swal: any;
 
 @Component({
   selector: 'app-vet-sidebar',

@@ -30,20 +30,20 @@ const routes: Routes = [
   },
 
   //path para todo lo relacionado al veterinario
-  //! cambiar todo esto cuando haya login funcional del vetrinario
-  //TODO: todo lo de las mascotas
+  //TODO: cambiar todo esto cuando haya login funcional del vetrinario
+  //! todo lo de las mascotas
   { path: 'veterinario/mascotas/all', component:  VetMostrarMascotaTodasComponent },
-  //? estos van a quedar como hijos del anterior
   { path: 'veterinario/mascotas/find/:id', component:  VetMostrarMascotaComponent},
   { path: 'veterinario/mascotas/add', component: VetRegistrarMascotaComponent },
   { path: 'veterinario/mascotas/update/:id', component: VetModificarMascotaComponent},
-  //TODO: todo lo de los clientes
+  //! todo lo de los clientes
   { path: 'veterinario/clientes/all', component:  VetMostrarClienteTodosComponent },
-  //? estos van a quedar como hijos del anterior
   { path: 'veterinario/clientes/find/:id', component: VetMostrarClienteComponent },
   { path: 'veterinario/clientes/add', component: VetRegistrarClienteComponent },
   { path: 'veterinario/clientes/update/:id', component: VetModificarClienteComponent },
-
+  //! todo lo de los perfiles
+  { path: 'usuario/:id', component: ClientePerfilComponent },
+  { path: 'usuario/:id/mascota/:id_mascota', component: ClienteMostrarMascotaComponent }
 ];
 
 @NgModule({

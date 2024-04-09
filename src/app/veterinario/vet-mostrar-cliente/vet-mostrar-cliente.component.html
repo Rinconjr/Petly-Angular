@@ -8,7 +8,7 @@
 
         <!-- nombre y apellido del cliente -->
         <div class = "cabeza">
-            <h1> NombreCLiente</h1>
+            <h1> {{cliente.nombre}} </h1>
         </div>
         
         <!-- Para mostrar la informacion del cliente -->
@@ -28,11 +28,11 @@
                     <div class="lista">
                         <ul class="card-des">
                             <!-- Se muestra la informacion del cliente (de la base de datos) -->
-                            <li>Cedula: <span th:text="${cliente.cedula}"></span></li>
-                            <li>Nombre: <span th:text="${cliente.nombre}"></span></li>
-                            <li>Apellido: <span th:text="${cliente.apellido}"></span></li>
-                            <li>Correo: <span th:text="${cliente.correo}"></span></li>
-                            <li>Celular: <span th:text="${cliente.celular}"></span></li>
+                            <li>Cedula: <span> {{cliente.cedula}} </span></li>
+                            <li>Nombre: <span> {{cliente.nombre}} </span></li>
+                            <li>Apellido: <span> {{cliente.apellido}} </span></li>
+                            <li>Correo: <span> {{cliente.correo}} </span></li>
+                            <li>Celular: <span> {{cliente.celular}} </span></li>
                         </ul>
                     </div> 
                 </div>
@@ -67,16 +67,16 @@
             <!-- Cuerpo de la tabla con las mascotas del cliente -->
             <tbody>
                 <!-- por cada mascota del cliente se crea una fila de la tabla con sus datos -->
-                <tr th:each="mascota : ${cliente.mascotas}">
-                    <td><img class="fotoPerro" th:src="${mascota.foto}" alt="Foto Mascota"/></td>
-                    <td th:text="${mascota.nombre}"></td>
-                    <td th:text="${mascota.raza}"></td>
-                    <td th:text="${mascota.edad}"></td>
-                    <td th:text="${mascota.peso}"></td>
-                    <td th:text="${mascota.enfermedad}"></td>
+                <tr *ngFor="let mascota of cliente.mascotas">
+                    <td><img class="fotoPerro" alt="Foto Mascota" [src]="mascota.foto"/></td>
+                    <td> {{mascota.nombre}} </td>
+                    <td> {{mascota.raza}} </td>
+                    <td> {{mascota.edad}} </td>
+                    <td> {{mascota.peso}} </td>
+                    <td> {{mascota.enfermedad}} </td>
                     <!-- Boton para ver la informacion de la mascota -->
                     <td class="opciones">
-                        <a class="links icono" th:href="@{/veterinario/mascotas/find/{id}(id=${mascota.id})}">
+                        <a class="links icono" [routerLink]="['../../../mascotas/find/', mascota.id]">
                             <i class='bx bx-info-circle'></i>
                         </a>
                     </td>

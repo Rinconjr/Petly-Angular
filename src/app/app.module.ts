@@ -20,6 +20,7 @@ import { VetModificarMascotaComponent } from './veterinario/vet-modificar-mascot
 import { VetLoginComponent } from './veterinario/vet-login/vet-login.component';
 import { ClienteLoginComponent } from './cliente/cliente-login/cliente-login.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

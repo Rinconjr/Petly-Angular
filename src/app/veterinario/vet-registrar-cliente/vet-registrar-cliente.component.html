@@ -1,7 +1,7 @@
 <body>
 
     <!-- Formulario para registrar nuevo cliente (presentado en card) -->
-    <form th:object="${cliente}" th:action="@{/veterinario/clientes/agregar}" method="post" class="card">
+    <form method="post" class="card">
         
         <!-- Parte superior de la card para el logo y el titulo -->
         <div class="card-top">
@@ -16,13 +16,13 @@
             <div class="form-div">
 
                 <div class="form-group input-container">
-                    <input th:field="*{cedula}" type="text" id="cedula" required>
+                    <input type="text" id="cedula" name="cedula" [(ngModel)]="formCliente.cedula" required>
                     <label class="label" for="cedula">Cedula Cliente</label>
                     <div class="underline"></div>
                 </div>
                 
                 <div class="form-group input-container">
-                    <input th:field="*{nombre}" type="text" id="nombre" required>
+                    <input type="text" id="nombre" name="nombre" [(ngModel)]="formCliente.nombre" required>
                     <label class="label" for="nombre">Nombre Cliente</label>
                     <div class="underline"></div>
                 </div>
@@ -33,13 +33,13 @@
             <div class="form-div">
 
                 <div class="form-group input-container">
-                    <input th:field="*{apellido}" type="text" id="apellido" required>
+                    <input type="text" id="apellido" name="apellido" [(ngModel)]="formCliente.apellido" required>
                     <label class="label" for="apellido">Apellido Cliente</label>
                     <div class="underline"></div>
                 </div>
         
                 <div class="form-group input-container">
-                    <input th:field="*{correo}" type="email" id="correo" required>
+                    <input type="email" id="correo" name="correo" [(ngModel)]="formCliente.correo" required>
                     <label class="label" for="correo">Correo Cliente</label>
                     <div class="underline"></div>
                 </div>
@@ -48,7 +48,7 @@
     
             <!-- division inferior del formulario para el celular -->
             <div class="form-group input-container form-div">
-                <input th:field="*{celular}" type="number" id="celular" required>
+                <input type="number" id="celular" name="celular" [(ngModel)]="formCliente.celular" required>
                 <label class="label" for="celular">Celular Cliente</label>
                 <div class="underline"></div>
             </div>
@@ -56,7 +56,7 @@
             <!-- Botones para enviar el formulario y volver -->
             <div class="form-div">
                 <button class="btn-secondary" onclick="window.location.href='/#/veterinario/clientes/all'">Volver</button>
-                <button type="submit" class="btn-primary">Registrar</button>
+                <button type="submit" class="btn-primary" (click)="agregarCliente()">Registrar</button>
             </div>
 
         </div>

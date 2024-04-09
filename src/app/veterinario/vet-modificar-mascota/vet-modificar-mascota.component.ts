@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Mascota } from 'src/app/models/mascota';
-import { MascotaFakeService } from 'src/app/service/mascota-fake.service';
+import { MascotaServiceService } from 'src/app/service/mascota-service.service';
 
 @Component({
   selector: 'app-vet-modificar-mascota',
@@ -9,10 +9,8 @@ import { MascotaFakeService } from 'src/app/service/mascota-fake.service';
   styleUrls: ['./vet-modificar-mascota.component.css'],
 })
 export class VetModificarMascotaComponent implements OnInit {
-  listaMascotas!: Mascota[];
-
   constructor(
-    private mascotaService: MascotaFakeService,
+    private mascotaService: MascotaServiceService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
@@ -23,11 +21,15 @@ export class VetModificarMascotaComponent implements OnInit {
   formMascota!: Mascota;
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe((params) => {
+    this.route.paramMap.subscribe(params => {
       const id = Number(params.get('id'));
-      this.mascotaAux = Object.assign({}, this.mascotaService.findById(id));
-      this.llegaMascota = Object.assign({}, this.mascotaAux);
-      this.formMascota = Object.assign({}, this.mascotaAux);
+      this.mascotaService.findById(id).subscribe(
+        (mascota) => {
+          this.mascotaAux = mascota;
+          this.llegaMascota = Object.assign({}, this.mascotaAux);
+          this.formMascota = Object.assign({}, this.mascotaAux);
+        }
+      );
     });
 
     let sidebar = document.querySelector('.sidebar') as HTMLElement;
@@ -45,7 +47,7 @@ export class VetModificarMascotaComponent implements OnInit {
 
   actualizarMascota() {
     this.sendMascota = Object.assign({}, this.formMascota);
-    this.mascotaService.updateMascota(this.sendMascota);
+    this.mascotaService.updatePet(this.sendMascota);
     this.router.navigate(['/veterinario/mascotas/all']);
   }
 }

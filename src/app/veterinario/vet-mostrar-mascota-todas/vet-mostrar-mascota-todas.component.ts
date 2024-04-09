@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Mascota } from '../../models/mascota';
-import { MascotaFakeService } from '../../service/mascota-fake.service';
+import { MascotaServiceService } from 'src/app/service/mascota-service.service';
 import Swal from 'sweetalert2'
-import { VetMostrarMascotaComponent } from '../vet-mostrar-mascota/vet-mostrar-mascota.component';
 
 @Component({
   selector: 'app-vet-mostrar-mascota-todas',
@@ -12,10 +11,13 @@ import { VetMostrarMascotaComponent } from '../vet-mostrar-mascota/vet-mostrar-m
 export class VetMostrarMascotaTodasComponent implements OnInit {
   listaMascotas!: Mascota[];
 
-  constructor(private mascotaService: MascotaFakeService) {}
+  constructor(private mascotaService: MascotaServiceService) {}
 
   ngOnInit(): void {
-    this.listaMascotas = this.mascotaService.findAll();
+
+    this.mascotaService.findAll().subscribe(
+      (mascotas) => this.listaMascotas = mascotas
+    );
 
     let sidebar = document.querySelector('.sidebar') as HTMLElement;
 
@@ -52,12 +54,14 @@ export class VetMostrarMascotaTodasComponent implements OnInit {
     }).then((result) => {
       // Resultado de la alerta
       if (result.isConfirmed) {
-        this.cambiarEstadoMascota(this.listaMascotas.find(m => m.id === idMascota) as Mascota);
+        this.cambiarEstadoMascota(idMascota);
       }
     });
   }
 
-  cambiarEstadoMascota(mascota: Mascota) {
-    this.mascotaService.deleteMascota(mascota);
+  cambiarEstadoMascota(idMascota: number) {
+    this.mascotaService.deletePet(idMascota);
+
+    //TODO: Que la pagina se actualice
   }
 }

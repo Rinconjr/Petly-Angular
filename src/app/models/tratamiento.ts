@@ -1,15 +1,11 @@
 import { Droga } from "./droga";
+import { Mascota } from "./mascota";
 import { Veterinario } from "./veterinario";
 
 export interface Tratamiento {
-    // Revisar si es necesario incluir lo del id aqui
-    // id: number;
-
-    fecha: string; // revisar si es mejor string o date o number
-
-    // atributo veterinario de tipo Veterinario
+    id: number;
+    fecha: string;
     veterinario: Veterinario;
-
-    // atributo drogaT de tipo Droga
+    mascota: Mascota;
     drogaT: Droga;
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-declare var Swal: any;
+import { Mascota } from 'src/app/models/mascota';
+import { UsuarioServiceService } from 'src/app/service/usuario-service.service';
 
 @Component({
   selector: 'app-cliente-mostrar-mascota',
@@ -7,6 +8,13 @@ declare var Swal: any;
   styleUrls: ['./cliente-mostrar-mascota.component.css']
 })
 export class ClienteMostrarMascotaComponent implements OnInit {
+
+  constructor(
+    private usuarioService: UsuarioServiceService,
+  ) { }
+
+  mascota!: Mascota;
+
   ngOnInit(): void {
     let sidebar = document.querySelector('.sidebar') as HTMLElement;
 

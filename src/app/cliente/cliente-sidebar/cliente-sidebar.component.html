@@ -16,7 +16,7 @@
     <!-- Apartado para Icono y Nombre del usuario -->
     <div class = "user">
         <i class="bx bxs-user-circle" id="raro"></i>
-        <p><span th:text="${cliente.nombre} + ' ' + ${cliente.apellido}"></span></p>
+        <p><span> {{cliente.nombre}} {{cliente.apellido}} </span></p>
     </div>
     
     <!-- Apartado para presentar los datos del usuario -->
@@ -25,21 +25,21 @@
             <li>
                 <a>
                 <i class="bx bx-id-card"></i>
-                <span th:text="${cliente.cedula}" class="nav-item especial"></span>
+                <span class="nav-item especial"> {{cliente.cedula}} </span>
                 </a>
             </li>
 
             <li>
                 <a>
                     <i class="bx bxs-phone"></i>
-                    <span th:text="${cliente.celular}" class="nav-item especial"></span>
+                    <span class="nav-item especial"> {{cliente.celular}} </span>
                 </a>
             </li>
 
             <li>
                 <a>
                     <i class="bx bx-envelope"></i>
-                    <span th:text="${cliente.correo}" class="nav-item especial"></span>
+                    <span class="nav-item especial"> {{cliente.correo}} </span>
                 </a>
             </li>
             

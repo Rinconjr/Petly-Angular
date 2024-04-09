@@ -25,24 +25,24 @@
             <!-- Cuerpo de la tabla con todos los clientes registrados en la base de datos -->
             <tbody>
                 <!-- por cada cliente de la base de datos se crea una fila de la tabla con sus datos (los datos de la base de datos) -->
-                <tr th:each="cliente : ${clientes}">
-                    <td th:text="${cliente.cedula}"></td>
-                    <td th:text="${cliente.nombre}"></td>
-                    <td th:text="${cliente.apellido}"></td>
-                    <td th:text="${cliente.correo}"></td>
-                    <td th:text="${cliente.celular}"></td>
+                <tr *ngFor="let cliente of listaClientes">
+                    <td> {{cliente.cedula}} </td>
+                    <td> {{cliente.nombre}} </td>
+                    <td> {{cliente.apellido}} </td>
+                    <td> {{cliente.correo}} </td>
+                    <td> {{cliente.celular}} </td>
                     <!-- opciones CRUD de cada cliente -->
                     <td class="opciones">
                         <!-- enlace para ver la informacion del cliente -->
-                        <a class="links informa" th:href="@{/veterinario/clientes/find/{id}(id=${cliente.id})}">
+                        <a class="links informa" [routerLink]="['../find/', cliente.id]">
                             <i class='bx bx-info-circle'></i>
                         </a>
                         <!-- enlace para editar la informacion del cliente -->
-                        <a class="links edit" th:href="@{/veterinario/clientes/update/{id}(id=${cliente.id})}">
+                        <a class="links edit" [routerLink]="['../update/', cliente.id]">
                             <i class='bx bxs-edit'></i>
                         </a>
                         <!-- enlace para eliminar el cliente -->
-                        <a class="links delete" th:href="@{/veterinario/clientes/delete/{id}(id=${cliente.id})}">
+                        <a class="links delete" (click)="mostrarAlerta(cliente.id)">
                             <i class='bx bxs-trash'></i>
                         </a>
                     </td>

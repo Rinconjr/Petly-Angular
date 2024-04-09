@@ -1,8 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Mascota } from 'src/app/models/mascota';
-import { MascotaFakeService } from '../../service/mascota-fake.service';
 import { ActivatedRoute } from '@angular/router';
-declare var Swal: any;
+import { MascotaServiceService } from 'src/app/service/mascota-service.service';
+import { ClienteServiceService } from 'src/app/service/cliente-service.service';
 
 @Component({
   selector: 'app-vet-mostrar-mascota',
@@ -11,11 +11,11 @@ declare var Swal: any;
 })
 export class VetMostrarMascotaComponent implements OnInit {
 
-  @Input() 
   mascota!: Mascota;
 
   constructor(
-    private mascotaService: MascotaFakeService,
+    private mascotaService: MascotaServiceService,
+    private clienteService: ClienteServiceService,
     private route: ActivatedRoute,
   ) {
   }
@@ -24,8 +24,11 @@ export class VetMostrarMascotaComponent implements OnInit {
 
     this.route.paramMap.subscribe(params => {
       const id = Number(params.get('id'));
-      this.mascota = this.mascotaService.findById(id);
-  });
+      
+      this.mascotaService.findById(id).subscribe(
+        (llegaMascota) => this.mascota = llegaMascota
+      );
+    });
 
     let sidebar = document.querySelector('.sidebar') as HTMLElement;
 

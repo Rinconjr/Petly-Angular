@@ -25,15 +25,15 @@
         <!-- Cuerpo de la tabla con las mascotas del cliente y sus datos (datos de la base de datos) -->
         <tbody>
             <!-- por cada mascota del cliente se crea una fila de la tabla con sus datos (los datos de la base de datos) -->
-            <tr th:each="mascota : ${cliente.mascotas}"> 
-                <td><img class="fotoPerro" th:src="${mascota.foto}" alt="Foto Mascota"/></td>
-                <td th:text="${mascota.nombre}"></td>
-                <td th:text="${mascota.raza}"></td>
-                <td th:text="${mascota.edad}"></td>
-                <td th:text="${mascota.peso}"></td>
-                <td th:text="${mascota.enfermedad}"></td>
+            <tr *ngFor="let mascota of cliente.mascotas"> 
+                <td><img class="fotoPerro" alt="Foto Mascota" [src]="mascota.foto"/></td>
+                <td> {{mascota.nombre}} </td>
+                <td> {{mascota.raza}} </td>
+                <td> {{mascota.edad}} </td>
+                <td> {{mascota.peso}} </td>
+                <td> {{mascota.enfermedad}} </td>
                 <td class="opciones">
-                    <a class="links icono" th:href="@{/usuario/{cliente}/mascota/{id}(cliente=${cliente.id}, id=${mascota.id})}">
+                    <a class="links icono" [routerLink]="['mascota/', mascota.id]">
                         <i class='bx bx-info-circle'></i>
                     </a>
                 </td>

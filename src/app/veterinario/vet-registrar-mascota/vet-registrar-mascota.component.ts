@@ -1,7 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Mascota } from 'src/app/models/mascota';
-import { MascotaFakeService } from 'src/app/service/mascota-fake.service';
+import { MascotaServiceService } from 'src/app/service/mascota-service.service';
 
 @Component({
   selector: 'app-vet-registrar-mascota',
@@ -10,37 +10,35 @@ import { MascotaFakeService } from 'src/app/service/mascota-fake.service';
 })
 export class VetRegistrarMascotaComponent {
 
-  listaMascotas!: Mascota[];
-
   constructor(
-    private mascotaService: MascotaFakeService,
+    private mascotaService: MascotaServiceService,
     private router: Router,
     ) {}
 
-  sendMascota!: Mascota;
-
-  //TODO: por ahora todos empiezan con el mismo cliente
-  formMascota: Mascota = {
-    id: 0,
-    nombre: '',
-    raza: '',
-    edad: null,
-    peso: null,
-    enfermedad: '',
-    foto: '',
-    estado: 'Disponible',
-    cliente: {
-      cedula: '111',
-      nombre: 'Alejandro',
-      apellido: 'Suarez',
-      correo: 'alejandro@gmail.com',
-      celular: '111',
+    formMascota: Mascota = {
+      id: 0,
+      nombre: '',
+      raza: '',
+      edad: null,
+      peso: null,
+      enfermedad: '',
+      foto: '',
+      estado: 'Disponible',
+      cliente: {
+        id: null,
+        cedula: '',
+        nombre: '',
+        apellido: '',
+        correo: '',
+        celular: ''
+      }
     }
-  }
 
-  addMascota() {
+  sendMascota!: Mascota;
+  
+  agregarMascota(){
     this.sendMascota = Object.assign({}, this.formMascota);
-    this.mascotaService.createMascota(this.sendMascota);
+    this.mascotaService.addPet(this.sendMascota);
     this.router.navigate(['/veterinario/mascotas/all']);
   }
 }

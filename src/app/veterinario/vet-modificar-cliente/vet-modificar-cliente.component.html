@@ -15,48 +15,48 @@
         <h1> Informacion Modificada </h1>
 
         <!-- Formulario para modificar la informacion del cliente -->
-        <form th:object="${cliente}" th:action="@{/veterinario/clientes/update/{id}(id=${cliente.id})}" method="post">
+        <form method="post">
             
             <!-- Campos para modificar la informacion del cliente -->
             <div class="formulario">
 
                 <!-- Campo para modificar la cedula del cliente -->
                 <div class="form-group input-container">
-                    <input th:field="*{cedula}" type="text" id="cedula" required>
+                    <input type="text" id="cedula" name="cedula" [(ngModel)]="formCliente.cedula" required>
                     <label class="label" for="cedula">Cedula Cliente</label>
                     <div class="underline"></div>
                 </div>
                 
                 <!-- Campo para modificar el nombre del cliente -->
                 <div class="form-group input-container">
-                    <input th:field="*{nombre}" type="text" id="nombre" required>
+                    <input type="text" id="nombre" name="nombre" [(ngModel)]="formCliente.nombre" required>
                     <label class="label" for="nombre">Nombre Cliente</label>
                     <div class="underline"></div>
                 </div>
         
                 <!-- Campo para modificar el apellido del cliente -->
                 <div class="form-group input-container">
-                    <input th:field="*{apellido}" type="text" id="apellido" required>
+                    <input type="text" id="apellido" name="apellido" [(ngModel)]="formCliente.apellido" required>
                     <label class="label" for="apellido">Apellido Cliente</label>
                     <div class="underline"></div>
                 </div>
         
                 <!-- Campo para modificar el correo del cliente -->
                 <div class="form-group input-container">
-                    <input th:field="*{correo}" type="text" id="correo" required>
+                    <input type="text" id="correo" name="correo" [(ngModel)]="formCliente.correo" required>
                     <label class="label" for="correo">Correo Cliente</label>
                     <div class="underline"></div>
                 </div>
         
                 <!-- Campo para modificar el celular del cliente -->
                 <div class="form-group input-container">
-                    <input th:field="*{celular}" type="text" id="celular" required>
+                    <input type="text" id="celular" name="celular" [(ngModel)]="formCliente.celular" required>
                     <label class="label" for="celular">Celular Cliente</label>
                     <div class="underline"></div>
                 </div>
         
                 <!-- Boton para enviar el formulario -->
-                <button type="submit" class="btn btn-primary btn-enviar">Enviar</button>
+                <button type="submit" class="btn btn-primary btn-enviar" (click)="actualizarCliente()">Enviar</button>
 
             </div>
             
@@ -69,7 +69,7 @@
 
         <!-- Encabezado de la informacion actual del cliente -->
         <div class = "cabeza">
-            <h1> Información actual: <span th:text=${cliente.nombre}></span></h1>
+            <h1> Información actual: <span> {{llegaCliente.nombre}} </span></h1>
         </div>
             
         <!-- Card para mostrar la informacion del cliente -->
@@ -88,11 +88,11 @@
                     <h2>Información Personal</h2>
                     <div class="lista">
                         <ul class="card-des">
-                            <li>Cedula: <span th:text="${cliente.cedula}"></span></li>
-                            <li>Nombre: <span th:text="${cliente.nombre}"></span></li>
-                            <li>Apellido: <span th:text="${cliente.apellido}"></span></li>
-                            <li>Correo: <span th:text="${cliente.correo}"></span></li>
-                            <li>Celular: <span th:text="${cliente.celular}"></span></li>
+                            <li>Cedula: <span> {{llegaCliente.cedula}} </span></li>
+                            <li>Nombre: <span> {{llegaCliente.nombre}} </span></li>
+                            <li>Apellido: <span> {{llegaCliente.apellido}} </span></li>
+                            <li>Correo: <span> {{llegaCliente.correo}} </span></li>
+                            <li>Celular: <span> {{llegaCliente.celular}} </span></li>
                         </ul>
                     </div>
                     
@@ -124,16 +124,16 @@
         <!-- Cuerpo de la tabla con las mascotas del cliente -->
         <tbody>
             <!-- por cada mascota del cliente se crea una fila de la tabla -->
-            <tr th:each="mascota : ${cliente.mascotas}">
-                <td><img class="fotoPerro" th:src="${mascota.foto}" alt="Foto Mascota"/></td>
-                <td th:text="${mascota.nombre}"></td>
-                <td th:text="${mascota.raza}"></td>
-                <td th:text="${mascota.edad}"></td>
-                <td th:text="${mascota.peso}"></td>
-                <td th:text="${mascota.enfermedad}"></td>
+            <tr *ngFor="let mascota of llegaCliente.mascotas">
+                <td><img class="fotoPerro" alt="Foto Mascota"[src]="mascota.foto"/></td>
+                <td> {{mascota.nombre}} </td>
+                <td> {{mascota.raza}} </td>
+                <td> {{mascota.edad}} </td>
+                <td> {{mascota.peso}} </td>
+                <td> {{mascota.enfermedad}} </td>
                 <!-- Boton para ver la informacion de la mascota -->
                 <td class="opciones">
-                    <a class="links icono" th:href="@{/veterinario/mascotas/find/{id}(id=${mascota.id})}">
+                    <a class="links icono" [routerLink]="['../../../mascotas/find/', mascota.id]">
                         <i class='bx bx-info-circle'></i>
                     </a>
                 </td>
