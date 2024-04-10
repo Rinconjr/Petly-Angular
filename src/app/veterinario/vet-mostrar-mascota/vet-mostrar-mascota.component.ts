@@ -3,6 +3,7 @@ import { Mascota } from 'src/app/models/mascota';
 import { ActivatedRoute } from '@angular/router';
 import { MascotaServiceService } from 'src/app/service/mascota-service.service';
 import { ClienteServiceService } from 'src/app/service/cliente-service.service';
+import { Cliente } from 'src/app/models/cliente';
 
 @Component({
   selector: 'app-vet-mostrar-mascota',
@@ -11,11 +12,10 @@ import { ClienteServiceService } from 'src/app/service/cliente-service.service';
 })
 export class VetMostrarMascotaComponent implements OnInit {
 
-  mascota!: Mascota;
+  cliente!: any;
 
   constructor(
     private mascotaService: MascotaServiceService,
-    private clienteService: ClienteServiceService,
     private route: ActivatedRoute,
   ) {
   }
@@ -26,7 +26,7 @@ export class VetMostrarMascotaComponent implements OnInit {
       const id = Number(params.get('id'));
       
       this.mascotaService.findById(id).subscribe(
-        (llegaMascota) => this.mascota = llegaMascota
+        (cliente) => this.cliente = cliente
       );
     });
 

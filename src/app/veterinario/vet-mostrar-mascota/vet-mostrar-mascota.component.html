@@ -8,7 +8,7 @@
 
         <!-- Nombre de la mascota -->
         <div class = "cabeza">
-            <h1> {{mascota.nombre}} </h1>
+            <h1> {{cliente.mascotas[0].nombre}} </h1>
         </div>
         
         <!-- Card para presentar la información de la mascota -->
@@ -16,7 +16,7 @@
             
             <!-- Imagen de la mascota -->
             <div class="card-image-container">
-                <img alt="fotoPerro" [src]="mascota.foto"/>
+                <img alt="fotoPerro" [src]="cliente.mascotas[0].foto"/>
             </div> 
 
             <!-- informacion de la card -->
@@ -27,30 +27,29 @@
                     <h2>Información Mascota</h2>
                     <div class="lista">
                         <ul class="card-des">
-                            <li>Raza: <span>{{mascota.raza}}</span></li>
-                            <li>Edad: <span>{{mascota.edad}}</span></li>
-                            <li>Peso: <span>{{mascota.peso}}</span></li>
-                            <li>Enfermedad: <span>{{mascota.enfermedad}}</span></li>
-                            <li>Estado: <span>{{mascota.estado}}</span></li>
+                            <li>Raza: <span> {{cliente.mascotas[0].raza}} </span></li>
+                            <li>Edad: <span> {{cliente.mascotas[0].edad}} </span></li>
+                            <li>Peso: <span> {{cliente.mascotas[0].peso}} </span></li>
+                            <li>Enfermedad: <span> {{cliente.mascotas[0].enfermedad}} </span></li>
+                            <li>Estado: <span> {{cliente.mascotas[0].estado}} </span></li>
                         </ul>
                     </div>
                     
                 </div>
 
                 <!-- Informacion del dueño de la mascota -->
-                <!-- TODO: Cambiar cuando nico resuelva -->
-                <!-- <div class = info-dueño>
+                <div class = info-dueño>
                     <h2>Información Dueño</h2>
                     <div class="lista">
                         <ul class="card-des">
-                            <li>Cedula: <span>{{mascota.cliente.cedula}}</span></li>
-                            <li>Nombre: <span>{{mascota.cliente.nombre}}</span></li>
-                            <li>Apellido: <span>{{mascota.cliente.apellido}}</span></li>
-                            <li>Celular: <span>{{mascota.cliente.celular}}</span></li>
+                            <li>Cedula: <span> {{cliente.cedula}} </span></li>
+                            <li>Nombre: <span> {{cliente.nombre}} </span></li>
+                            <li>Apellido: <span> {{cliente.apellido}} </span></li>
+                            <li>Celular: <span> {{cliente.celular}} </span></li>
                         </ul>
                     </div>
                     
-                </div> -->
+                </div>
             </div>                     
             
         </div>

@@ -16,8 +16,7 @@ export class UsuarioServiceService {
     return this.http.get<Cliente>('http://localhost:8090/usuario/' + id);
   }
 
-  //TODO: cuando nico resuelva
-  findPet(){
-
+  findPet(id: number, idMascota: number){
+    return this.http.get<Cliente>('http://localhost:8090/usuario/' + id + '/mascota/' + idMascota);
   }
 }

@@ -23,7 +23,7 @@ export class VetModificarMascotaComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       const id = Number(params.get('id'));
-      this.mascotaService.findById(id).subscribe(
+      this.mascotaService.findByIdPet(id).subscribe(
         (mascota) => {
           this.mascotaAux = mascota;
           this.llegaMascota = Object.assign({}, this.mascotaAux);

@@ -6,15 +6,15 @@
     <div class = "left-side">
 
         <!-- nombre de la mascota -->
-        <div class = "cabeza">
-            <h1> NomPerro </h1>
+        <div class = "cabeza" *ngFor="let mascota of cliente.mascotas">
+            <h1> {{mascota.nombre}} </h1>
         </div>
         
         <!-- Card para presentar la información de la mascota -->
         <div class = "info">
             
             <!-- imagen de la mascota -->
-            <div class="card-image-container">
+            <div class="card-image-container" *ngFor="let mascota of cliente.mascotas">
                 <img alt="fotoPerro" [src]="mascota.foto"/>
             </div> 
 
@@ -25,7 +25,7 @@
                 <div class = info-dog>
                     <h2>Información Mascota</h2>
                     <div class="lista">
-                        <ul class="card-des">
+                        <ul class="card-des" *ngFor="let mascota of cliente.mascotas">
                             <!-- Se muestra la información de la mascota (de la base de datos) -->
                             <li>Raza: <span> {{mascota.raza}} </span></li>
                             <li>Edad: <span> {{mascota.edad}} </span></li>
@@ -42,10 +42,10 @@
                     <h2>Información Dueño</h2>
                     <div class="lista">
                         <ul class="card-des">
-                            <li>Cedula: <span> {{mascota.cliente.cedula}} </span></li>
-                            <li>Nombre: <span> {{mascota.cliente.nombre}} </span></li>
-                            <li>Apellido: <span> {{mascota.cliente.apellido}} </span></li>
-                            <li>Celular: <span> {{mascota.cliente.celular}} </span></li>
+                            <li>Cedula: <span> {{cliente.cedula}} </span></li>
+                            <li>Nombre: <span> {{cliente.nombre}} </span></li>
+                            <li>Apellido: <span> {{cliente.apellido}} </span></li>
+                            <li>Celular: <span> {{cliente.celular}} </span></li>
                         </ul>
                     </div>
                     
