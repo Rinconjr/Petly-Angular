@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Cliente } from 'src/app/models/cliente';
 import { Mascota } from 'src/app/models/mascota';
 import { MascotaServiceService } from 'src/app/service/mascota-service.service';
 
@@ -17,7 +18,7 @@ export class VetModificarMascotaComponent implements OnInit {
 
   mascotaAux!: Mascota;
 
-  llegaMascota!: Mascota;
+  cliente!: Cliente;
   formMascota!: Mascota;
 
   ngOnInit(): void {
@@ -26,8 +27,13 @@ export class VetModificarMascotaComponent implements OnInit {
       this.mascotaService.findByIdPet(id).subscribe(
         (mascota) => {
           this.mascotaAux = mascota;
-          this.llegaMascota = Object.assign({}, this.mascotaAux);
           this.formMascota = Object.assign({}, this.mascotaAux);
+        }
+      );
+
+      this.mascotaService.findById(id).subscribe(
+        (cliente) => {
+          this.cliente = cliente;
         }
       );
     });

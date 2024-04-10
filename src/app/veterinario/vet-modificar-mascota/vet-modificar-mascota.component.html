@@ -88,7 +88,7 @@
     <div class="right-side">
 
         <!-- Encabezado de la informacion actual de la mascota -->
-        <div class = "cabeza">
+        <div class = "cabeza" *ngFor="let llegaMascota of cliente.mascotas">
             <h1> Información actual: <span>{{llegaMascota.nombre}}</span></h1>
         </div>
             
@@ -96,7 +96,7 @@
         <div class = "info">
             
             <!-- Imagen de la mascota -->
-            <div class="card-image-container">
+            <div class="card-image-container" *ngFor="let llegaMascota of cliente.mascotas">
                 <img alt="fotoPerro" [src]="llegaMascota.foto"/>
             </div> 
 
@@ -107,7 +107,7 @@
                 <div class = info-dog>
                     <h2>Información Mascota</h2>
                     <div class="lista">
-                        <ul class="card-des">
+                        <ul class="card-des" *ngFor="let llegaMascota of cliente.mascotas">
                             <li>Raza: <span>{{llegaMascota.raza}}</span></li>
                             <li>Edad: <span>{{llegaMascota.edad}}</span></li>
                             <li>Peso: <span>{{llegaMascota.peso}}</span></li>
@@ -123,12 +123,10 @@
                     <h2>Información Dueño</h2>
                     <div class="lista">
                         <ul class="card-des">
-                            <!--
-                            <li>Cedula: <span>{{llegaMascota.cliente.cedula}}</span></li>
-                            <li>Nombre: <span>{{llegaMascota.cliente.nombre}}</span></li>
-                            <li>Apellido: <span>{{llegaMascota.cliente.apellido}}</span></li>
-                            <li>Celular: <span>{{llegaMascota.cliente.celular}}</span></li>
-                            -->
+                            <li>Cedula: <span>{{cliente.cedula}}</span></li>
+                            <li>Nombre: <span>{{cliente.nombre}}</span></li>
+                            <li>Apellido: <span>{{cliente.apellido}}</span></li>
+                            <li>Celular: <span>{{cliente.celular}}</span></li>
                         </ul>
                     </div>
                 </div> 
