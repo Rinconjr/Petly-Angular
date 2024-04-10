@@ -26,7 +26,7 @@ export class MascotaServiceService {
   }
 
   addPet(mascota: Mascota) {
-    this.http.post('http://localhost:8090/veterinario/mascotas/agregar', mascota).subscribe();
+    this.http.post('http://localhost:8090/veterinario/mascotas/agregar/' + mascota.cliente.cedula, mascota).subscribe();
   }
 
   updatePet(mascota: Mascota) {
