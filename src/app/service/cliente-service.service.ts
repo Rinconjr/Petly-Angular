@@ -20,6 +20,10 @@ export class ClienteServiceService {
     return this.http.get<Cliente>('http://localhost:8090/veterinario/clientes/find/' + id);
   }
 
+  findByCedula(cedula: string): Observable<Cliente>{
+    return this.http.get<Cliente>('http://localhost:8090/veterinario/clientes/buscar/' + cedula);
+  }
+
   addClient(cliente: Cliente) {
     this.http.post('http://localhost:8090/veterinario/clientes/agregar', cliente).subscribe();
   }

@@ -63,7 +63,13 @@ export class VetMostrarMascotaTodasComponent implements OnInit {
   cambiarEstadoMascota(idMascota: number) {
     this.mascotaService.deletePet(idMascota);
 
-    //TODO: Que la pagina se actualice
+    const index = this.listaMascotas.findIndex((mascota) => mascota.id === idMascota);
+    if (this.listaMascotas[index].estado === 'Disponible') {
+      this.listaMascotas[index].estado = 'Inactivo';
+    }
+    else {
+      this.listaMascotas[index].estado = 'Disponible';
+    }
   }
 
 

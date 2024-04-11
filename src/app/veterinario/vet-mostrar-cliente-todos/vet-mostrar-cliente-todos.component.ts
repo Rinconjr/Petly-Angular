@@ -60,5 +60,8 @@ export class VetMostrarClienteTodosComponent implements OnInit {
 
   eliminarCliente(id: any) {
     this.clienteService.deleteClient(id);
+
+    const index = this.listaClientes.findIndex((cliente) => cliente.id === id);
+    this.listaClientes.splice(index, 1);
   }
 }

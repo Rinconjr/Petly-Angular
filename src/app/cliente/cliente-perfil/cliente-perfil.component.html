@@ -19,6 +19,7 @@
                 <th>Edad</th>
                 <th>Peso</th>
                 <th>Enfermedad</th>
+                <th>Estado</th>
                 <th>Opciones</th>
             </tr>
         </thead>
@@ -32,6 +33,7 @@
                 <td> {{mascota.edad}} </td>
                 <td> {{mascota.peso}} </td>
                 <td> {{mascota.enfermedad}} </td>
+                <td> {{mascota.estado}} </td>
                 <td class="opciones">
                     <a class="links icono" [routerLink]="['mascota/', mascota.id]">
                         <i class='bx bx-info-circle'></i>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Mascota } from 'src/app/models/mascota';
+import { ClienteServiceService } from 'src/app/service/cliente-service.service';
 import { MascotaServiceService } from 'src/app/service/mascota-service.service';
 import Swal from 'sweetalert2';
 
@@ -13,6 +14,7 @@ export class VetRegistrarMascotaComponent {
 
   constructor(
     private mascotaService: MascotaServiceService,
+    private clienteService: ClienteServiceService,
     private router: Router,
     ) {}
 
@@ -39,9 +41,18 @@ export class VetRegistrarMascotaComponent {
   
   agregarMascota(){
     this.sendMascota = Object.assign({}, this.formMascota);
-    this.mascotaService.addPet(this.sendMascota);
-    
-    this.mostrarAlerta(this.sendMascota);
+
+    this.clienteService.findByCedula(this.sendMascota.cliente.cedula).subscribe(
+      (llegaCliente) => {
+        if(llegaCliente) {
+          this.mascotaService.addPet(this.sendMascota);  
+          this.mostrarAlerta(this.sendMascota);
+        } else {
+          this.mostrarAlertaError(this.sendMascota.cliente.cedula);
+        }
+      }
+    );
+
   }
 
   mostrarAlerta(mascota: Mascota) {
@@ -66,6 +77,28 @@ export class VetRegistrarMascotaComponent {
       if (result.isConfirmed) {
         this.router.navigate(['/veterinario/mascotas/all']);
       }
+    });
+  }
+
+  mostrarAlertaError(cedula: string) {
+    // Popup de alerta
+    Swal.fire({
+      title: '<span style="color: #000000;">No se ha podido registrar</span>',
+      html: 'No se ha podido registrar la mascota porque la cedula ' + cedula + ' no existe',
+      imageUrl: "../../../assets/images/popup.png",
+      imageWidth: 400,
+      imageHeight: 400,
+      imageAlt: 'Custom image',
+      confirmButtonColor: '#3468c0',
+      confirmButtonText: 'Regresar al formulario',
+      customClass: {
+        title: 'custom-title-class',
+        confirmButton: 'custom-confirm-button-class',
+        cancelButton: 'custom-cancel-button-class'
+      },
+      reverseButtons: true,
+    }).then((result) => {
+      
     });
   }
 }
