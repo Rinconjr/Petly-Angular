@@ -10,6 +10,7 @@ import Swal from 'sweetalert2'
 })
 export class VetMostrarMascotaTodasComponent implements OnInit {
   listaMascotas!: Mascota[];
+  filtroEstado: string = 'Todas'; // Estado inicial del filtro
 
   constructor(private mascotaService: MascotaServiceService) {}
 
@@ -64,4 +65,43 @@ export class VetMostrarMascotaTodasComponent implements OnInit {
 
     //TODO: Que la pagina se actualice
   }
+
+
+    // Función para filtrar la tabla por estado
+    filterTableByState() {
+      this.filterTable();
+    }
+  
+    // Función para filtrar la tabla por nombre y estado
+    filterTable() {
+      const filter = (document.getElementById('myInput') as HTMLInputElement).value.toUpperCase();
+      const estado = this.filtroEstado.toUpperCase();
+  
+      const filteredMascotas = this.listaMascotas.filter((mascota) => {
+        const nombre = mascota.nombre.toUpperCase();
+        const estadoMascota = mascota.estado.toUpperCase();
+        return (
+          (estado === 'TODAS' || estadoMascota === estado) &&
+          nombre.includes(filter)
+        );
+      });
+  
+      this.listaMascotas.forEach((mascota) => {
+        const row = document.getElementById(`mascota-row-${mascota.id}`);
+        if (row) {
+          row.style.display = filteredMascotas.includes(mascota)
+            ? ''
+            : 'none';
+        }
+      });
+    }
+  
+    // Event listener para los botones de radio
+    onRadioChange(event: Event) {
+      this.filtroEstado = (event.target as HTMLInputElement).value;
+      this.filterTable();
+    }
+
+
+
 }

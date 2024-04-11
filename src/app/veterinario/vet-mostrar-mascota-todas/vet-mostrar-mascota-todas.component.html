@@ -10,15 +10,15 @@
         <!-- Radio buttons para filtrar las mascotas por estado -->
         <div class="radio-input">
             <label>
-                <input value="Disponible" name="value-radio" id="value-1" type="radio" onchange="filterTableByState()">
+                <input value="Disponible" name="value-radio" id="value-1" type="radio" (change)="onRadioChange($event)">
                 <span>Disponibles</span>
             </label>
             <label>
-                <input value="Inactivo" name="value-radio" id="value-2" type="radio" onchange="filterTableByState()">
+                <input value="Inactivo" name="value-radio" id="value-2" type="radio" (change)="onRadioChange($event)">
                 <span>Inactivas</span>
             </label>
             <label>
-                <input value="Todas" name="value-radio" id="value-3" type="radio" checked="" onchange="filterTableByState()">
+                <input value="Todas" name="value-radio" id="value-3" type="radio" checked (change)="onRadioChange($event)">
                 <span>Todas</span>
             </label>
             <span class="selection"></span>
@@ -47,7 +47,7 @@
             <!-- Cuerpo de la tabla con las mascotas de la base de datos -->
             <tbody>
                 <!-- por cada mascota de la base de datos se crea una fila de la tabla con sus datos -->
-                <tr *ngFor="let mascota of listaMascotas">
+                <tr *ngFor="let mascota of listaMascotas" [id]="'mascota-row-' + mascota.id">
                     <td><img cLass="fotoPerro" [src]="mascota.foto"/></td>
                     <td> {{mascota.nombre}} </td>
                     <td> {{mascota.raza}} </td>

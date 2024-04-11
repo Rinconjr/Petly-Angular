@@ -56,4 +56,7 @@ export class VetModificarMascotaComponent implements OnInit {
     this.mascotaService.updatePet(this.sendMascota);
     this.router.navigate(['/veterinario/mascotas/all']);
   }
+
+  
+
 }

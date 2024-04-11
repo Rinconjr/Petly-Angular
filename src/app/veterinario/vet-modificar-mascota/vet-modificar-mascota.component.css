@@ -237,7 +237,7 @@
 
 .input-container {
     position: relative;
-    margin: 24.5px auto; 
+    margin: 23px auto; 
     width: 100%;
 }
 
@@ -267,8 +267,8 @@
 
 .input-container input[type="text"]:focus ~ .label,
 .input-container input[type="text"]:valid ~ .label,
-.input-container input[type="number"]:focus ~ .label,
-.input-container input[type="number"]:valid ~ .label,
+.input-container input[type="number"]:focus ~ .label, 
+.input-container input[type="number"]:valid ~ .label, 
 .input-container input[type="url"]:focus ~ .label,
 .input-container input[type="url"]:valid ~ .label,
 .input-container select:focus ~ .label,
