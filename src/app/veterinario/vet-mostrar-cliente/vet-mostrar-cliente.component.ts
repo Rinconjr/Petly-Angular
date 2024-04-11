@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Cliente } from 'src/app/models/cliente';
 import { ClienteServiceService } from 'src/app/service/cliente-service.service';
 
@@ -15,6 +15,7 @@ export class VetMostrarClienteComponent implements OnInit {
   constructor(
     private clienteService: ClienteServiceService,
     private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -23,7 +24,12 @@ export class VetMostrarClienteComponent implements OnInit {
       const id = Number(params.get('id'));
       
       this.clienteService.findById(id).subscribe(
-        (llegaCliente) => this.cliente = llegaCliente
+        (llegaCliente) => {
+          if(llegaCliente) 
+            this.cliente = llegaCliente
+          else 
+            this.router.navigate(['/id-not-found/cliente/' + id]);
+        }
       );
     });
 

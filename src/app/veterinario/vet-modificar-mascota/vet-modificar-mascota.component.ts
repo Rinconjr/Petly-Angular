@@ -27,8 +27,12 @@ export class VetModificarMascotaComponent implements OnInit {
       const id = Number(params.get('id'));
       this.mascotaService.findByIdPet(id).subscribe(
         (mascota) => {
-          this.mascotaAux = mascota;
-          this.formMascota = Object.assign({}, this.mascotaAux);
+          if(mascota) {
+            this.mascotaAux = mascota;
+            this.formMascota = Object.assign({}, this.mascotaAux);
+          } else {
+            this.router.navigate(['/id-not-found/mascota/' + id]);
+          }
         }
       );
 

@@ -13,7 +13,9 @@ import { VetMostrarClienteTodosComponent } from './veterinario/vet-mostrar-clien
 import { VetMostrarClienteComponent } from './veterinario/vet-mostrar-cliente/vet-mostrar-cliente.component';
 import { VetRegistrarClienteComponent } from './veterinario/vet-registrar-cliente/vet-registrar-cliente.component';
 import { VetModificarClienteComponent } from './veterinario/vet-modificar-cliente/vet-modificar-cliente.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from './errors/page-not-found/page-not-found.component';
+import { CedulaNotFoundComponent } from './errors/cedula-not-found/cedula-not-found.component';
+import { IdNotFoundComponent } from './errors/id-not-found/id-not-found.component';
 
 const routes: Routes = [
   //Path para la landing page
@@ -39,6 +41,10 @@ const routes: Routes = [
   //Path para todo lo relacionado al usuario
   { path: 'usuario/:id', component: ClientePerfilComponent },
   { path: 'usuario/:id/mascota/:id_mascota', component: ClienteMostrarMascotaComponent },
+
+  //Path para errores de cliente e id
+  { path: 'cedula-not-found/:cedula', component: CedulaNotFoundComponent },
+  { path: 'id-not-found/:tipo/:id', component: IdNotFoundComponent },
   
   //Path de la pagina de error
   //! Dejar siempre al final

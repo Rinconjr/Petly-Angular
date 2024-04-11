@@ -26,9 +26,13 @@ export class VetModificarClienteComponent implements OnInit {
       const id = Number(params.get('id'));
       this.clienteService.findById(id).subscribe(
         (cliente) => {
-          this.clienteAux = cliente;
-          this.llegaCliente = Object.assign({}, this.clienteAux);
-          this.formCliente = Object.assign({}, this.clienteAux);
+          if (cliente) {
+            this.clienteAux = cliente;
+            this.llegaCliente = Object.assign({}, this.clienteAux);
+            this.formCliente = Object.assign({}, this.clienteAux);
+          } else {
+            this.router.navigate(['/id-not-found/cliente/' + id]);
+          }
         }
       );
     });

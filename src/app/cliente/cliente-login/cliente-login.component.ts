@@ -30,7 +30,7 @@ export class ClienteLoginComponent {
     if (clienteEncontrado) {
       this.router.navigate(['/usuario/' + clienteEncontrado.id]);
     } else {
-      //TODO: Llevar a pagina de error
+      this.router.navigate(['/cedula-not-found/' + this.cedulaCliente]);
     }
   }
 

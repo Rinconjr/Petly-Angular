@@ -21,7 +21,9 @@ import { VetLoginComponent } from './veterinario/vet-login/vet-login.component';
 import { ClienteLoginComponent } from './cliente/cliente-login/cliente-login.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from './errors/page-not-found/page-not-found.component';
+import { CedulaNotFoundComponent } from './errors/cedula-not-found/cedula-not-found.component';
+import { IdNotFoundComponent } from './errors/id-not-found/id-not-found.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     VetModificarMascotaComponent,
     VetLoginComponent,
     ClienteLoginComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    CedulaNotFoundComponent,
+    IdNotFoundComponent
   ],
   imports: [
     BrowserModule,
