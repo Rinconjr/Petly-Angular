@@ -13,23 +13,17 @@ import { VetMostrarClienteTodosComponent } from './veterinario/vet-mostrar-clien
 import { VetMostrarClienteComponent } from './veterinario/vet-mostrar-cliente/vet-mostrar-cliente.component';
 import { VetRegistrarClienteComponent } from './veterinario/vet-registrar-cliente/vet-registrar-cliente.component';
 import { VetModificarClienteComponent } from './veterinario/vet-modificar-cliente/vet-modificar-cliente.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   //Path para la landing page
   { path: '', component: LandingComponent },
-
-  //path para el login de cliente y veterinario
+  
+  //Path para el login de cliente y veterinario
   { path: 'login/cliente', component: ClienteLoginComponent},
   { path: 'login/veterinario', component: VetLoginComponent},
 
-  //path para el perfil del usuario y la info de su mascota
-  { path: 'usuario/perfil/:id', component: ClientePerfilComponent, 
-    children: [ 
-      { path: 'mascota/:id_mascota', component: ClienteMostrarMascotaComponent } 
-    ] 
-  },
-
-  //path para todo lo relacionado al veterinario
+  //Path para todo lo relacionado al veterinario
   //TODO: cambiar todo esto cuando haya login funcional del vetrinario
   //! todo lo de las mascotas
   { path: 'veterinario/mascotas/all', component:  VetMostrarMascotaTodasComponent },
@@ -41,9 +35,14 @@ const routes: Routes = [
   { path: 'veterinario/clientes/find/:id', component: VetMostrarClienteComponent },
   { path: 'veterinario/clientes/add', component: VetRegistrarClienteComponent },
   { path: 'veterinario/clientes/update/:id', component: VetModificarClienteComponent },
-  //! todo lo de los perfiles
+  
+  //Path para todo lo relacionado al usuario
   { path: 'usuario/:id', component: ClientePerfilComponent },
-  { path: 'usuario/:id/mascota/:id_mascota', component: ClienteMostrarMascotaComponent }
+  { path: 'usuario/:id/mascota/:id_mascota', component: ClienteMostrarMascotaComponent },
+  
+  //Path de la pagina de error
+  //! Dejar siempre al final
+  { path: '**', component: PageNotFoundComponent},
 ];
 
 @NgModule({

@@ -21,6 +21,7 @@ import { VetLoginComponent } from './veterinario/vet-login/vet-login.component';
 import { ClienteLoginComponent } from './cliente/cliente-login/cliente-login.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { HttpClientModule } from '@angular/common/http';
     VetMostrarMascotaComponent,
     VetModificarMascotaComponent,
     VetLoginComponent,
-    ClienteLoginComponent
+    ClienteLoginComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
