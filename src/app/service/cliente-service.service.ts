@@ -29,7 +29,7 @@ export class ClienteServiceService {
   }
 
   updateClient(cliente: Cliente) {
-    this.http.put('http://localhost:8090/cliente/update/' + cliente.id, cliente).subscribe();
+    this.http.put('http://localhost:8090/cliente/update', cliente).subscribe();
   }
 
   deleteClient(id: number) {
