@@ -13,26 +13,30 @@ export class ClienteServiceService {
   ) { }
 
   findAll(): Observable<Cliente[]>{
-    return this.http.get<Cliente[]>('http://localhost:8090/veterinario/clientes/all');
+    return this.http.get<Cliente[]>('http://localhost:8090/cliente/all');
   }
 
   findById(id: number): Observable<Cliente>{
-    return this.http.get<Cliente>('http://localhost:8090/veterinario/clientes/find/' + id);
+    return this.http.get<Cliente>('http://localhost:8090/cliente/find/' + id);
   }
 
   findByCedula(cedula: string): Observable<Cliente>{
-    return this.http.get<Cliente>('http://localhost:8090/veterinario/clientes/buscar/' + cedula);
+    return this.http.get<Cliente>('http://localhost:8090/cliente/buscar/' + cedula);
   }
 
   addClient(cliente: Cliente) {
-    this.http.post('http://localhost:8090/veterinario/clientes/agregar', cliente).subscribe();
+    this.http.post('http://localhost:8090/cliente/agregar', cliente).subscribe();
   }
 
   updateClient(cliente: Cliente) {
-    this.http.put('http://localhost:8090/veterinario/clientes/update/' + cliente.id, cliente).subscribe();
+    this.http.put('http://localhost:8090/cliente/update/' + cliente.id, cliente).subscribe();
   }
 
   deleteClient(id: number) {
-    this.http.delete('http://localhost:8090/veterinario/clientes/delete/' + id).subscribe();
+    this.http.delete('http://localhost:8090/cliente/delete/' + id).subscribe();
+  }
+
+  findClientPet(id: number, idMascota: number){
+    return this.http.get<Cliente>('http://localhost:8090/cliente/' + id + '/mascota/' + idMascota);
   }
 }

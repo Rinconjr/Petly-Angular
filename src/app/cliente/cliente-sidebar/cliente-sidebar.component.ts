@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Cliente } from 'src/app/models/cliente';
-import { UsuarioServiceService } from 'src/app/service/usuario-service.service';
+import { ClienteServiceService } from 'src/app/service/cliente-service.service';
 
 @Component({
   selector: 'app-cliente-sidebar',
@@ -12,7 +12,7 @@ import { UsuarioServiceService } from 'src/app/service/usuario-service.service';
 export class ClienteSidebarComponent implements OnInit {
 
   constructor(
-    private usuarioService: UsuarioServiceService,
+    private clienteService: ClienteServiceService,
     private route: ActivatedRoute
   ) { }
 
@@ -23,7 +23,7 @@ export class ClienteSidebarComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       const id = Number(params.get('id'));
       
-      this.usuarioService.findMyPets(id).subscribe(
+      this.clienteService.findById(id).subscribe(
         (llegaCliente) => this.cliente = llegaCliente
       );
     });

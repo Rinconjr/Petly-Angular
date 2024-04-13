@@ -14,26 +14,26 @@ export class MascotaServiceService {
   ) { }
 
   findAll(): Observable<Mascota[]>{
-    return this.http.get<Mascota[]>('http://localhost:8090/veterinario/mascotas/all');
+    return this.http.get<Mascota[]>('http://localhost:8090/mascota/all');
   }
 
   findById(id: number): Observable<Cliente>{
-    return this.http.get<Cliente>('http://localhost:8090/veterinario/mascotas/find/' + id);
+    return this.http.get<Cliente>('http://localhost:8090/mascota/find/' + id);
   }
 
   findByIdPet(id: number): Observable<Mascota>{
-    return this.http.get<Mascota>('http://localhost:8090/veterinario/mascotas/buscar/' + id);
+    return this.http.get<Mascota>('http://localhost:8090/mascota/buscar/' + id);
   }
 
   addPet(mascota: Mascota) {
-    this.http.post('http://localhost:8090/veterinario/mascotas/agregar/' + mascota.cliente.cedula, mascota).subscribe();
+    this.http.post('http://localhost:8090/mascota/agregar/' + mascota.cliente.cedula, mascota).subscribe();
   }
 
   updatePet(mascota: Mascota) {
-    this.http.put('http://localhost:8090/veterinario/mascotas/update/' + mascota.id, mascota).subscribe();
+    this.http.put('http://localhost:8090/mascota/update', mascota).subscribe();
   }
 
   deletePet(id: number) {
-    this.http.delete('http://localhost:8090/veterinario/mascotas/delete/' + id).subscribe();
+    this.http.delete('http://localhost:8090/mascota/delete/' + id).subscribe();
   }
 }
