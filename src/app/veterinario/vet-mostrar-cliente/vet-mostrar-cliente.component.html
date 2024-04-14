@@ -48,7 +48,7 @@
         <!-- Apara la barra de busqueda para filtrar las mascotas por nombre -->
         <div class = "search">
             <h1>Mascotas</h1>
-            <app-searchbar-mascota-nombre class="searchbar"></app-searchbar-mascota-nombre>
+            <input type="search" id="myInput" onkeyup="filterTable()" placeholder="Buscar mascota por nombre" title="Type in a name">
         </div>
         
         <!-- Tabla con las mascotas del cliente -->
@@ -67,7 +67,7 @@
             <!-- Cuerpo de la tabla con las mascotas del cliente -->
             <tbody>
                 <!-- por cada mascota del cliente se crea una fila de la tabla con sus datos -->
-                <tr *ngFor="let mascota of cliente.mascotas">
+                <tr *ngFor="let mascota of cliente.mascotas" [id]="'mascota-row-' + mascota.id">
                     <td><img class="fotoPerro" alt="Foto Mascota" [src]="mascota.foto"/></td>
                     <td> {{mascota.nombre}} </td>
                     <td> {{mascota.raza}} </td>

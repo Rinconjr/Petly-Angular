@@ -19,6 +19,11 @@ export class VetMostrarClienteTodosComponent implements OnInit {
       (clientes) => this.listaClientes = clientes
     );
 
+    const inputSearch = document.getElementById('myInput') as HTMLInputElement;
+    inputSearch.addEventListener('keyup', () => {
+      this.filterTable();
+    });
+
     let sidebar = document.querySelector('.sidebar') as HTMLElement;
 
     sidebar.addEventListener('mouseover', () => {
@@ -64,4 +69,28 @@ export class VetMostrarClienteTodosComponent implements OnInit {
     const index = this.listaClientes.findIndex((cliente) => cliente.id === id);
     this.listaClientes.splice(index, 1);
   }
+
+
+  // Función para filtrar la tabla por nombre y estado
+  filterTable() {
+    const filter = (document.getElementById('myInput') as HTMLInputElement).value.toUpperCase();
+
+    const filteredClientes = this.listaClientes.filter((cliente) => {
+      const nombre = cliente.cedula.toUpperCase();
+      return (
+        nombre.includes(filter)
+      );
+    });
+
+    this.listaClientes.forEach((cliente) => {
+      const row = document.getElementById(`cliente-row-${cliente.id}`);
+      if (row) {
+        row.style.display = filteredClientes.includes(cliente)
+          ? ''
+          : 'none';
+      }
+    });
+  }
+
+
 }

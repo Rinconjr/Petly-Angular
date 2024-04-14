@@ -25,7 +25,7 @@
             <!-- Cuerpo de la tabla con todos los clientes registrados en la base de datos -->
             <tbody>
                 <!-- por cada cliente de la base de datos se crea una fila de la tabla con sus datos (los datos de la base de datos) -->
-                <tr *ngFor="let cliente of listaClientes">
+                <tr *ngFor="let cliente of listaClientes" [id]="'cliente-row-' + cliente.id">
                     <td> {{cliente.cedula}} </td>
                     <td> {{cliente.nombre}} </td>
                     <td> {{cliente.apellido}} </td>

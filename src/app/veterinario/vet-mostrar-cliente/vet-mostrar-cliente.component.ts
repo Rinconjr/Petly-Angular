@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cliente } from 'src/app/models/cliente';
+import { Mascota } from 'src/app/models/mascota';
 import { ClienteServiceService } from 'src/app/service/cliente-service.service';
 
 @Component({
@@ -11,6 +12,7 @@ import { ClienteServiceService } from 'src/app/service/cliente-service.service';
 export class VetMostrarClienteComponent implements OnInit {
 
   cliente!: Cliente;
+  listaMascotas!: Mascota[] | undefined; // esto seria una lista de mascotas del cliente
 
   constructor(
     private clienteService: ClienteServiceService,
@@ -25,12 +27,19 @@ export class VetMostrarClienteComponent implements OnInit {
       
       this.clienteService.findById(id).subscribe(
         (llegaCliente) => {
-          if(llegaCliente) 
-            this.cliente = llegaCliente
+          if(llegaCliente) {
+            this.cliente = llegaCliente;
+            this.listaMascotas = this.cliente.mascotas;
+          }            
           else 
             this.router.navigate(['/id-not-found/cliente/' + id]);
         }
       );
+    });
+
+    const inputSearch = document.getElementById('myInput') as HTMLInputElement;
+    inputSearch.addEventListener('keyup', () => {
+      this.filterTable();
     });
 
     let sidebar = document.querySelector('.sidebar') as HTMLElement;
@@ -43,4 +52,29 @@ export class VetMostrarClienteComponent implements OnInit {
       sidebar.classList.remove("active");
     });
   }
+
+
+  // Función para filtrar la tabla por nombre y estado
+  filterTable() {
+    const filter = (document.getElementById('myInput') as HTMLInputElement).value.toUpperCase();
+
+    const filteredMascotas = this.listaMascotas?.filter((mascota) => {
+      const nombre = mascota.nombre.toUpperCase();
+      const estadoMascota = mascota.estado.toUpperCase();
+      return (
+        nombre.includes(filter)
+      );
+    });
+
+    this.listaMascotas?.forEach((mascota) => {
+      const row = document.getElementById(`mascota-row-${mascota.id}`);
+      if (row) {
+        row.style.display = filteredMascotas?.includes(mascota)
+          ? ''
+          : 'none';
+      }
+    });
+  }
+
+
 }

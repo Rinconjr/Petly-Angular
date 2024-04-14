@@ -20,6 +20,11 @@ export class VetMostrarMascotaTodasComponent implements OnInit {
       (mascotas) => this.listaMascotas = mascotas
     );
 
+    const inputSearch = document.getElementById('myInput') as HTMLInputElement;
+    inputSearch.addEventListener('keyup', () => {
+      this.filterTable();
+    });
+
     let sidebar = document.querySelector('.sidebar') as HTMLElement;
 
     sidebar.addEventListener('mouseover', () => {
