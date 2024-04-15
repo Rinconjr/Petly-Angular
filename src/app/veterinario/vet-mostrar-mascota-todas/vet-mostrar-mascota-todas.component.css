@@ -1,4 +1,4 @@
-::-webkit-scrollbar {
+::ng-deep body::-webkit-scrollbar {
   display: none;
 }
 

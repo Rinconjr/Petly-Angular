@@ -1,101 +1,100 @@
-::-webkit-scrollbar {
-    display: none;
+::ng-deep body::-webkit-scrollbar {
+  display: none;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Acme';
-    background: url(../../../assets/images/registroVeterinario.jpg);
-    background-size: cover;
-    background-position: 0% 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end; 
-    align-items: center; 
-    min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: "Acme";
+  background: url(../../../assets/images/registroVeterinario.jpg);
+  background-size: cover;
+  background-position: 0% 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .card {
-    width: 658px;
-    height: 708px;
-    border-radius: 20px;
-    background:  #ffffff;
-    position: relative;
-    padding: 1.8rem;
-    transition: 0.5s ease-out;
-    overflow: visible;
-    margin-right: 50px;
+  width: 658px;
+  height: 708px;
+  border-radius: 20px;
+  background: #ffffff;
+  position: relative;
+  padding: 1.8rem;
+  transition: 0.5s ease-out;
+  overflow: visible;
+  margin-right: 50px;
 }
 
 .card-top {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 35%;
 }
 
 .card-top img {
-    height: 60%;
+  height: 60%;
 }
 
 .card-top h1 {
-    height: 20%;
-    font-family: 'Acme', sans-serif;
-    font-size: 2.5em;
-    margin-top: 25px;
-    margin-bottom: 25px;
+  height: 20%;
+  font-family: "Acme", sans-serif;
+  font-size: 2.5em;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 .formulario {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 65%;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 65%;
 }
 
 .form-div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    gap: 15px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .input-container {
-    position: relative;
-    margin: 10px auto; 
-    width: 250px;
+  position: relative;
+  margin: 10px auto;
+  width: 250px;
 }
 
 .input-container input[type="text"],
 .input-container input[type="number"],
 .input-container input[type="url"] {
-    font-size: 25px;
-    width: 100%;
-    border: none;
-    border-bottom: 2px solid #ccc;
-    padding: 5px 0; 
-    background-color: transparent;
-    outline: none;
-    font-family: 'Acme';
+  font-size: 25px;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  padding: 5px 0;
+  background-color: transparent;
+  outline: none;
+  font-family: "Acme";
 }
 
-  .input-container .label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: #ccc;
-    transition: all 0.3s ease;
-    pointer-events: none;
-    font-size: 25px;
+.input-container .label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #ccc;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  font-size: 25px;
 }
 
 .input-container input[type="text"]:focus ~ .label,
@@ -104,67 +103,67 @@ body {
 .input-container input[type="number"]:valid ~ .label,
 .input-container input[type="url"]:focus ~ .label,
 .input-container input[type="url"]:valid ~ .label {
-    top: -20px;
-    font-size: 20px;
-    color: #3468c0;
+  top: -20px;
+  font-size: 20px;
+  color: #3468c0;
 }
 
 .input-container .underline {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 2px;
-    width: 100%;
-    background-color: #FF9C35;
-    transform: scaleX(0);
-    transition: all 0.3s ease;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #ff9c35;
+  transform: scaleX(0);
+  transition: all 0.3s ease;
 }
 
 .input-container input[type="text"]:focus ~ .underline,
-.input-container input[type="text"]:valid ~ .underline, 
+.input-container input[type="text"]:valid ~ .underline,
 .input-container input[type="number"]:focus ~ .underline,
 .input-container input[type="number"]:valid ~ .underline,
 .input-container input[type="url"]:focus ~ .underline,
 .input-container input[type="url"]:valid ~ .underline {
-    transform: scaleX(1);
+  transform: scaleX(1);
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button{
-    -webkit-appearance: none;
-    margin: 0;
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .btn-primary {
-    font-family: 'Acme', sans-serif;
-    font-size: 25px;
-    background-color: #ff9c35;
-    color: white;
-    border: 0px;
-    width: 180px;
-    height: 40px;
-    margin-top: 20px;
-    border-radius: 16px;
+  font-family: "Acme", sans-serif;
+  font-size: 25px;
+  background-color: #ff9c35;
+  color: white;
+  border: 0px;
+  width: 180px;
+  height: 40px;
+  margin-top: 20px;
+  border-radius: 16px;
 }
 
 .btn-primary:hover {
-    box-shadow: 0 4px 16px #ff9c35;
-    transition: all 0.2s ease;
+  box-shadow: 0 4px 16px #ff9c35;
+  transition: all 0.2s ease;
 }
 
 .btn-secondary {
-    font-family: 'Acme', sans-serif;
-    font-size: 25px;
-    background-color: #ccc;
-    color: white;
-    border: 0px;
-    width: 180px;
-    height: 40px;
-    margin-top: 20px;
-    border-radius: 16px;
+  font-family: "Acme", sans-serif;
+  font-size: 25px;
+  background-color: #ccc;
+  color: white;
+  border: 0px;
+  width: 180px;
+  height: 40px;
+  margin-top: 20px;
+  border-radius: 16px;
 }
 
 .btn-secondary:hover {
-    box-shadow: 0 4px 16px #ccc;
-    transition: all 0.2s ease;
+  box-shadow: 0 4px 16px #ccc;
+  transition: all 0.2s ease;
 }
