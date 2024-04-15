@@ -1,0 +1,79 @@
+<app-administrador-sidebar class="sidebar"></app-administrador-sidebar>
+
+<!-- Contenido principal -->
+<div class = "main-content">
+
+    <!-- Apartado para la barra de busqueda para filtrar las mascotas por estado y nombre -->
+    <div class="search">
+        <h1>Mascotas de Petly</h1>
+
+        <!-- Radio buttons para filtrar las mascotas por estado -->
+        <div class="radio-input">
+            <label>
+                <input value="Disponible" name="value-radio" id="value-1" type="radio" (change)="onRadioChange($event)">
+                <span>Disponibles</span>
+            </label>
+            <label>
+                <input value="Inactivo" name="value-radio" id="value-2" type="radio" (change)="onRadioChange($event)">
+                <span>Inactivas</span>
+            </label>
+            <label>
+                <input value="Todas" name="value-radio" id="value-3" type="radio" checked (change)="onRadioChange($event)">
+                <span>Todas</span>
+            </label>
+            <span class="selection"></span>
+        </div>
+
+        <!-- input de busqueda para filtrar las mascotas por nombre -->
+        <input type="search" id="myInput" onkeyup="filterTable()" placeholder="Buscar mascota por nombre" title="Type in a name">
+
+    </div>
+    
+    <!-- Tabla con todas las mascotas de la base de datos (cambia con los filtros) -->
+    <div>
+        <table id="myTable" class="tablita">
+            <thead>
+                <tr>
+                    <th>Foto</th>
+                    <th>Nombre</th>
+                    <th>Raza</th>
+                    <th>Edad</th>
+                    <th>Peso</th>
+                    <th>Enfermedad</th>
+                    <th>Estado</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <!-- Cuerpo de la tabla con las mascotas de la base de datos -->
+            <tbody>
+                <!-- por cada mascota de la base de datos se crea una fila de la tabla con sus datos -->
+                <tr *ngFor="let mascota of listaMascotas" [id]="'mascota-row-' + mascota.id">
+                    <td><img cLass="fotoPerro" [src]="mascota.foto"/></td>
+                    <td> {{mascota.nombre}} </td>
+                    <td> {{mascota.raza}} </td>
+                    <td> {{mascota.edad}} </td>
+                    <td> {{mascota.peso}} </td>
+                    <td> {{mascota.enfermedad}} </td>
+                    <td> {{mascota.estado}} </td>
+                    <!-- opciones CRUD de cada mascota -->
+                    <td class="opciones">
+                        <!-- enlace para ver la informacion de la mascota -->
+                        <a class="links informa" [routerLink]="['../find/', mascota.id]">
+                            <i class='bx bx-info-circle'></i>
+                        </a>
+                        <!-- enlace para editar la informacion de la mascota -->
+                        <a class="links edit" [routerLink]="['../update/', mascota.id]">
+                            <i class='bx bxs-edit'></i>
+                        </a>
+                        <!-- enlace para cambiar el estado de la mascota (popup de alerta para confirmar) -->
+                        <a class="links delete" (click)="mostrarAlerta(mascota.id)">
+                            <i class='bx bx-transfer'></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Fin de la tabla -->
+</div>
+<!-- Fin de contenido principal -->

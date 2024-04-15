@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { LandingComponent } from './landingComponent/landing/landing.component';
 import { VetSidebarComponent } from './veterinario/vet-sidebar/vet-sidebar.component';
 import { ClienteSidebarComponent } from './cliente/cliente-sidebar/cliente-sidebar.component';
-import { ClienteSearchbarComponent } from './searchbar-mascota-nombre/searchbar-mascota-nombre.component';
 import { ClientePerfilComponent } from './cliente/cliente-perfil/cliente-perfil.component';
 import { ClienteMostrarMascotaComponent } from './cliente/cliente-mostrar-mascota/cliente-mostrar-mascota.component';
 import { VetMostrarMascotaTodasComponent } from './veterinario/vet-mostrar-mascota-todas/vet-mostrar-mascota-todas.component';
@@ -24,6 +23,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { PageNotFoundComponent } from './errors/page-not-found/page-not-found.component';
 import { CedulaNotFoundComponent } from './errors/cedula-not-found/cedula-not-found.component';
 import { IdNotFoundComponent } from './errors/id-not-found/id-not-found.component';
+import { AdministradorSidebarComponent } from './administrador/administrador-sidebar/administrador-sidebar.component';
+import { AdministradorDashboardComponent } from './administrador/administrador-dashboard/administrador-dashboard.component';
+import { AdminMostrarMascotasTodasComponent } from './administrador/admin-mostrar-mascotas-todas/admin-mostrar-mascotas-todas.component';
+import { AdminMostrarMascotaComponent } from './administrador/admin-mostrar-mascota/admin-mostrar-mascota.component';
+import { AdminModificarMascotaComponent } from './administrador/admin-modificar-mascota/admin-modificar-mascota.component';
+import { AdminRegistrarMascotaComponent } from './administrador/admin-registrar-mascota/admin-registrar-mascota.component';
+import { AdminMostrarClientesTodosComponent } from './administrador/admin-mostrar-clientes-todos/admin-mostrar-clientes-todos.component';
+import { AdminMostrarClienteComponent } from './administrador/admin-mostrar-cliente/admin-mostrar-cliente.component';
+import { AdminModificarClienteComponent } from './administrador/admin-modificar-cliente/admin-modificar-cliente.component';
+import { AdminRegistrarClienteComponent } from './administrador/admin-registrar-cliente/admin-registrar-cliente.component';
+import { AdminRegistrarVeterinarioComponent } from './administrador/admin-registrar-veterinario/admin-registrar-veterinario.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +41,6 @@ import { IdNotFoundComponent } from './errors/id-not-found/id-not-found.componen
     LandingComponent,
     VetSidebarComponent,
     ClienteSidebarComponent,
-    ClienteSearchbarComponent,
     ClientePerfilComponent,
     ClienteMostrarMascotaComponent,
     VetMostrarMascotaTodasComponent,
@@ -46,7 +55,18 @@ import { IdNotFoundComponent } from './errors/id-not-found/id-not-found.componen
     ClienteLoginComponent,
     PageNotFoundComponent,
     CedulaNotFoundComponent,
-    IdNotFoundComponent
+    IdNotFoundComponent,
+    AdministradorSidebarComponent,
+    AdministradorDashboardComponent,
+    AdminMostrarMascotasTodasComponent,
+    AdminMostrarMascotaComponent,
+    AdminModificarMascotaComponent,
+    AdminRegistrarMascotaComponent,
+    AdminMostrarClientesTodosComponent,
+    AdminMostrarClienteComponent,
+    AdminModificarClienteComponent,
+    AdminRegistrarClienteComponent,
+    AdminRegistrarVeterinarioComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,308 @@
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100px;
+    padding: .4rem 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    transition: all 0.5s ease;
+}
+
+.sidebar.active ~ .titulo ,.sidebar.active ~ .main-content{
+    left: 250px;
+    width: calc(100% - 250px);
+}
+
+.sidebar.active {
+    width: 250px;
+}
+
+.titulo {
+    position: relative;
+    left: 100px;
+    transition: all 0.5s ease;
+    width: calc(100% - 100px);
+    transition: all 0.5s ease;
+
+}
+
+.main-title{
+    font-size: 3em;
+    position: relative;
+    text-align: center;
+    padding-top: 25px;  
+    color: black;
+}
+
+.main-subtitle{
+    position: relative;
+    font-size: 2em;
+    text-align: center;
+    color: #3468c0;
+}
+
+.main-content {
+    position: relative;
+    top: 0;
+    left: 100px;
+    transition: all 0.5s ease;
+    width: calc(100% - 100px);
+    padding: 1rem;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 50px;
+    padding-right: 50px;
+    
+    display: flex;
+    flex-direction: row;
+}
+
+.left-side {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-right: 25px;
+
+}
+
+.left-side h1 {
+    margin-bottom: 25px;
+    font-size: 40px;
+}
+
+.right-side {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 25px;
+
+}
+
+.cabeza {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    align-items: center;
+    height: 10%;
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 25px;
+}
+
+.cabeza h1 {
+    margin: 0;
+    font-size: 40px;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 685px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.08),
+        -4px -4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.card-image-container {
+    width: 130%;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: rgb(165, 165, 165);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-des {
+    list-style: none;
+    padding-left: 0;
+}
+
+.info img {
+    height: 100%;
+    margin-right: 50px;
+}
+
+.info-texto {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 70%;
+    padding-left: 25px;
+}
+
+.info-dog h2 , .info-dueño h2 {
+    width: 100%;
+    text-align: center; 
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 30px;
+    padding-bottom: 5px;
+    font-size: 2em;
+}
+
+.info-dog h2 {
+    padding-top: 20px;
+}
+
+.lista {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 1.5em;
+}
+
+.search {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    align-items: center;
+    height: 10%;
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.search h1 {
+    margin: 0;
+    font-size: 40px;
+}
+
+.search input {
+    font-size: 1.5em;
+    width: 50%;
+    height: 40px;
+    border-radius: 50px;
+    border: 2px solid #000000;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.formulario h1 {
+    display: flex;
+    font-size: 40px;
+    flex-direction: row;
+    height: 10%;
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.formulario button.btn-enviar {
+    font-family: 'Acme', sans-serif !important;
+    font-size: 25px !important;
+    background-color: #ff9c35 !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 16px !important;
+    width: 180px !important;
+    height: 40px !important;
+    margin-top: 15px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formulario button.btn-enviar:hover {
+    box-shadow: 0 4px 16px #ff9c35 !important;
+    transition: all 0.2s ease !important;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;  
+
+}
+
+.input-container {
+    position: relative;
+    margin: 23px auto; 
+    width: 100%;
+}
+
+.input-container input[type="text"],
+.input-container input[type="number"],
+.input-container input[type="url"],
+.input-container select {
+    font-size: 25px;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    padding: 5px 0; 
+    background-color: transparent;
+    outline: none;
+    font-family: 'Acme';
+}
+
+  .input-container .label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #ccc;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    font-size: 25px;
+}
+
+.input-container input[type="text"]:focus ~ .label,
+.input-container input[type="text"]:valid ~ .label,
+.input-container input[type="number"]:focus ~ .label, 
+.input-container input[type="number"]:valid ~ .label, 
+.input-container input[type="url"]:focus ~ .label,
+.input-container input[type="url"]:valid ~ .label,
+.input-container select:focus ~ .label,
+.input-container select:valid ~ .label {
+    top: -20px;
+    font-size: 20px;
+    color: #3468c0;
+}
+
+.input-container .underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #FF9C35;
+    transform: scaleX(0);
+    transition: all 0.3s ease;
+}
+
+
+.input-container input[type="text"]:focus ~ .underline,
+.input-container input[type="text"]:valid ~ .underline, 
+.input-container input[type="number"]:focus ~ .underline,
+.input-container input[type="number"]:valid ~ .underline,
+.input-container input[type="url"]:focus ~ .underline,
+.input-container input[type="url"]:valid ~ .underline,
+.input-container select:focus ~ .underline,
+.input-container select:valid ~ .underline {
+    transform: scaleX(1);
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}

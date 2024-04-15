@@ -1,21 +1,22 @@
-<app-cliente-sidebar class="sidebar"></app-cliente-sidebar>
+<app-administrador-sidebar class="sidebar"></app-administrador-sidebar>
 
+<!-- Contenido principal -->
 <div class = "main-content">
 
     <!-- Apartado (izquierdo) para presentar la información de la mascota -->
     <div class = "left-side">
 
-        <!-- nombre de la mascota -->
-        <div class = "cabeza" *ngFor="let mascota of cliente.mascotas">
-            <h1> {{mascota.nombre}} </h1>
+        <!-- Nombre de la mascota -->
+        <div class = "cabeza">
+            <h1> {{cliente.mascotas[0].nombre}} </h1>
         </div>
         
         <!-- Card para presentar la información de la mascota -->
         <div class = "info">
             
-            <!-- imagen de la mascota -->
-            <div class="card-image-container" *ngFor="let mascota of cliente.mascotas">
-                <img alt="fotoPerro" [src]="mascota.foto"/>
+            <!-- Imagen de la mascota -->
+            <div class="card-image-container">
+                <img alt="fotoPerro" [src]="cliente.mascotas[0].foto"/>
             </div> 
 
             <!-- informacion de la card -->
@@ -25,13 +26,12 @@
                 <div class = info-dog>
                     <h2>Información Mascota</h2>
                     <div class="lista">
-                        <ul class="card-des" *ngFor="let mascota of cliente.mascotas">
-                            <!-- Se muestra la información de la mascota (de la base de datos) -->
-                            <li>Raza: <span> {{mascota.raza}} </span></li>
-                            <li>Edad: <span> {{mascota.edad}} </span></li>
-                            <li>Peso: <span> {{mascota.peso}} </span></li>
-                            <li>Enfermedad: <span> {{mascota.enfermedad}} </span></li>
-                            <li>Estado: <span> {{mascota.estado}} </span></li>
+                        <ul class="card-des">
+                            <li>Raza: <span> {{cliente.mascotas[0].raza}} </span></li>
+                            <li>Edad: <span> {{cliente.mascotas[0].edad}} </span></li>
+                            <li>Peso: <span> {{cliente.mascotas[0].peso}} </span></li>
+                            <li>Enfermedad: <span> {{cliente.mascotas[0].enfermedad}} </span></li>
+                            <li>Estado: <span> {{cliente.mascotas[0].estado}} </span></li>
                         </ul>
                     </div>
                     
@@ -49,12 +49,12 @@
                         </ul>
                     </div>
                     
-                </div> 
+                </div>
             </div>                     
             
         </div>
-    </div>
-    <!-- Fin Apartado (izquierdo) -->
+    </div> 
+    <!-- Fin del apartado (izquierdo) -->
 
     <!-- Apartado (derecho) para mostrar los tratamientos de la mascota -->
     <div class = "right-side">
@@ -62,7 +62,7 @@
         <!-- Apartado para la barra de busqueda para filtrar los tratamientos -->
         <div class = "search">
             <h1>Tratamientos </h1>
-            <!-- REVISAR si poner la barra de busqueda para filtrar los tratamientos -->
+            <input type="search" id="myInput" onkeyup="myFunction()" placeholder="Buscar " title="Type in a name">
         </div>
         
         <!-- Tabla con los tratamientos de la mascota -->
@@ -77,17 +77,18 @@
             <!-- Cuerpo de la tabla con los tratamientos de la mascota -->
             <tbody>
                 <!-- por cada tratamiento de la mascota se crea una fila de la tabla con sus datos (los datos de la base de datos) -->
+                <!-- TODO: Cambiar cuando hayan tratamientos -->
+                <!--
                 <tr th:each="tratamiento : ${tratamientos}">
                     <td th:text="${tratamiento.droga}"></td>
                     <td th:text="${tratamiento.fecha}"></td>
                     <td th:text="${tratamiento.veterinario}"></td>
                 </tr>
+                -->
             </tbody>
         </table>
-        
     </div>
-    <!-- Fin Apartado (derecho) -->
-
-
+    <!-- Fin del apartado (derecho) -->
 
 </div>
+<!-- Fin del contenido principal -->

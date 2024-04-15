@@ -1,0 +1,94 @@
+<head>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+</head>
+
+<!-- Sidebar del administrador -->
+<div class = "sidebar_ok">
+
+    <!-- Parte superior del sidebar para el logo -->
+    <div class = "top">
+        <img src="../../../assets/images/dog.png" alt="logo" id="btn"/>
+        <div class = "logo">
+            <span>Petly</span>
+        </div>
+    </div>
+
+    <!-- Apartado para Foto y Nombre del veterinario -->
+    <div class = "user">
+        <i class="bx bxs-user-circle" id="raro"></i>
+        <p>Administrador</p>           
+    </div>
+    
+    <!-- Apartado para las opciones de navegación del veterinario -->
+    <div class = "nav">
+        <ul>
+            <!-- opcion para ver el dashboard -->
+            <li>
+                <a [routerLink]="'/administrador/dashboard'">
+                    <i class='bx bxs-dashboard' ></i>
+                    <span class="nav-item">Dashboard</span>
+                </a>
+            </li>
+
+            <!-- opcion para ver todos los veterinarios -->
+            <li>
+                <a [routerLink]="'/administrador/veterinarios/all'">
+                    <i class='bx bxs-group'></i>
+                    <span class="nav-item">Ver veterinarios</span>
+                </a>
+            </li>
+
+            <!-- opcion para registrar un nuevo veterinario -->
+            <li>
+                <a [routerLink]="'/administrador/veterinarios/add'">
+                    <i class='bx bxs-user-plus'></i>
+                    <span class="nav-item">Nuevo veterinario</span>
+                </a>
+            </li>
+
+            <!-- opcion para ver todas las mascotas -->
+            <li>
+                <a [routerLink]="'/administrador/mascotas/all'">
+                    <i class="bx bx-table"></i>
+                    <span class="nav-item">Ver mascotas</span>
+                </a>
+            </li>
+
+            <!-- opcion para registrar una nueva mascota -->
+            <li>
+                <a [routerLink]="'/administrador/mascotas/add'">
+                    <i class="bx bxs-dog"></i>
+                    <span class="nav-item">Registrar mascota</span>
+                </a>
+            </li>
+            
+            <!-- opcion para ver todos los clientes -->
+            <li>
+                <a [routerLink]="'/administrador/clientes/all'">
+                    <i class="bx bx-group"></i>
+                    <span class="nav-item">Ver clientes</span>
+                </a>
+            </li>
+
+            <!-- opcion para registrar un nuevo cliente -->
+            <li>
+                <a [routerLink]="'/administrador/clientes/add'">
+                    <i class="bx bx-user-plus"></i>
+                    <span class="nav-item">Registrar cliente</span>
+                </a>
+            </li>
+
+        
+
+
+            <!-- opcion para cerrar sesión -->
+            <li id="logout">
+                <a [routerLink]="'/'">
+                    <i class="bx bx-log-out"></i>
+                    <span class="nav-item">Cerrar sesión</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div> 
+<!-- Termina sidebar del administrador  -->

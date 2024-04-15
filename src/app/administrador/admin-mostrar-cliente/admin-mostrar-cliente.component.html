@@ -1,0 +1,91 @@
+<app-administrador-sidebar class="sidebar"></app-administrador-sidebar>
+
+<!-- Contenido principal -->
+<div class = "main-content">
+
+    <!-- Apartado (izquierdo) para mostrar la informacion del cliente -->
+    <div class = "left-side">
+
+        <!-- nombre y apellido del cliente -->
+        <div class = "cabeza">
+            <!-- <h1> {{cliente.nombre}} </h1> -->
+            <h1> NomCliente </h1>
+        </div>
+        
+        <!-- Para mostrar la informacion del cliente -->
+        <div class = "info">
+            
+            <!-- Imagen del cliente -->
+            <div class="card-user-container">
+                <i class='bx bxs-user' style='color:#898989;padding-top: 30px;'></i>
+            </div> 
+
+            <!-- Informacion de la card -->
+            <div class = info-texto>
+
+                <!-- Informacion del cliente -->
+                <div class = info-dog>
+                    <h2>Información Cliente</h2>
+                    <div class="lista">
+                        <ul class="card-des">
+                            <!-- Se muestra la informacion del cliente (de la base de datos) -->
+                            <li>Cedula: <span> {{cliente.cedula}} </span></li>
+                            <li>Nombre: <span> {{cliente.nombre}} </span></li>
+                            <li>Apellido: <span> {{cliente.apellido}} </span></li>
+                            <li>Correo: <span> {{cliente.correo}} </span></li>
+                            <li>Celular: <span> {{cliente.celular}} </span></li>
+                        </ul>
+                    </div> 
+                </div>
+            </div>                     
+        </div>
+        <!-- Termina la card -->
+    </div>  
+    <!-- Termina el apartado (izquierdo) -->
+
+    <!-- Apartado (derecho) para mostrar las mascotas del cliente -->
+    <div class = "right-side">
+
+        <!-- Apara la barra de busqueda para filtrar las mascotas por nombre -->
+        <div class = "search">
+            <h1>Mascotas</h1>
+            <input type="search" id="myInput" onkeyup="filterTable()" placeholder="Buscar mascota por nombre" title="Type in a name">
+        </div>
+        
+        <!-- Tabla con las mascotas del cliente -->
+        <table id="myTable" class="tablita">
+            <thead>
+                <tr>
+                    <th>Foto</th>
+                    <th>Nombre</th>
+                    <th>Raza</th>
+                    <th>Edad</th>
+                    <th>Peso</th>
+                    <th>Enfermedad</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <!-- Cuerpo de la tabla con las mascotas del cliente -->
+            <tbody>
+                <!-- por cada mascota del cliente se crea una fila de la tabla con sus datos -->
+                <tr *ngFor="let mascota of cliente.mascotas" [id]="'mascota-row-' + mascota.id">
+                    <td><img class="fotoPerro" alt="Foto Mascota" [src]="mascota.foto"/></td>
+                    <td> {{mascota.nombre}} </td>
+                    <td> {{mascota.raza}} </td>
+                    <td> {{mascota.edad}} </td>
+                    <td> {{mascota.peso}} </td>
+                    <td> {{mascota.enfermedad}} </td>
+                    <!-- Boton para ver la informacion de la mascota -->
+                    <td class="opciones">
+                        <a class="links icono" [routerLink]="['../../../mascotas/find/', mascota.id]">
+                            <i class='bx bx-info-circle'></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Termina la tabla -->
+    </div>
+    <!-- Termina el apartado (derecho) -->
+
+</div>

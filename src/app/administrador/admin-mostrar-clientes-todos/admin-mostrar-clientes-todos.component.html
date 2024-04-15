@@ -1,0 +1,54 @@
+<app-administrador-sidebar class="sidebar"></app-administrador-sidebar>
+
+<!-- Contenido principal -->
+<div class = "main-content">
+
+    <!-- Apartado para la barra de busqueda para filtrar los clientes por cedula -->
+    <div class="search">
+        <h1>Clientes de Petly</h1>
+        <input type="search" id="myInput" onkeyup="filterTable()" placeholder="Buscar cliente por cedula" title="Type in a name">
+    </div>
+    
+    <!-- Tabla con todos los clientes registrados en la base de datos (cambia con el filtro) -->
+    <div>
+        <table id="myTable" class="tablita">
+            <thead>
+                <tr>
+                    <th>Cedula</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                    <th>Celular</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <!-- Cuerpo de la tabla con todos los clientes registrados en la base de datos -->
+            <tbody>
+                <!-- por cada cliente de la base de datos se crea una fila de la tabla con sus datos (los datos de la base de datos) -->
+                <tr *ngFor="let cliente of listaClientes" [id]="'cliente-row-' + cliente.id">
+                    <td> {{cliente.cedula}} </td>
+                    <td> {{cliente.nombre}} </td>
+                    <td> {{cliente.apellido}} </td>
+                    <td> {{cliente.correo}} </td>
+                    <td> {{cliente.celular}} </td>
+                    <!-- opciones CRUD de cada cliente -->
+                    <td class="opciones">
+                        <!-- enlace para ver la informacion del cliente -->
+                        <a class="links informa" [routerLink]="['../find/', cliente.id]">
+                            <i class='bx bx-info-circle'></i>
+                        </a>
+                        <!-- enlace para editar la informacion del cliente -->
+                        <a class="links edit" [routerLink]="['../update/', cliente.id]">
+                            <i class='bx bxs-edit'></i>
+                        </a>
+                        <!-- enlace para eliminar el cliente -->
+                        <a class="links delete" (click)="mostrarAlerta(cliente.id)">
+                            <i class='bx bxs-trash'></i>
+                        </a>
+                    </td>
+                </tr>
+        </table>
+    </div>
+    <!-- Fin de la tabla -->
+</div>
+<!-- Fin del contenido principal -->
