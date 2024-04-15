@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2'
 
 @Component({
@@ -7,8 +8,14 @@ import Swal from 'sweetalert2'
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent {
-  constructor() {}
-  ngAfterViewInit() {
+  
+  constructor(
+    private router: Router, 
+    private elementRef: ElementRef
+  ) {}
+
+  
+    ngAfterViewInit() {
     // Función para mostrar el popup de contacto
     function mostrarContacto() {
       // Popup de alerta
@@ -124,5 +131,18 @@ export class LandingComponent {
       });
     });
   }
-    
+
+  scrollToSection(fragment: string): void {
+    this.router.navigate([], { fragment }).then(() => {
+      const element = this.elementRef.nativeElement.querySelector(`#${fragment}`);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+      }
+    });
+  }
+  
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  
 }

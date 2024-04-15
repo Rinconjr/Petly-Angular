@@ -31,7 +31,7 @@ export class VetModificarMascotaComponent implements OnInit {
             this.mascotaAux = mascota;
             this.formMascota = Object.assign({}, this.mascotaAux);
           } else {
-            this.router.navigate(['/id-not-found/mascota/' + id]);
+            this.router.navigate(['/id-not-found/veterinario/mascota/' + id]);
           }
         }
       );

@@ -13,23 +13,38 @@ export class IdNotFoundComponent {
     private router: Router
   ) { }
 
-  id!: string;
+  user!: string;
   tipo!: string;
+  id!: string;
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      const id = String(params.get('id'));
-      this.id = id;
+      const user = String(params.get('user'));
+      this.user = user;
 
       const tipo = String(params.get('tipo'));
       this.tipo = tipo;
+
+
+      const id = String(params.get('id'));
+      this.id = id;
     });
   }
 
   goBack() {
-    if(this.tipo === 'cliente')
-      this.router.navigate(['/veterinario/clientes/all']);
-    else if(this.tipo === 'mascota')
-      this.router.navigate(['/veterinario/mascotas/all']);
+    if(this.user === 'admin')
+    {
+      if(this.tipo === 'cliente')
+        this.router.navigate(['/admin/clientes/all']);
+      else if(this.tipo === 'mascota')
+        this.router.navigate(['/admin/mascotas/all']);
+    }
+    else if (this.user === 'veterinario')
+    {
+      if(this.tipo === 'cliente')
+        this.router.navigate(['/veterinario/clientes/all']);
+      else if(this.tipo === 'mascota')
+        this.router.navigate(['/veterinario/mascotas/all']);
+    }
   }
 }

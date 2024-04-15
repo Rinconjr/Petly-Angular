@@ -27,7 +27,7 @@ export class VetMostrarMascotaComponent implements OnInit {
           if(cliente != null ) 
             this.cliente = cliente
           else 
-            this.router.navigate(['/id-not-found/mascota/' + id]);
+            this.router.navigate(['/id-not-found/veterinario/mascota/' + id]);
         }
       );
     });

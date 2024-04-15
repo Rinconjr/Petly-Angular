@@ -31,7 +31,7 @@ export class VetModificarClienteComponent implements OnInit {
             this.llegaCliente = Object.assign({}, this.clienteAux);
             this.formCliente = Object.assign({}, this.clienteAux);
           } else {
-            this.router.navigate(['/id-not-found/cliente/' + id]);
+            this.router.navigate(['/id-not-found/veterinario/cliente/' + id]);
           }
         }
       );

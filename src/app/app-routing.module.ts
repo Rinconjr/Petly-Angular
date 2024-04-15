@@ -16,6 +16,15 @@ import { VetModificarClienteComponent } from './veterinario/vet-modificar-client
 import { PageNotFoundComponent } from './errors/page-not-found/page-not-found.component';
 import { CedulaNotFoundComponent } from './errors/cedula-not-found/cedula-not-found.component';
 import { IdNotFoundComponent } from './errors/id-not-found/id-not-found.component';
+import { AdministradorDashboardComponent } from './administrador/administrador-dashboard/administrador-dashboard.component';
+import { AdminMostrarMascotasTodasComponent } from './administrador/admin-mostrar-mascotas-todas/admin-mostrar-mascotas-todas.component';
+import { AdminMostrarMascotaComponent } from './administrador/admin-mostrar-mascota/admin-mostrar-mascota.component';
+import { AdminRegistrarMascotaComponent } from './administrador/admin-registrar-mascota/admin-registrar-mascota.component';
+import { AdminModificarMascotaComponent } from './administrador/admin-modificar-mascota/admin-modificar-mascota.component';
+import { AdminMostrarClientesTodosComponent } from './administrador/admin-mostrar-clientes-todos/admin-mostrar-clientes-todos.component';
+import { AdminMostrarClienteComponent } from './administrador/admin-mostrar-cliente/admin-mostrar-cliente.component';
+import { AdminRegistrarClienteComponent } from './administrador/admin-registrar-cliente/admin-registrar-cliente.component';
+import { AdminModificarClienteComponent } from './administrador/admin-modificar-cliente/admin-modificar-cliente.component';
 
 const routes: Routes = [
   //Path para la landing page
@@ -27,12 +36,10 @@ const routes: Routes = [
 
   //Path para todo lo relacionado al veterinario
   //TODO: cambiar todo esto cuando haya login funcional del vetrinario
-  //! todo lo de las mascotas
   { path: 'veterinario/mascotas/all', component:  VetMostrarMascotaTodasComponent },
   { path: 'veterinario/mascotas/find/:id', component:  VetMostrarMascotaComponent},
   { path: 'veterinario/mascotas/add', component: VetRegistrarMascotaComponent },
   { path: 'veterinario/mascotas/update/:id', component: VetModificarMascotaComponent},
-  //! todo lo de los clientes
   { path: 'veterinario/clientes/all', component:  VetMostrarClienteTodosComponent },
   { path: 'veterinario/clientes/find/:id', component: VetMostrarClienteComponent },
   { path: 'veterinario/clientes/add', component: VetRegistrarClienteComponent },
@@ -42,9 +49,20 @@ const routes: Routes = [
   { path: 'usuario/:id', component: ClientePerfilComponent },
   { path: 'usuario/:id/mascota/:id_mascota', component: ClienteMostrarMascotaComponent },
 
+  //Path para todo lo relacionado al administrador
+  { path: 'admin/dashboard', component: AdministradorDashboardComponent},
+  { path: 'admin/mascotas/all', component: AdminMostrarMascotasTodasComponent },
+  { path: 'admin/mascotas/find/:id', component: AdminMostrarMascotaComponent},
+  { path: 'admin/mascotas/add', component: AdminRegistrarMascotaComponent},
+  { path: 'admin/mascotas/update/:id', component: AdminModificarMascotaComponent},
+  { path: 'admin/clientes/all', component:  AdminMostrarClientesTodosComponent},
+  { path: 'admin/clientes/find/:id', component: AdminMostrarClienteComponent},
+  { path: 'admin/clientes/add', component: AdminRegistrarClienteComponent},
+  { path: 'admin/clientes/update/:id', component: AdminModificarClienteComponent},
+
   //Path para errores de cliente e id
   { path: 'cedula-not-found/:cedula', component: CedulaNotFoundComponent },
-  { path: 'id-not-found/:tipo/:id', component: IdNotFoundComponent },
+  { path: 'id-not-found/:user/:tipo/:id', component: IdNotFoundComponent },
   
   //Path de la pagina de error
   //! Dejar siempre al final
