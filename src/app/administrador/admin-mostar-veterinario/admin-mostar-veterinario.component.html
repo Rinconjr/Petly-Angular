@@ -48,6 +48,7 @@
         <div class = "search">
             <h1>Tratamientos </h1>
             <!-- TODO: Poner el search bar para los tratamientos-->
+            <input type="search" id="myInput" onkeyup="filterTable()" placeholder="Buscar por nombre de mascota" title="Type in a name">
         </div>
         
         <!-- Tabla con los tratamientos de la mascota -->
@@ -62,6 +63,11 @@
             <!-- Cuerpo de la tabla con los tratamientos de la mascota -->
             <tbody>
                 <!-- por cada tratamiento de la mascota se crea una fila de la tabla con sus datos (los datos de la base de datos) -->
+                <tr *ngFor="let tratamiento of veterinario.tratamientos" [id]="'tratamiento-row-' + tratamiento.id">
+                    <td> {{tratamiento.mascota}} </td>
+                    <td> {{tratamiento.drogaT}}</td>
+                    <td> {{tratamiento.fecha}} </td>                                        
+                </tr>
             </tbody>
         </table>
     </div>

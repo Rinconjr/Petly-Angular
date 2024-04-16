@@ -54,7 +54,7 @@ export class VetMostrarClienteComponent implements OnInit {
   }
 
 
-  // Función para filtrar la tabla por nombre y estado
+  // Función para filtrar la tabla por nombre
   filterTable() {
     const filter = (document.getElementById('myInput') as HTMLInputElement).value.toUpperCase();
 
