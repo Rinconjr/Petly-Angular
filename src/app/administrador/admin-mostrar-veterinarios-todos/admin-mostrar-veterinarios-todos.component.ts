@@ -10,6 +10,7 @@ import Swal from 'sweetalert2'
 })
 export class AdminMostrarVeterinariosTodosComponent {
   listaVeterinarios!: Veterinario[];
+  filtroEstado: string = 'Todos'; // Estado inicial del filtro
 
   constructor(
     private veterinarioService: VeterinarioServiceService
@@ -20,6 +21,11 @@ export class AdminMostrarVeterinariosTodosComponent {
     this.veterinarioService.findAll().subscribe(
       (veterinarios) => this.listaVeterinarios = veterinarios
     );
+
+    const inputSearch = document.getElementById('myInput') as HTMLInputElement;
+    inputSearch.addEventListener('keyup', () => {
+      this.filterTable();
+    });
   
     let sidebar = document.querySelector('.sidebar') as HTMLElement;
 
@@ -71,5 +77,40 @@ export class AdminMostrarVeterinariosTodosComponent {
     else {
       this.listaVeterinarios[index].estado = 'Disponible';
     }
+  }
+
+  // Función para filtrar la tabla por estado
+  filterTableByState() {
+    this.filterTable();
+  }
+
+  // Función para filtrar la tabla por cedula y estado
+  filterTable() {
+    const filter = (document.getElementById('myInput') as HTMLInputElement).value.toUpperCase();
+    const estado = this.filtroEstado.toUpperCase();
+
+    const filteredVeterinarios = this.listaVeterinarios.filter((veterinario) => {
+      const cedula = veterinario.cedula.toUpperCase();
+      const estadoVeterinario = veterinario.estado.toUpperCase();
+      return (
+        (estado === 'TODOS' || estadoVeterinario === estado) &&
+        cedula.includes(filter)
+      );
+    });
+
+    this.listaVeterinarios.forEach((veterinario) => {
+      const row = document.getElementById(`vet-row-${veterinario.id}`);
+      if (row) {
+        row.style.display = filteredVeterinarios.includes(veterinario)
+          ? ''
+          : 'none';
+      }
+    });
+  }
+
+  // Event listener para los botones de radio
+  onRadioChange(event: Event) {
+    this.filtroEstado = (event.target as HTMLInputElement).value;
+    this.filterTable();
   }
 }

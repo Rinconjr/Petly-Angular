@@ -6,9 +6,9 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Acme";
-  background: url(../../../assets/images/registroVeterinario.jpg);
+  background: url(../../../assets/images/registroVeterinario1.jpg);
   background-size: cover;
-  background-position: 0% 100%;
+  background-position: 50%;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -76,7 +76,8 @@ body {
 
 .input-container input[type="text"],
 .input-container input[type="number"],
-.input-container input[type="url"] {
+.input-container input[type="url"],
+.input-container input[type="password"] {
   font-size: 25px;
   width: 100%;
   border: none;
@@ -102,7 +103,9 @@ body {
 .input-container input[type="number"]:focus ~ .label,
 .input-container input[type="number"]:valid ~ .label,
 .input-container input[type="url"]:focus ~ .label,
-.input-container input[type="url"]:valid ~ .label {
+.input-container input[type="url"]:valid ~ .label,
+.input-container input[type="password"]:focus ~ .label,
+.input-container input[type="password"]:valid ~ .label {
   top: -20px;
   font-size: 20px;
   color: #3468c0;
@@ -124,7 +127,9 @@ body {
 .input-container input[type="number"]:focus ~ .underline,
 .input-container input[type="number"]:valid ~ .underline,
 .input-container input[type="url"]:focus ~ .underline,
-.input-container input[type="url"]:valid ~ .underline {
+.input-container input[type="url"]:valid ~ .underline,
+.input-container input[type="password"]:focus ~ .underline,
+.input-container input[type="password"]:valid ~ .underline {
   transform: scaleX(1);
 }
 

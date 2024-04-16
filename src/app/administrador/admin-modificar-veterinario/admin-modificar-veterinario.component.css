@@ -117,7 +117,7 @@
   padding: 10px;
 }
 
-.card-image-container {
+.card-user-container {
   width: 130%;
   border-radius: 10px;
   overflow: hidden;
@@ -145,18 +145,17 @@
   padding-left: 25px;
 }
 
-.info-dog h2,
-.info-dueño h2 {
+.info-personal h2 {
   width: 100%;
   text-align: center;
   padding-top: 10px;
-  padding-left: 10px;
-  padding-right: 30px;
-  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 25px;
+  padding-bottom: 10px;
   font-size: 2em;
 }
 
-.info-dog h2 {
+.info-personal h2 {
   padding-top: 20px;
 }
 
@@ -165,6 +164,10 @@
   flex-direction: column;
   width: 100%;
   font-size: 1.5em;
+}
+
+.lista li {
+  margin-bottom: 8px;
 }
 
 .search {
