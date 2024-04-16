@@ -62,26 +62,21 @@
         <!-- Apartado para la barra de busqueda para filtrar los tratamientos -->
         <div class = "search">
             <h1>Tratamientos </h1>
-            <!-- REVISAR si poner la barra de busqueda para filtrar los tratamientos -->
+            <!-- TODO: Poner el search bar para los tratamientos -->
         </div>
         
         <!-- Tabla con los tratamientos de la mascota -->
         <table class="tablita">
             <thead>
                 <tr>
+                    <th>Veterinario</th>
                     <th>Medicina</th>
                     <th>Fecha</th>
-                    <th>Veterinario</th>
                 </tr>
             </thead>
             <!-- Cuerpo de la tabla con los tratamientos de la mascota -->
             <tbody>
                 <!-- por cada tratamiento de la mascota se crea una fila de la tabla con sus datos (los datos de la base de datos) -->
-                <tr th:each="tratamiento : ${tratamientos}">
-                    <td th:text="${tratamiento.droga}"></td>
-                    <td th:text="${tratamiento.fecha}"></td>
-                    <td th:text="${tratamiento.veterinario}"></td>
-                </tr>
             </tbody>
         </table>
         

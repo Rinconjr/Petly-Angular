@@ -37,3 +37,16 @@
   padding-left: 50px;
   padding-right: 50px;
 }
+
+/*TODO: borrar esto*/
+.tictac {
+  height: 890px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tictac img {
+  height: 800px;
+}
