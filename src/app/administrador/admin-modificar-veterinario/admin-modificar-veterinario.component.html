@@ -1,0 +1,126 @@
+<app-administrador-sidebar class="sidebar"></app-administrador-sidebar>
+
+<!-- Encabezado de la pagina para el titulo y subtitulo del main-content -->
+<div class = "titulo">
+    <h1 class="main-title">Modificar Veterinario</h1>
+    <h1 class="main-subtitle">Actualizar un veterinario en la base de datos de Petly</h1>
+</div>
+
+<!-- Contenido principal de la pagina -->
+<div class = "main-content">
+
+    <!-- Apartado (izquierdo) para modificar la informacion del veterinario -->
+    <div class = "left-side">
+
+        <h1> Informacion Modificada </h1>
+
+        <!-- Formulario para modificar la informacion del veterinario -->
+        <form method="post">
+            
+            <!-- Campos para modificar la informacion del veterinario -->
+            <div class="formulario">
+
+                <!-- Campo para modificar la cedula del veterinario -->
+                <div class="form-group input-container">
+                    <input type="text" id="cedula" name="cedula" [(ngModel)]="formVet.cedula" required>
+                    <label class="label" for="cedula">Cedula veterinario</label>
+                    <div class="underline"></div>
+                </div>
+                
+                <!-- Campo para modificar el nombre del veterinario -->
+                <div class="form-group input-container">
+                    <input type="text" id="nombre" name="nombre" [(ngModel)]="formVet.nombre" required>
+                    <label class="label" for="nombre">Nombre veterinario</label>
+                    <div class="underline"></div>
+                </div>
+        
+                <!-- Campo para modificar el apellido del veterinario -->
+                <div class="form-group input-container">
+                    <input type="text" id="apellido" name="apellido" [(ngModel)]="formVet.apellido" required>
+                    <label class="label" for="apellido">Apellido veterinario</label>
+                    <div class="underline"></div>
+                </div>
+        
+                <!-- Campo para modificar la especialidad del veterinario -->
+                <div class="form-group input-container">
+                    <input type="text" id="especialidad" name="especialidad" [(ngModel)]="formVet.especialidad" required>
+                    <label class="label" for="especialidad">Especialidad veterinario</label>
+                    <div class="underline"></div>
+                </div>
+        
+                <!-- Campo para modificar la contraseña del veterinario -->
+                <div class="form-group input-container">
+                    <input type="text" id="contrasena" name="contrasena" [(ngModel)]="formVet.contrasena" required>
+                    <label class="label" for="contrasena">Contraseña veterinario</label>
+                    <div class="underline"></div>
+                </div>
+                
+                <!-- Campo para modificar la foto del veterinario -->
+                <div class="form-group input-container">
+                    <input type="text" id="foto" name="foto" [(ngModel)]="formVet.foto" required>
+                    <label class="label" for="foto">Foto veterinario</label>
+                    <div class="underline"></div>
+                </div>
+
+                <!-- Checkbox para cambiar el estado del veterinario -->
+                <div class="form-group input-container">
+                    <select id="estado" name="estado" [(ngModel)]="formVet.estado" required>
+                        
+                        <option value="Disponible">Disponible</option>
+                        
+                        <option value="Inactivo">Inactivo</option>
+
+                    </select>
+                    <label class="label" for="estado">Estado</label>
+                    <div class="underline"></div>
+                </div>
+        
+                <!-- Boton para enviar el formulario -->
+                <button type="submit" class="btn btn-primary btn-enviar" (click)="actualizarVet()">Enviar</button>
+
+            </div>
+            
+        </form>
+    </div>
+    <!-- Fin del apartado (izquierdo) -->
+
+    <!-- Apartado (derecho) para ver la informacion del veterinario -->
+    <div class="right-side">
+
+        <!-- Encabezado de la informacion actual del veterinario -->
+        <div class = "cabeza">
+            <h1> Información actual: <span> {{llegaVet.nombre}} </span></h1>
+        </div>
+            
+        <!-- Card para mostrar la informacion del veterinario -->
+        <div class = "info">
+            
+            <!-- Imagen del veterinario -->
+            <div class="card-user-container">
+                <img [src]="llegaVet.foto">
+            </div> 
+
+            <!-- Informacion de la card -->
+            <div class = info-texto>
+
+                <!-- Informacion del veterinario -->
+                <div class = info-personal>
+                    <h2>Información Personal</h2>
+                    <div class="lista">
+                        <ul class="card-des">
+                            <li>Cedula: <span> {{llegaVet.cedula}} </span></li>
+                            <li>Nombre: <span> {{llegaVet.nombre}} </span></li>
+                            <li>Apellido: <span> {{llegaVet.apellido}} </span></li>
+                            <li>Especialidad: <span> {{llegaVet.especialidad}} </span></li>
+                            <li>Estado: <span> {{llegaVet.estado}} </span></li>
+                        </ul>
+                    </div>
+                    
+                </div>
+                
+            </div>                     
+            
+        </div>
+    </div>
+
+</div>

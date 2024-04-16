@@ -25,6 +25,10 @@ import { AdminMostrarClientesTodosComponent } from './administrador/admin-mostra
 import { AdminMostrarClienteComponent } from './administrador/admin-mostrar-cliente/admin-mostrar-cliente.component';
 import { AdminRegistrarClienteComponent } from './administrador/admin-registrar-cliente/admin-registrar-cliente.component';
 import { AdminModificarClienteComponent } from './administrador/admin-modificar-cliente/admin-modificar-cliente.component';
+import { AdminMostrarVeterinariosTodosComponent } from './administrador/admin-mostrar-veterinarios-todos/admin-mostrar-veterinarios-todos.component';
+import { AdminRegistrarVeterinarioComponent } from './administrador/admin-registrar-veterinario/admin-registrar-veterinario.component';
+import { AdminMostarVeterinarioComponent } from './administrador/admin-mostar-veterinario/admin-mostar-veterinario.component';
+import { AdminModificarVeterinarioComponent } from './administrador/admin-modificar-veterinario/admin-modificar-veterinario.component';
 
 const routes: Routes = [
   //Path para la landing page
@@ -59,6 +63,10 @@ const routes: Routes = [
   { path: 'admin/clientes/find/:id', component: AdminMostrarClienteComponent},
   { path: 'admin/clientes/add', component: AdminRegistrarClienteComponent},
   { path: 'admin/clientes/update/:id', component: AdminModificarClienteComponent},
+  { path: 'admin/veterinarios/all', component: AdminMostrarVeterinariosTodosComponent},
+  { path: 'admin/veterinarios/find/:id', component: AdminMostarVeterinarioComponent},
+  { path: 'admin/veterinarios/add', component: AdminRegistrarVeterinarioComponent},
+  { path: 'admin/veterinarios/update/:id', component: AdminModificarVeterinarioComponent},
 
   //Path para errores de cliente e id
   { path: 'cedula-not-found/:cedula', component: CedulaNotFoundComponent },

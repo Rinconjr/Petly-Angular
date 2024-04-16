@@ -1,0 +1,50 @@
+<app-administrador-sidebar class="sidebar"></app-administrador-sidebar>
+
+<!-- Contenido principal -->
+<div class = "main-content">
+
+    <!-- Apartado (izquierdo) para mostrar la informacion del veterinario -->
+    <div class = "left-side">
+
+        <!-- nombre y apellido del veterinario -->
+        <div class = "cabeza">
+            <h1> {{veterinario.nombre}} {{veterinario.apellido}} </h1>
+        </div>
+        
+        <!-- Para mostrar la informacion del veterinario -->
+        <div class = "info">
+            
+            <!-- Imagen del veterinario -->
+            <div class="card-user-container">
+                <img [src]="veterinario.foto">
+            </div> 
+
+            <!-- Informacion de la card -->
+            <div class = info-texto>
+
+                <!-- Informacion del veterinario -->
+                <div class = info-dog>
+                    <h2>Información veterinario</h2>
+                    <div class="lista">
+                        <ul class="card-des">
+                            <!-- Se muestra la informacion del veterinario (de la base de datos) -->
+                            <li>Nombre: <span> {{veterinario.nombre}} </span></li>
+                            <li>Apellido: <span> {{veterinario.apellido}} </span></li>
+                            <li>Cedula: <span> {{veterinario.cedula}} </span></li>
+                            <li>Especialidad: <span> {{veterinario.especialidad}} </span></li>
+                            <li>Numero de atenciones: <span> {{veterinario.numAtenciones}} </span></li>
+                        </ul>
+                    </div> 
+                </div>
+            </div>                     
+        </div>
+        <!-- Termina la card -->
+    </div>  
+    <!-- Termina el apartado (izquierdo) -->
+
+    <!-- Apartado (derecho) para mostrar las mascotas del veterinario -->
+    <div class = "right-side">
+        <!-- TODO: falta incluir lo de los tratamientos -->
+    </div>
+    <!-- Termina el apartado (derecho) -->
+</div>

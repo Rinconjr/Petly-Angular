@@ -38,6 +38,8 @@ export class IdNotFoundComponent {
         this.router.navigate(['/admin/clientes/all']);
       else if(this.tipo === 'mascota')
         this.router.navigate(['/admin/mascotas/all']);
+      else if(this.tipo === 'veterinario')
+        this.router.navigate(['/admin/veterinarios/all']);
     }
     else if (this.user === 'veterinario')
     {

@@ -1,10 +1,7 @@
- //! CAMBIAR: revisar bien cada parte de esto cuando se tenga el servicio Veterinario
-
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Mascota } from 'src/app/models/mascota';
-import { ClienteServiceService } from 'src/app/service/cliente-service.service';
-import { MascotaServiceService } from 'src/app/service/mascota-service.service';
+import { Veterinario } from 'src/app/models/veterinario';
+import { VeterinarioServiceService } from 'src/app/service/veterinario-service.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -15,53 +12,37 @@ import Swal from 'sweetalert2';
 export class AdminRegistrarVeterinarioComponent {
 
   constructor(
-    private mascotaService: MascotaServiceService,
-    private clienteService: ClienteServiceService,
+    private veterinarioService: VeterinarioServiceService,
     private router: Router,
     ) {}
 
-    formMascota: Mascota = {
-      id: 0,
-      nombre: '',
-      raza: '',
-      edad: null,
-      peso: null,
-      enfermedad: '',
-      foto: '',
-      estado: 'Disponible',
-      cliente: {
-        id: null,
-        cedula: '',
-        nombre: '',
-        apellido: '',
-        correo: '',
-        celular: ''
-      }
-    }
+  formVet: Veterinario = {
+    id: 0,
+    cedula: '',
+    nombre: '',
+    apellido: '',
+    contrasena: '',
+    foto: '',
+    especialidad: '',
+    numAtenciones: 0,
+    estado: 'Disponible',
+  };
 
-  sendMascota!: Mascota;
-  
-  agregarMascota(){
-    this.sendMascota = Object.assign({}, this.formMascota);
+  sendVet!: Veterinario;
 
-    this.clienteService.findByCedula(this.sendMascota.cliente.cedula).subscribe(
-      (llegaCliente) => {
-        if(llegaCliente) {
-          this.mascotaService.addPet(this.sendMascota);  
-          this.mostrarAlerta(this.sendMascota);
-        } else {
-          this.mostrarAlertaError(this.sendMascota.cliente.cedula);
-        }
-      }
-    );
+  agregarVeterinario(): void {
+    this.sendVet = Object.assign({}, this.formVet);
 
+    this.veterinarioService.addVet(this.sendVet);
+
+    this.mostrarAlerta(this.sendVet);
   }
 
-  mostrarAlerta(mascota: Mascota) {
+  mostrarAlerta(vet: Veterinario) {
     // Popup de alerta
     Swal.fire({
-      title: '<span style="color: #000000;">Se ha creado una nueva mascota</span>',
-      html: 'Se ha creado la mascota:  ' + mascota.nombre + ' y su dueño es el cliente con la cedula:  ' + mascota.cliente.cedula,
+      title: '<span style="color: #000000;">Se ha creado un nuevo veterinario</span>',
+      html: 'Se ha creado al veterinario ' + vet.nombre,
       imageUrl: "../../../assets/images/popup.png",
       imageWidth: 400,
       imageHeight: 400,
@@ -77,30 +58,9 @@ export class AdminRegistrarVeterinarioComponent {
     }).then((result) => {
       // Resultado de la alerta
       if (result.isConfirmed) {
-        this.router.navigate(['/veterinario/mascotas/all']);
+        this.router.navigate(['/admin/veterinarios/all']);
       }
     });
   }
 
-  mostrarAlertaError(cedula: string) {
-    // Popup de alerta
-    Swal.fire({
-      title: '<span style="color: #000000;">No se ha podido registrar</span>',
-      html: 'No se ha podido registrar la mascota porque la cedula ' + cedula + ' no existe',
-      imageUrl: "../../../assets/images/popup.png",
-      imageWidth: 400,
-      imageHeight: 400,
-      imageAlt: 'Custom image',
-      confirmButtonColor: '#3468c0',
-      confirmButtonText: 'Regresar al formulario',
-      customClass: {
-        title: 'custom-title-class',
-        confirmButton: 'custom-confirm-button-class',
-        cancelButton: 'custom-cancel-button-class'
-      },
-      reverseButtons: true,
-    }).then((result) => {
-      
-    });
-  }
 }

@@ -34,6 +34,9 @@ import { AdminMostrarClienteComponent } from './administrador/admin-mostrar-clie
 import { AdminModificarClienteComponent } from './administrador/admin-modificar-cliente/admin-modificar-cliente.component';
 import { AdminRegistrarClienteComponent } from './administrador/admin-registrar-cliente/admin-registrar-cliente.component';
 import { AdminRegistrarVeterinarioComponent } from './administrador/admin-registrar-veterinario/admin-registrar-veterinario.component';
+import { AdminMostrarVeterinariosTodosComponent } from './administrador/admin-mostrar-veterinarios-todos/admin-mostrar-veterinarios-todos.component';
+import { AdminMostarVeterinarioComponent } from './administrador/admin-mostar-veterinario/admin-mostar-veterinario.component';
+import { AdminModificarVeterinarioComponent } from './administrador/admin-modificar-veterinario/admin-modificar-veterinario.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +69,10 @@ import { AdminRegistrarVeterinarioComponent } from './administrador/admin-regist
     AdminMostrarClienteComponent,
     AdminModificarClienteComponent,
     AdminRegistrarClienteComponent,
-    AdminRegistrarVeterinarioComponent
+    AdminRegistrarVeterinarioComponent,
+    AdminMostrarVeterinariosTodosComponent,
+    AdminMostarVeterinarioComponent,
+    AdminModificarVeterinarioComponent
   ],
   imports: [
     BrowserModule,
