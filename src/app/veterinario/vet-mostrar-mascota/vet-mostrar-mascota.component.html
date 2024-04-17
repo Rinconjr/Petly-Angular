@@ -63,8 +63,8 @@
         <div class = "search">
             <h1>Tratamientos </h1>
             <div class="input-container">
-                <input required="" placeholder="Nuevo Tratamiento" type="Treatamiento">
-                <button class="nevoTratamiento-btn" type="button">
+                <input required placeholder="Nuevo Tratamiento" type="text" [(ngModel)]="droga">
+                <button class="nevoTratamiento-btn" type="button" (click)="crearTratamiento()">
                     <i class='bx bx-capsule'></i>
                 </button>               
             </div>

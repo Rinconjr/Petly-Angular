@@ -19,4 +19,8 @@ export class TratamientoServiceService {
   findByIdPet (id: number): Observable<Tratamiento[]> {
     return this.http.get<Tratamiento[]>('http://localhost:8090/tratamiento/find/mascota/' + id);
   }
+
+  addTreatment (droga: string, idVet: number, idDroga: number) {
+    return this.http.post('http://localhost:8090/tratamiento/add/'+ idVet + '/' + idDroga, droga).subscribe();
+  }
 }
