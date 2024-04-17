@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Cliente } from 'src/app/models/cliente';
+import { Tratamiento } from 'src/app/models/tratamiento';
 import { ClienteServiceService } from 'src/app/service/cliente-service.service';
+import { TratamientoServiceService } from 'src/app/service/tratamiento-service.service';
 
 @Component({
   selector: 'app-cliente-mostrar-mascota',
@@ -12,10 +14,12 @@ export class ClienteMostrarMascotaComponent implements OnInit {
 
   constructor(
     private clienteService: ClienteServiceService,
+    private tratamientoService: TratamientoServiceService,
     private route: ActivatedRoute
   ) { }
 
   cliente!: Cliente;
+  listaTratamientos?: Tratamiento[];
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -26,6 +30,12 @@ export class ClienteMostrarMascotaComponent implements OnInit {
         (llegaCliente) => {
           this.cliente = llegaCliente;
           console.log(this.cliente.mascotas);
+        }
+      );
+
+      this.tratamientoService.findByIdPet(id).subscribe(
+        (llegaLista) => {
+          this.listaTratamientos = llegaLista;
         }
       );
       

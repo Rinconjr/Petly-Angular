@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Tratamiento } from 'src/app/models/tratamiento';
 import { Veterinario } from 'src/app/models/veterinario';
+import { TratamientoServiceService } from 'src/app/service/tratamiento-service.service';
 import { VeterinarioServiceService } from 'src/app/service/veterinario-service.service';
 
 @Component({
@@ -12,10 +13,11 @@ import { VeterinarioServiceService } from 'src/app/service/veterinario-service.s
 export class AdminMostarVeterinarioComponent {
 
   veterinario!: Veterinario;
-  listaTratamientos!: Tratamiento[] | undefined;
+  listaTratamientos?: Tratamiento[];
 
   constructor(
     private veterinarioService: VeterinarioServiceService,
+    private tratamientoService: TratamientoServiceService,
     private route: ActivatedRoute,
     private router: Router
   ) { }
@@ -35,6 +37,13 @@ export class AdminMostarVeterinarioComponent {
             this.router.navigate(['/id-not-found/admin/veterinario/' + id]);
         }
       );
+
+      this.tratamientoService.findByIdVet(id).subscribe(
+        (llegaLista) => {
+          this.listaTratamientos = llegaLista;
+        }
+      );
+
     });
 
     const inputSearch = document.getElementById('myInput') as HTMLInputElement;

@@ -1,0 +1,22 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Tratamiento } from '../models/tratamiento';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class TratamientoServiceService {
+
+  constructor(
+    private http: HttpClient
+  ) { }
+
+  findByIdVet (id: number): Observable<Tratamiento[]> {
+    return this.http.get<Tratamiento[]>('http://localhost:8090/tratamiento/find/veterinario/' + id);
+  }
+
+  findByIdPet (id: number): Observable<Tratamiento[]> {
+    return this.http.get<Tratamiento[]>('http://localhost:8090/tratamiento/find/mascota/' + id);
+  }
+}

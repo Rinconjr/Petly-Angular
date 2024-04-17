@@ -47,7 +47,6 @@
         <!-- Apartado para la barra de busqueda para filtrar los tratamientos -->
         <div class = "search">
             <h1>Tratamientos </h1>
-            <!-- TODO: Poner el search bar para los tratamientos-->
             <input type="search" id="myInput" onkeyup="filterTable()" placeholder="Buscar por nombre de mascota" title="Type in a name">
         </div>
         
@@ -55,6 +54,7 @@
         <table class="tablita">
             <thead>
                 <tr>
+                    <th>Foto</th>
                     <th>Mascota</th>
                     <th>Medicina</th>
                     <th>Fecha</th>
@@ -63,9 +63,10 @@
             <!-- Cuerpo de la tabla con los tratamientos de la mascota -->
             <tbody>
                 <!-- por cada tratamiento de la mascota se crea una fila de la tabla con sus datos (los datos de la base de datos) -->
-                <tr *ngFor="let tratamiento of veterinario.tratamientos" [id]="'tratamiento-row-' + tratamiento.id">
-                    <td> {{tratamiento.mascota}} </td>
-                    <td> {{tratamiento.drogaT}}</td>
+                <tr *ngFor="let tratamiento of listaTratamientos" [id]="'tratamiento-row-' + tratamiento.id">
+                    <td> <img class="fotoPerro" [src]="tratamiento.mascota.foto"> </td>
+                    <td> {{tratamiento.mascota.nombre}} </td>
+                    <td> {{tratamiento.droga.nombre}} </td>
                     <td> {{tratamiento.fecha}} </td>                                        
                 </tr>
             </tbody>
