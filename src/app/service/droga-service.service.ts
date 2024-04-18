@@ -14,4 +14,8 @@ export class DrogaServiceService {
   findAll() {
     return this.http.get<Droga[]>('http://localhost:8090/drogas/all');
   }
+
+  findDisponibles() {
+    return this.http.get<Droga[]>('http://localhost:8090/drogas/disponibles');
+  }
 }

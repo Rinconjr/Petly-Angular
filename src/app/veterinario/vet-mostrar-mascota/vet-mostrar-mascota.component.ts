@@ -53,7 +53,7 @@ export class VetMostrarMascotaComponent implements OnInit {
       );
     });
 
-    this.drogaService.findAll().subscribe(
+    this.drogaService.findDisponibles().subscribe(
       (llegaLista) => {
         this.listaDrogas = llegaLista;
       }
@@ -69,12 +69,6 @@ export class VetMostrarMascotaComponent implements OnInit {
     sidebar.addEventListener('mouseleave', () => {
       sidebar.classList.remove("active");
     });
-
-    for(var i=0; i<this.listaDrogas.length; i++) {
-      if(this.listaDrogas[i].unidadesDisponibles == 0) {
-        this.listaDrogas.splice(i, 1);
-      }
-    }
   }
   
   sendDroga!: string;
