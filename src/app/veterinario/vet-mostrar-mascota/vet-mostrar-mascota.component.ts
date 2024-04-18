@@ -15,7 +15,7 @@ import Swal from 'sweetalert2';
 export class VetMostrarMascotaComponent implements OnInit {
 
   cliente!: any;
-  listaTratamientos?: Tratamiento[];
+  listaTratamientos!: Tratamiento[];
 
   droga!: string;
   idMascota!: number;
@@ -59,17 +59,24 @@ export class VetMostrarMascotaComponent implements OnInit {
       }
     );
 
+    
     let sidebar = document.querySelector('.sidebar') as HTMLElement;
-
+    
     sidebar.addEventListener('mouseover', () => {
       sidebar.classList.add("active");
     });
-
+    
     sidebar.addEventListener('mouseleave', () => {
       sidebar.classList.remove("active");
     });
-  }
 
+    for(var i=0; i<this.listaDrogas.length; i++) {
+      if(this.listaDrogas[i].unidadesDisponibles == 0) {
+        this.listaDrogas.splice(i, 1);
+      }
+    }
+  }
+  
   sendDroga!: string;
 
   crearTratamiento() {
