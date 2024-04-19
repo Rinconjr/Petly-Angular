@@ -77,7 +77,7 @@ export class AdminModificarClienteComponent implements OnInit {
     }).then((result) => {
       // Resultado de la alerta
       if (result.isConfirmed) {
-        this.router.navigate(['/veterinario/clientes/all']);
+        this.router.navigate(['/admin/clientes/all']);
       }
     });
   }

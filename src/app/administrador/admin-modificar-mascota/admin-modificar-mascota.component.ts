@@ -83,7 +83,7 @@ export class AdminModificarMascotaComponent implements OnInit {
     }).then((result) => {
       // Resultado de la alerta
       if (result.isConfirmed) {
-        this.router.navigate(['/veterinario/mascotas/all']);
+        this.router.navigate(['/admin/mascotas/all']);
       }
     });
   }
