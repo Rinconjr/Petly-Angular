@@ -37,6 +37,7 @@ import { AdminRegistrarVeterinarioComponent } from './administrador/admin-regist
 import { AdminMostrarVeterinariosTodosComponent } from './administrador/admin-mostrar-veterinarios-todos/admin-mostrar-veterinarios-todos.component';
 import { AdminMostarVeterinarioComponent } from './administrador/admin-mostar-veterinario/admin-mostar-veterinario.component';
 import { AdminModificarVeterinarioComponent } from './administrador/admin-modificar-veterinario/admin-modificar-veterinario.component';
+import { AdminBarChartComponent } from './administrador/admin-bar-chart/admin-bar-chart.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { AdminModificarVeterinarioComponent } from './administrador/admin-modifi
     AdminRegistrarVeterinarioComponent,
     AdminMostrarVeterinariosTodosComponent,
     AdminMostarVeterinarioComponent,
-    AdminModificarVeterinarioComponent
+    AdminModificarVeterinarioComponent,
+    AdminBarChartComponent
   ],
   imports: [
     BrowserModule,

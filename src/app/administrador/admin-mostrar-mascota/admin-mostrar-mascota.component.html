@@ -62,30 +62,35 @@
         <!-- Apartado para la barra de busqueda para filtrar los tratamientos -->
         <div class = "search">
             <h1>Tratamientos </h1>
-            <button class="tratamiento">Nuevo tratamiento</button>
+            <input type="search" id="myInput" onkeyup="filterTable()" placeholder="Buscar tratamiento por medicina" title="Type in a name">
+        </div>
+
+        <div class = "tabla-container">
+
+            <!-- Tabla con los tratamientos de la mascota -->
+            <table class="tablita">
+                <thead>
+                    <tr>
+                        <th>Foto</th>
+                        <th>Veterinario</th>
+                        <th>Medicina</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <!-- Cuerpo de la tabla con los tratamientos de la mascota -->
+                <tbody>
+                    <!-- por cada tratamiento de la mascota se crea una fila de la tabla con sus datos (los datos de la base de datos) -->
+                    <tr *ngFor="let tratamiento of listaTratamientos" [id]="'tratamiento-row-' + tratamiento.id">
+                        <td> <img class="fotoPerro" [src]="tratamiento.veterinario.foto"> </td>
+                        <td> {{tratamiento.veterinario.nombre}} {{tratamiento.veterinario.apellido}} </td>
+                        <td> {{tratamiento.droga.nombre}} </td>
+                        <td> {{tratamiento.fecha}} </td>                                        
+                    </tr>
+                </tbody>
+            </table>
+
         </div>
         
-        <!-- Tabla con los tratamientos de la mascota -->
-        <table class="tablita">
-            <thead>
-                <tr>
-                    <th>Foto</th>
-                    <th>Veterinario</th>
-                    <th>Medicina</th>
-                    <th>Fecha</th>
-                </tr>
-            </thead>
-            <!-- Cuerpo de la tabla con los tratamientos de la mascota -->
-            <tbody>
-                <!-- por cada tratamiento de la mascota se crea una fila de la tabla con sus datos (los datos de la base de datos) -->
-                <tr *ngFor="let tratamiento of listaTratamientos" [id]="'tratamiento-row-' + tratamiento.id">
-                    <td> <img class="fotoPerro" [src]="tratamiento.veterinario.foto"> </td>
-                    <td> {{tratamiento.veterinario.nombre}} {{tratamiento.veterinario.apellido}} </td>
-                    <td> {{tratamiento.droga.nombre}} </td>
-                    <td> {{tratamiento.fecha}} </td>                                        
-                </tr>
-            </tbody>
-        </table>
     </div>
     <!-- Fin del apartado (derecho) -->
 

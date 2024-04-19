@@ -50,40 +50,45 @@
             <h1>Mascotas</h1>
             <input type="search" id="myInput" onkeyup="filterTable()" placeholder="Buscar mascota por nombre" title="Type in a name">
         </div>
+
+        <div class = "tabla-container">
+
+            <!-- Tabla con las mascotas del cliente -->
+            <table id="myTable" class="tablita">
+                <thead>
+                    <tr>
+                        <th>Foto</th>
+                        <th>Nombre</th>
+                        <th>Raza</th>
+                        <th>Edad</th>
+                        <th>Peso</th>
+                        <th>Enfermedad</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <!-- Cuerpo de la tabla con las mascotas del cliente -->
+                <tbody>
+                    <!-- por cada mascota del cliente se crea una fila de la tabla con sus datos -->
+                    <tr *ngFor="let mascota of cliente.mascotas" [id]="'mascota-row-' + mascota.id">
+                        <td><img class="fotoPerro" alt="Foto Mascota" [src]="mascota.foto"/></td>
+                        <td> {{mascota.nombre}} </td>
+                        <td> {{mascota.raza}} </td>
+                        <td> {{mascota.edad}} </td>
+                        <td> {{mascota.peso}} </td>
+                        <td> {{mascota.enfermedad}} </td>
+                        <!-- Boton para ver la informacion de la mascota -->
+                        <td class="opciones">
+                            <a class="links icono" [routerLink]="['../../../mascotas/find/', mascota.id]">
+                                <i class='bx bx-info-circle'></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Termina la tabla -->
+
+        </div>
         
-        <!-- Tabla con las mascotas del cliente -->
-        <table id="myTable" class="tablita">
-            <thead>
-                <tr>
-                    <th>Foto</th>
-                    <th>Nombre</th>
-                    <th>Raza</th>
-                    <th>Edad</th>
-                    <th>Peso</th>
-                    <th>Enfermedad</th>
-                    <th>Opciones</th>
-                </tr>
-            </thead>
-            <!-- Cuerpo de la tabla con las mascotas del cliente -->
-            <tbody>
-                <!-- por cada mascota del cliente se crea una fila de la tabla con sus datos -->
-                <tr *ngFor="let mascota of cliente.mascotas" [id]="'mascota-row-' + mascota.id">
-                    <td><img class="fotoPerro" alt="Foto Mascota" [src]="mascota.foto"/></td>
-                    <td> {{mascota.nombre}} </td>
-                    <td> {{mascota.raza}} </td>
-                    <td> {{mascota.edad}} </td>
-                    <td> {{mascota.peso}} </td>
-                    <td> {{mascota.enfermedad}} </td>
-                    <!-- Boton para ver la informacion de la mascota -->
-                    <td class="opciones">
-                        <a class="links icono" [routerLink]="['../../../mascotas/find/', mascota.id]">
-                            <i class='bx bx-info-circle'></i>
-                        </a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <!-- Termina la tabla -->
     </div>
     <!-- Termina el apartado (derecho) -->
 

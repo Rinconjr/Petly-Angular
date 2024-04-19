@@ -13,7 +13,7 @@ export class MascotaServiceService {
     private http: HttpClient
   ) { }
 
-  findAll(): Observable<Mascota[]>{
+  findAll(): Observable<Mascota[]>{ 
     return this.http.get<Mascota[]>('http://localhost:8090/mascota/all');
   }
 
@@ -36,4 +36,14 @@ export class MascotaServiceService {
   deletePet(id: number) {
     this.http.delete('http://localhost:8090/mascota/delete/' + id).subscribe();
   }
+
+  activePets() {
+    return this.http.get<Mascota[]>('http://localhost:8090/dashboard/mascotas/activas');
+  }
+
+  totalPets(){ 
+    return this.http.get<Mascota[]>('http://localhost:8090/dashboard/mascotas/totales');
+  }
+
+
 }

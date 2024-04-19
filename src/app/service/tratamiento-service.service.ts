@@ -23,4 +23,13 @@ export class TratamientoServiceService {
   addTreatment (droga: string, idVet: number, idDroga: number) {
     return this.http.post('http://localhost:8090/tratamiento/add/'+ idVet + '/' + idDroga, droga).subscribe();
   }
+
+  lastMonthTreatment() {
+    return this.http.get<Tratamiento[]>('http://localhost:8090/dashboard/tratamientos/administrados');
+  }
+
+  numTratXTipo() {
+    return this.http.get<Tratamiento[]>('http://localhost:8090/dashboard/tratamientos/cantidad_tipo')
+  }
+
 }

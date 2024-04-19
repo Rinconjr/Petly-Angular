@@ -18,4 +18,12 @@ export class DrogaServiceService {
   findDisponibles() {
     return this.http.get<Droga[]>('http://localhost:8090/drogas/disponibles');
   }
+
+  totalGanDrogas() {
+    return this.http.get<Droga[]>('http://localhost:8090/dashboard/droga/ganancias');
+  }
+
+  totalVendDrogas() {
+    return this.http.get<Droga[]>('http://localhost:8090/dashboard/droga/ventas');
+  }
 }

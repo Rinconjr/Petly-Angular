@@ -1,10 +1,135 @@
 <app-administrador-sidebar class="sidebar"></app-administrador-sidebar>
 
 <!-- Contenido principal -->
-<div class = "main-content">
-    <!-- TODO: borrar esto -->
-    <div class="tictac">
-        <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHpzc2lhMXo4ODd0aXFoMmI3NGJlM2FvZ2s3NjZ5Y2d3bDU4NnE4dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/DzTPVIYArkOjUaX9mr/giphy.gif">
+<div class="main-content">
+
+  <!-- <i class='bx bx-capsule'></i> <i let cantVetAct> {{ totalTratUM }}</i> -->  
+
+  <div class = "top">
+    
+  </div>
+  
+  <div class = "middle">
+    
+    <div class = "categoria">
+
+      <h1 class="catTitle"> Estadísticas Veterinarios</h1>
+      <div class = "catWidgets">
+        <div class="card2 vetStats"> 
+          <div class = "card-header">
+            <div class = "icono vetIcon">
+              <i class='bx bxs-user-check'></i>
+            </div>
+            <div class = "dato vetDato">
+              <i let cantVetAct> {{ cantVetAct }}</i>
+            </div>
+          </div>
+  
+          <div class = "card-body">
+            <p> Veterinarios activos en la plataforma</p>
+          </div>
+        </div>
+  
+        <div class="card2 vetStats">
+          <div class = "card-header">
+            <div class = "icono vetIcon">
+              <i class='bx bxs-user-x'></i> 
+            </div>
+            <div class = "dato vetDato">
+              <i let cantVetInact> {{ cantVetInact }}</i>
+            </div>
+          </div>
+  
+          <div class = "card-body">
+            <p> Veterinarios inactivos en la plataforma</p>
+          </div>
+        </div>
+      </div>
+  
     </div>
+  
+    <div class = "categoria">
+
+      <h1 class="catTitle"> Estadísticas Mascotas</h1>
+      <div class = "catWidgets">
+        <div class="card2 petStats"> 
+          <div class = "card-header">
+            <div class = "icono petIcon">
+              <i class='bx bxs-dog'></i> 
+            </div>
+            <div class = "dato petDato">
+              <i let totalPets> {{ totalPets }}</i>
+            </div>
+          </div>
+  
+          <div class = "card-body">
+            <p>Total de mascotas de la veterinaria</p>
+          </div>
+        </div>
+  
+        <div class="card2 petStats"> 
+          <div class = "card-header">
+            <div class = "icono petIcon">
+              <i class='bx bx-health'></i> 
+            </div>
+            <div class = "dato petDato">
+              <i let cantPetsAct> {{ cantPetsAct }}</i>
+            </div>
+          </div>
+          <div class = "card-body">
+            <p>Mascotas activas de la veterinaria </p>
+          </div>
+        </div>      
+      </div>
+
+    </div>
+  
+    <div class = "categoria">
+
+      <h1 class="catTitle"> Estadísticas Ventas</h1>
+      <div class = "catWidgets">
+        <div class="card2 moneyStats"> 
+          <div class = "card-header">
+            <div class = "icono moneyIcon">
+              <i class='bx bx-money-withdraw'></i> 
+            </div>
+            <div class = "dato moneyDato">
+              <i let ventasTotales> {{ ventasTotales }}</i>
+            </div>
+          </div>
+  
+          <div class = "card-body">
+            <p>Ventas totales de la veterinaria</p>
+          </div>
+        </div>
+  
+        <div class="card2 moneyStats"> 
+          <div class = "card-header">
+            <div class = "icono moneyIcon">
+              <i class='bx bx-dollar'></i> 
+            </div>
+            <div class = "dato moneyDato">
+              <i let gananciasTotales> {{ gananciasTotales }}</i>
+            </div>
+          </div>
+  
+          <div class = "card-body">
+            <p>Ganancias totales de la veterinaria</p>
+          </div>
+        </div>      
+      </div>    
+
+    </div>
+
+  </div>
+
+  <div class = "bottom">
+
+    <app-admin-bar-chart></app-admin-bar-chart>
+
+  </div>
+
+  
+
 </div>
 <!-- Fin de contenido principal -->

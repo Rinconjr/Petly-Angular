@@ -184,33 +184,6 @@
   height: 100%;
 }
 
-.search {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-end;
-  align-items: center;
-  height: 10%;
-  width: 100%;
-  margin-top: 25px;
-  margin-bottom: 25px;
-}
-
-.search h1 {
-  margin: 0;
-  font-size: 40px;
-}
-
-.search input {
-  font-size: 1.5em;
-  width: 50%;
-  height: 40px;
-  border-radius: 50px;
-  border: 2px solid #000000;
-  padding-left: 30px;
-  padding-right: 30px;
-}
-
 .formulario h1 {
   display: flex;
   font-size: 40px;

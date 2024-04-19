@@ -25,8 +25,9 @@
 }
 
 .main-content {
+  background-color: #eeeeee;
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
   top: 0;
   left: 100px;
   transition: all 0.5s ease;
@@ -36,17 +37,169 @@
   padding-bottom: 25px;
   padding-left: 50px;
   padding-right: 50px;
+
+  display: flex;
+  flex-direction: column;
 }
 
-/*TODO: borrar esto*/
-.tictac {
-  height: 890px;
-  width: 100%;
+.top {
   display: flex;
+  width: 100%;
+  height: 25%;
+  
+  /*border: #000000 1px solid;*/
+}
+
+.middle {
+  display: flex;
+  width: 100%;
+  height: 30%;
+  justify-content: space-between;
+
+  /*border: #000000 1px solid;*/
+}
+
+.card2 {
+  width: 255px;
+  height: 175px;
+  background-color: #ffffff;
+  border-radius:20px;
+  transition: all .4s;
+ }
+ 
+ .vetStats:hover {
+  box-shadow: 0px 0px 30px 1px #3468c0;
+ }
+
+ .petStats:hover {
+  box-shadow: 0px 0px 30px 1px #ff9c35;
+ }
+
+ .moneyStats:hover {
+  box-shadow: 0px 0px 30px 1px #33f33a;
+ }
+
+ .vetIcon {
+  color: #3468c0;
+  font-size: 7em !important;
+ }
+
+ .petIcon{
+  color: #ff9c35;
+ }
+
+ .moneyIcon {
+  color: #33f33a;
+ }
+
+ .vetDato {
+  text-decoration: underline#3468c0;
+ }
+
+ .petDato{
+  text-decoration: underline#ff9c35;
+ }
+
+ .moneyDato {
+  font-size: 2em !important;
+  text-decoration: underline#33f33a;
+ }
+
+ .card-header {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  /*border: #000000 1px solid;*/
+ }
+
+ .icono {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+  font-size: 5em;
+
+  /*border: #000000 1px solid;*/
+ }
+ 
+ .dato {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 3em;
+
+  /*border: #000000 1px solid;*/
+ }
+
+ .card-body {
+  width: 100%;
+  height: 50%;
+  padding-top: 4px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  /*border: #000000 1px solid;*/
+ }
+
+ .card-body p {
+  font-size: 1.5em;
+  text-align: center;
+
+  /*border: #000000 1px solid;*/
+  
+ }
+
+.bottom {
+  display: flex;
+  width: 100%;
+  height: 45%;
+  /*border: #000000 1px solid;*/
 }
 
-.tictac img {
-  height: 800px;
+.catWidgets {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 80%;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+
+  /*border: #000000 1px solid;*/
 }
+
+.catTitle {
+  display: flex;
+  width: 100%;
+  height: 20%;
+  padding-left: 18px;
+  font-size: 2.8em;
+  text-align: center;
+
+
+  /*border: #000000 1px solid;*/
+}
+
+.categoria {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+
+  /*border: #000000 1px solid;*/
+}
+

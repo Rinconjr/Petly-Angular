@@ -31,4 +31,12 @@ export class VeterinarioServiceService {
   deleteVet(id: number) {
     this.http.delete('http://localhost:8090/veterinario/delete/' + id).subscribe();
   }
+
+  totalVets() {
+    return this.http.get('http://localhost:8090/dashboard/veterinarios/total')
+  }
+
+  inactiveVets() {
+    return this.http.get('http://localhost:8090/dashboard/veterinarios/inactivos')
+  }
 }

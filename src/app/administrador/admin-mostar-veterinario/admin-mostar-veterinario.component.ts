@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Tratamiento } from 'src/app/models/tratamiento';
 import { Veterinario } from 'src/app/models/veterinario';
@@ -10,7 +10,10 @@ import { VeterinarioServiceService } from 'src/app/service/veterinario-service.s
   templateUrl: './admin-mostar-veterinario.component.html',
   styleUrls: ['./admin-mostar-veterinario.component.css']
 })
-export class AdminMostarVeterinarioComponent {
+export class AdminMostarVeterinarioComponent implements AfterViewInit {
+  @ViewChild('tableContainer') tableContainer: ElementRef | undefined;
+
+  isEndOfTable: boolean = false;
 
   veterinario!: Veterinario;
   listaTratamientos?: Tratamiento[];
@@ -21,6 +24,17 @@ export class AdminMostarVeterinarioComponent {
     private route: ActivatedRoute,
     private router: Router
   ) { }
+
+  ngAfterViewInit(): void {
+    this.checkScroll();
+  }
+
+  checkScroll(): void {
+    const tableContainer = this.tableContainer?.nativeElement;
+    tableContainer.addEventListener('scroll', () => {
+      this.isEndOfTable = tableContainer.scrollHeight - tableContainer.scrollTop === tableContainer.clientHeight;
+    });
+  }
 
   ngOnInit(): void {
 

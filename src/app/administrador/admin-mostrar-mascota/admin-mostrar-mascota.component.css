@@ -169,14 +169,26 @@
   height: 40px;
   border-radius: 50px;
   border: 2px solid #898989;
-  padding-left: 30px;
+  padding-left: 20px;
   padding-right: 30px;
   outline: none;
+}
+
+.tabla-container {
+  width: 100%;
+  height: 780px;
+  overflow-y: auto;
+  border-radius: 10px;
+}
+
+.tabla-container::-webkit-scrollbar {
+  display: none;
 }
 
 table.tablita {
   font-size: 1.5em;
   width: 100%;
+  overflow-y: scroll;
   border-collapse: separate;
   border-spacing: 0px;
 }
@@ -196,6 +208,8 @@ table.tablita {
 }
 
 .tablita th {
+  position: sticky; /* Fija el encabezado en su posición */
+  top: 0;
   background-color: #3468c0;
   color: white;
 }

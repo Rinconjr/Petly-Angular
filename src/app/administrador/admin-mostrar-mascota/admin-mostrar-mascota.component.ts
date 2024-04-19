@@ -42,6 +42,11 @@ export class AdminMostrarMascotaComponent implements OnInit {
       );
     });
 
+    const inputSearch = document.getElementById('myInput') as HTMLInputElement;
+    inputSearch.addEventListener('keyup', () => {
+      this.filterTable();
+    });
+
     let sidebar = document.querySelector('.sidebar') as HTMLElement;
 
     sidebar.addEventListener('mouseover', () => {
@@ -50,6 +55,27 @@ export class AdminMostrarMascotaComponent implements OnInit {
 
     sidebar.addEventListener('mouseleave', () => {
       sidebar.classList.remove("active");
+    });
+  }
+
+  // Función para filtrar la tabla por nombre
+  filterTable() {
+    const filter = (document.getElementById('myInput') as HTMLInputElement).value.toUpperCase();
+
+    const filteredTratamientos = this.listaTratamientos?.filter((tratamiento) => {
+      const nombre = tratamiento.droga.nombre.toUpperCase();
+      return (
+        nombre.includes(filter)
+      );
+    });
+
+    this.listaTratamientos?.forEach((tratamiento) => {
+      const row = document.getElementById(`tratamiento-row-${tratamiento.id}`);
+      if (row) {
+        row.style.display = filteredTratamientos?.includes(tratamiento)
+          ? ''
+          : 'none';
+      }
     });
   }
 
