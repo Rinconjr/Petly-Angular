@@ -50,16 +50,17 @@ export class AdminBarChartComponent implements OnInit {
         const chartData = {
           labels: this.listaElement0,
           datasets: [{
-            label: 'Tratamientos',
+            label: 'Medicamento - Cantidad',
             data: this.listaElement1,
             backgroundColor: [
-              'rgba(255, 99, 132, 0.2)'
+              '#86a7fc'
             ],
             borderColor: [
-              'rgba(255, 99, 132, 1)'
+              '#ff9c35'
             ],
-            borderWidth: 1
-          }]
+            borderWidth: 2.5
+          }],
+          hoverOffset: 4
         };
   
         this.chart = new Chart("chart", {
