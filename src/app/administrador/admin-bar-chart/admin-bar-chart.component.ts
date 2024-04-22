@@ -53,13 +53,16 @@ export class AdminBarChartComponent implements OnInit {
             label: 'Medicamento - Cantidad',
             data: this.listaElement1,
             backgroundColor: [
-              '#86a7fc'
+              '#3468c0'
+              // 'rgba(255, 99, 132, 0.2)'
             ],
             borderColor: [
-              '#ff9c35'
+              '#3468c0'
+              // 'rgba(255, 99, 132, 1)'
             ],
-            borderWidth: 2.5
-          }],
+            borderWidth: 2
+          }
+        ],
           hoverOffset: 4
         };
   

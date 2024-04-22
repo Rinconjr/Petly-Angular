@@ -9,10 +9,9 @@ import { VeterinarioServiceService } from 'src/app/service/veterinario-service.s
 @Component({
   selector: 'app-administrador-dashboard',
   templateUrl: './administrador-dashboard.component.html',
-  styleUrls: ['./administrador-dashboard.component.css']
+  styleUrls: ['./administrador-dashboard.component.css'],
 })
-export class AdministradorDashboardComponent implements OnInit{
-
+export class AdministradorDashboardComponent implements OnInit {
   totalTratUM: any;
   cantTratXTipo: any;
   cantVetAct: any;
@@ -22,91 +21,73 @@ export class AdministradorDashboardComponent implements OnInit{
   ventasTotales: any;
   gananciasTotales: any;
 
-
   constructor(
     private tratamientoService: TratamientoServiceService,
     private veterinarioService: VeterinarioServiceService,
     private mascotaService: MascotaServiceService,
-    private drogasService: DrogaServiceService) { }
+    private drogasService: DrogaServiceService
+  ) {}
 
   ngOnInit(): void {
+    this.tratamientoService.lastMonthTreatment().subscribe((data) => {
+      this.totalTratUM = data;
+    });
 
-    this.tratamientoService.lastMonthTreatment().subscribe(
-      data => {
-        this.totalTratUM = data;
-      }
-    )
+    this.tratamientoService.numTratXTipo().subscribe((data) => {
+      this.cantTratXTipo = data;
 
-    this.tratamientoService.numTratXTipo().subscribe(
-      data => {
-        this.cantTratXTipo = data;
+      this.cantTratXTipo.forEach((element: any) => {});
+    });
 
-        this.cantTratXTipo.forEach((element: any) => {
-        })
-      }
-    )
+    this.tratamientoService.numTratXTipo().subscribe((data) => {
+      this.cantTratXTipo = data;
 
-    this.tratamientoService.numTratXTipo().subscribe(
-      data => {
-          this.cantTratXTipo = data;
-  
-          // Lista para almacenar element[0]
-          const listaElement0: any[] = this.cantTratXTipo.map((element: any) => element[0]);
-  
-          // Lista para almacenar element[1]
-          const listaElement1: any[] = this.cantTratXTipo.map((element: any) => element[1]);
-  
-          // console.log("Lista de element[0]:", listaElement0);
-          // console.log("Lista de element[1]:", listaElement1);
-      }
-  )
+      // Lista para almacenar element[0]
+      const listaElement0: any[] = this.cantTratXTipo.map(
+        (element: any) => element[0]
+      );
 
-    this.veterinarioService.totalVets().subscribe(
-      data => {
-        this.cantVetAct = data;
-      }
-    )
+      // Lista para almacenar element[1]
+      const listaElement1: any[] = this.cantTratXTipo.map(
+        (element: any) => element[1]
+      );
 
-    this.veterinarioService.inactiveVets().subscribe(
-      data => {
-        this.cantVetInact = data;
-      }
-    )
+      // console.log("Lista de element[0]:", listaElement0);
+      // console.log("Lista de element[1]:", listaElement1);
+    });
 
-    this.mascotaService.totalPets().subscribe(
-      data => {
-        this.totalPets = data;
-      }
-    )
+    this.veterinarioService.totalVets().subscribe((data) => {
+      this.cantVetAct = data;
+    });
 
-    this.mascotaService.activePets().subscribe(
-      data => {
-        this.cantPetsAct = data;
-      }
-    )
+    this.veterinarioService.inactiveVets().subscribe((data) => {
+      this.cantVetInact = data;
+    });
 
-    this.drogasService.totalVendDrogas().subscribe(
-      data => {
-        this.ventasTotales = data;
-      }
-    )
+    this.mascotaService.totalPets().subscribe((data) => {
+      this.totalPets = data;
+    });
 
-    this.drogasService.totalGanDrogas().subscribe(
-      data => {
-        this.gananciasTotales = data;
-      }
-    )
+    this.mascotaService.activePets().subscribe((data) => {
+      this.cantPetsAct = data;
+    });
 
+    this.drogasService.totalVendDrogas().subscribe((data) => {
+      this.ventasTotales = data;
+    });
 
+    this.drogasService.totalGanDrogas().subscribe((data) => {
+      this.gananciasTotales = data;
+    });
 
     let sidebar = document.querySelector('.sidebar') as HTMLElement;
 
     sidebar.addEventListener('mouseover', () => {
-      sidebar.classList.add("active");
+      sidebar.classList.add('active');
     });
 
     sidebar.addEventListener('mouseleave', () => {
-      sidebar.classList.remove("active");
+      sidebar.classList.remove('active');
     });
   }
 

@@ -9,13 +9,16 @@
 
   <div class = "top">
     <h1 class="Titulo-principal">Bienvenido Admin</h1>
+
+    
+
   </div>
   
   <div class = "middle">
     
     <div class = "categoria">
 
-      <h1 class="catTitle"> Estadísticas Veterinarios</h1>
+      <!-- <h1 class="catTitle"> Estadísticas Veterinarios</h1> -->
       <div class = "catWidgets">
         <div class="card2 vetStats"> 
           <div class = "card-header">
@@ -52,7 +55,7 @@
   
     <div class = "categoria">
 
-      <h1 class="catTitle"> Estadísticas Mascotas</h1>
+      <!-- <h1 class="catTitle"> Estadísticas Mascotas</h1> -->
       <div class = "catWidgets">
         <div class="card2 petStats"> 
           <div class = "card-header">
@@ -88,7 +91,7 @@
   
     <div class = "categoria">
 
-      <h1 class="catTitle"> Estadísticas Ventas</h1>
+      <!-- <h1 class="catTitle"> Estadísticas Ventas</h1> -->
       <div class = "catWidgets">
         <div class="card2 moneyStats"> 
           <div class = "card-header">
@@ -129,6 +132,44 @@
 
     <div class = "bottom-left">
 
+      <!-- <h1 class="catTitle"> Estadísticas Tratamientos</h1> -->
+
+      <div class="tratStats"> 
+        <div class = "tratStats-header">
+          <div class = "icono tratIcon">
+            <i class='bx bx-capsule'></i>
+          </div>
+          <div class = "dato tratDato">
+            <i let cantVetAct> {{ totalTratUM }}</i>
+          </div>
+        </div>
+
+        <div class = "tratStats-body">
+          <p> Tratamientos suministrados en el ultimo mes </p>
+        </div>
+      </div>
+
+      <div class = "tabla-container">
+        <table id="myTable" class="tablita">
+          <thead>
+            <tr>
+              <th>Tratamiento</th>
+              <th>Cantidad</th>
+            </tr>
+          </thead>
+          <!-- Cuerpo de la tabla con todos los tratamientos registrados en la base de datos -->
+          <tbody>
+            <tr *ngFor="let trat of cantTratXTipo">
+              <td>{{trat[0]}}</td>
+              <td>{{trat[1]}}</td>
+            </tr>
+          </tbody>
+          
+        </table>
+        <!-- Termina la tabla -->
+      </div>
+
+
     </div>
     
     <div class = "bottom-right">
@@ -143,6 +184,8 @@
 
 </div>
 <!-- Fin de contenido principal -->
+
+
 
 
 
