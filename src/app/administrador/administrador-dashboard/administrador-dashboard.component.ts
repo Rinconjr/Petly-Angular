@@ -19,6 +19,7 @@ export class AdministradorDashboardComponent implements OnInit {
   totalPets: any;
   cantPetsAct: any;
   ventasTotales: any;
+  ventasTotalesDash!: string;
   gananciasTotales: any;
 
   constructor(
@@ -73,11 +74,11 @@ export class AdministradorDashboardComponent implements OnInit {
     });
 
     this.drogasService.totalVendDrogas().subscribe((data) => {
-      this.ventasTotales = data;
+      this.ventasTotales = data.toLocaleString();;
     });
 
     this.drogasService.totalGanDrogas().subscribe((data) => {
-      this.gananciasTotales = data;
+      this.gananciasTotales = data.toLocaleString();;
     });
 
     let sidebar = document.querySelector('.sidebar') as HTMLElement;

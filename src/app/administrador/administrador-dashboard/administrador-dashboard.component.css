@@ -37,8 +37,8 @@
   transition: all 0.5s ease;
   width: calc(100% - 100px);
   padding: 1rem;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 30px;
+  padding-bottom: 9px;
   padding-left: 50px;
   padding-right: 50px;
 
@@ -51,7 +51,7 @@
   display: flex;
   /* width: 100%; */
   width: calc(100% - 2%);
-  height: 145px;
+  height: 125px;
   margin-bottom: 21px;
 
   background-color: #86A7FC;
@@ -68,15 +68,20 @@
 } */
 
 .Titulo-principal {
-  font-size: 6.5em;
+  font-size: 4.5em;
   z-index: 2;
   color: white;
   margin-left: 100px;
   margin-right: 100px;
 }
 
-.top img {
+.perroNaranja {
   height: 100%;
+  z-index: 2;
+}
+
+.top img {
+  height: 80%;
   z-index: 2;
   transform: rotateY(180deg);
   
@@ -86,7 +91,7 @@
 
 .custom-shape-divider-bottom-1713845477 {
   position: absolute;
-  top: 47px;
+  top: 52px;
   /* width: calc(100% - 100px); */
   width: calc(94.5% - 39px);
   z-index: 1;
@@ -269,7 +274,7 @@
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  height: 600px;
+  height: 590px;
   flex-grow: 1;
 
   /*border: #000000 1px solid;*/
@@ -360,7 +365,7 @@
 
  .tabla-container {
   width: calc(100% - 7%);
-  height: 378px;
+  height: 372px;
   overflow-y: auto;
   border-radius: 10px;
   margin-top: 21px;
