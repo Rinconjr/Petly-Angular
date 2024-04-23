@@ -32,7 +32,7 @@ export class AdminModificarVeterinarioComponent {
             this.llegaVet = Object.assign({}, this.vetAux);
             this.formVet = Object.assign({}, this.vetAux);
           } else {
-            this.router.navigate(['/id-not-found/admin/veterinario/' + id]);
+            this.router.navigate(['/id-not-found/veterinario/' + id]);
           }
         }
       );

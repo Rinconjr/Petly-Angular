@@ -19,9 +19,8 @@ export class VetMostrarMascotaComponent implements OnInit {
 
   droga!: string;
   idMascota!: number;
-  //TODO: cambiar cuando haya login funcional
-  //idVeterinario!: number;
   listaDrogas!: Droga[];
+  vet_id!: number;
 
   constructor(
     private mascotaService: MascotaServiceService,
@@ -35,6 +34,8 @@ export class VetMostrarMascotaComponent implements OnInit {
 
     this.route.paramMap.subscribe(params => {
       const id = Number(params.get('id'));
+      this.vet_id = Number(params.get('vet_id'));
+
       this.idMascota = id;
       
       this.mascotaService.findById(id).subscribe(
@@ -42,7 +43,7 @@ export class VetMostrarMascotaComponent implements OnInit {
           if(cliente != null ) 
             this.cliente = cliente
           else 
-            this.router.navigate(['/id-not-found/veterinario/mascota/' + id]);
+            this.router.navigate(['/id-not-found/' + this.vet_id + '/mascota/' + id]);
         }
       );
 
@@ -77,9 +78,8 @@ export class VetMostrarMascotaComponent implements OnInit {
     this.sendDroga = this.droga;
 
     if (this.listaDrogas.find(droga => droga.nombre === this.droga)) {
-      //TODO: cambiar cuando haya login funcional
       this.mostrarAlerta(this.sendDroga);
-      this.tratamientoService.addTreatment(this.sendDroga, 1, this.idMascota);
+      this.tratamientoService.addTreatment(this.sendDroga, this.vet_id, this.idMascota);
     } else {
       this.mostrarAlertaError(this.sendDroga);
     }
@@ -104,7 +104,7 @@ export class VetMostrarMascotaComponent implements OnInit {
     }).then((result) => {
       // Resultado de la alerta
       if (result.isConfirmed) {
-        this.router.navigate(['/veterinario/mascotas/all']);
+        this.router.navigate(['/veterinario/' + this.vet_id + '/mascotas/all']);
       }
     });
   }

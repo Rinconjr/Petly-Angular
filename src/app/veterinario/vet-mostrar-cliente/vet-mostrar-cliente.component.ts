@@ -13,6 +13,7 @@ export class VetMostrarClienteComponent implements OnInit {
 
   cliente!: Cliente;
   listaMascotas!: Mascota[] | undefined; // esto seria una lista de mascotas del cliente
+  vet_id!: number;
 
   constructor(
     private clienteService: ClienteServiceService,
@@ -24,7 +25,8 @@ export class VetMostrarClienteComponent implements OnInit {
 
     this.route.paramMap.subscribe(params => {
       const id = Number(params.get('id'));
-      
+      this.vet_id = Number(params.get('vet_id'));
+
       this.clienteService.findById(id).subscribe(
         (llegaCliente) => {
           if(llegaCliente) {
@@ -32,7 +34,7 @@ export class VetMostrarClienteComponent implements OnInit {
             this.listaMascotas = this.cliente.mascotas;
           }            
           else 
-            this.router.navigate(['/id-not-found/veterinario/cliente/' + id]);
+            this.router.navigate(['/id-not-found/' + this.vet_id + '/cliente/' + id]);
         }
       );
     });

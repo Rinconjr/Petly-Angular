@@ -27,7 +27,6 @@ export class ClienteLoginComponent {
       catchError((error) => {
         if (error.status === 400) {
           // console.log(error.error)
-          // this.router.navigate(['/cedula-not-found/' + this.cedulaCliente]);
           this.mostrarAlerta(error.error);
         }
         return throwError(error);

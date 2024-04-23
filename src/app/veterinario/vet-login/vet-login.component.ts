@@ -23,16 +23,6 @@ export class VetLoginComponent {
   }
 
   loginVeterinario() {
-    // console.log(this.cedulaVeterinario, this.passwordVeterinario)
-
-    // this.veterinarioService.loginVeterinario(this.cedulaVeterinario, this.passwordVeterinario).subscribe(
-    //   (veterinario) => {
-    //     if(veterinario != null) {
-    //       this.router.navigate(['/veterinario/' + veterinario]);
-    //     } 
-    //   }
-    // );
-
     this.veterinarioService.loginVeterinario(this.cedulaVeterinario, this.passwordVeterinario).pipe(
       catchError((error) => {
         if (error.status === 400) {
@@ -43,7 +33,7 @@ export class VetLoginComponent {
     ).subscribe(
       (veterinario) => {
         if(veterinario != null) {
-          this.router.navigate(['/veterinario/' + veterinario]);
+          this.router.navigate(['/veterinario/' + veterinario + '/mascotas/all']);
         }
       }
     );

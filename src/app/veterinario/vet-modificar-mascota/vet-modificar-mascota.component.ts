@@ -22,16 +22,19 @@ export class VetModificarMascotaComponent implements OnInit {
   cliente!: Cliente;
   formMascota!: Mascota;
 
+  vet_id!: number;
+  
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       const id = Number(params.get('id'));
+      this.vet_id = Number(params.get('vet_id'));
       this.mascotaService.findByIdPet(id).subscribe(
         (mascota) => {
           if(mascota) {
             this.mascotaAux = mascota;
             this.formMascota = Object.assign({}, this.mascotaAux);
           } else {
-            this.router.navigate(['/id-not-found/veterinario/mascota/' + id]);
+            this.router.navigate(['/id-not-found/' + this.vet_id + '/mascota/' + id]);
           }
         }
       );
@@ -83,7 +86,7 @@ export class VetModificarMascotaComponent implements OnInit {
     }).then((result) => {
       // Resultado de la alerta
       if (result.isConfirmed) {
-        this.router.navigate(['/veterinario/mascotas/all']);
+        this.router.navigate(['/veterinario/' + this.vet_id + '/mascotas/all']);
       }
     });
   }

@@ -21,9 +21,12 @@ export class VetModificarClienteComponent implements OnInit {
   llegaCliente!: Cliente;
   formCliente!: Cliente;
 
+  vet_id!: number;
+
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       const id = Number(params.get('id'));
+      this.vet_id = Number(params.get('vet_id'));
       this.clienteService.findById(id).subscribe(
         (cliente) => {
           if (cliente) {
@@ -31,7 +34,7 @@ export class VetModificarClienteComponent implements OnInit {
             this.llegaCliente = Object.assign({}, this.clienteAux);
             this.formCliente = Object.assign({}, this.clienteAux);
           } else {
-            this.router.navigate(['/id-not-found/veterinario/cliente/' + id]);
+            this.router.navigate(['/id-not-found/' + this.vet_id + '/cliente/' + id]);
           }
         }
       );
@@ -77,7 +80,7 @@ export class VetModificarClienteComponent implements OnInit {
     }).then((result) => {
       // Resultado de la alerta
       if (result.isConfirmed) {
-        this.router.navigate(['/veterinario/clientes/all']);
+        this.router.navigate(['/veterinario/' + this.vet_id + '/clientes/all']);
       }
     });
   }

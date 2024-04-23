@@ -15,8 +15,8 @@
 
     <!-- Apartado para Foto y Nombre del veterinario -->
     <div class = "user">
-        <img src="../../../assets/images/vet1.jpg" alt="Veterinario" class="user-img"/>
-        <p>Dr. Alexander García</p>           
+        <img alt="Veterinario" [src]="vet.foto"/>
+        <p> {{vet.nombre}} {{vet.apellido}} </p>           
     </div>
     
     <!-- Apartado para las opciones de navegación del veterinario -->
@@ -24,7 +24,7 @@
         <ul>
             <!-- opcion para ver todas las mascotas -->
             <li>
-                <a [routerLink]="'/veterinario/mascotas/all'">
+                <a [routerLink]="'/veterinario/' + vet.id + '/mascotas/all'">
                     <i class="bx bx-table"></i>
                     <span class="nav-item">Ver mascotas</span>
                 </a>
@@ -32,7 +32,7 @@
 
             <!-- opcion para registrar una nueva mascota -->
             <li>
-                <a [routerLink]="'/veterinario/mascotas/add'">
+                <a [routerLink]="'/veterinario/' + vet.id + '/mascotas/add'">
                     <i class="bx bxs-dog"></i>
                     <span class="nav-item">Registrar mascota</span>
                 </a>
@@ -40,7 +40,7 @@
             
             <!-- opcion para ver todos los clientes -->
             <li>
-                <a [routerLink]="'/veterinario/clientes/all'">
+                <a [routerLink]="'/veterinario/' + vet.id + '/clientes/all'">
                     <i class="bx bx-group"></i>
                     <span class="nav-item">Ver clientes</span>
                 </a>
@@ -48,7 +48,7 @@
 
             <!-- opcion para registrar un nuevo cliente -->
             <li>
-                <a [routerLink]="'/veterinario/clientes/add'">
+                <a [routerLink]="'/veterinario/' + vet.id + '/clientes/add'">
                     <i class="bx bx-user-plus"></i>
                     <span class="nav-item">Registrar cliente</span>
                 </a>

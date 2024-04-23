@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Mascota } from 'src/app/models/mascota';
 import { ClienteServiceService } from 'src/app/service/cliente-service.service';
 import { MascotaServiceService } from 'src/app/service/mascota-service.service';
@@ -16,6 +16,7 @@ export class VetRegistrarMascotaComponent {
     private mascotaService: MascotaServiceService,
     private clienteService: ClienteServiceService,
     private router: Router,
+    private route: ActivatedRoute
     ) {}
 
     formMascota: Mascota = {
@@ -38,6 +39,14 @@ export class VetRegistrarMascotaComponent {
     }
 
   sendMascota!: Mascota;
+
+  vet_id!: number
+
+  ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      this.vet_id = Number(params.get('vet_id'));
+    });
+  }
   
   agregarMascota(){
     this.sendMascota = Object.assign({}, this.formMascota);
@@ -75,7 +84,7 @@ export class VetRegistrarMascotaComponent {
     }).then((result) => {
       // Resultado de la alerta
       if (result.isConfirmed) {
-        this.router.navigate(['/veterinario/mascotas/all']);
+        this.router.navigate(['/veterinario/' + this.vet_id + '/mascotas/all']);
       }
     });
   }
@@ -100,5 +109,9 @@ export class VetRegistrarMascotaComponent {
     }).then((result) => {
       
     });
+  }
+
+  redirect() {
+    this.router.navigate(['/veterinario/' + this.vet_id + '/mascotas/all']);
   }
 }

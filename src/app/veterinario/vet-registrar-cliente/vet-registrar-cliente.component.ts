@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Cliente } from 'src/app/models/cliente';
 import { ClienteServiceService } from 'src/app/service/cliente-service.service';
 import Swal from 'sweetalert2';
@@ -13,6 +13,7 @@ export class VetRegistrarClienteComponent {
 
   constructor(
     private clienteService: ClienteServiceService,
+    private route: ActivatedRoute,
     private router: Router,
     ) {}
 
@@ -26,6 +27,15 @@ export class VetRegistrarClienteComponent {
   }
 
   sendCliente!: Cliente;
+
+  vet_id!: number
+
+  ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      this.vet_id = Number(params.get('vet_id'));
+    });
+  }
+
   
   agregarCliente(){
     this.sendCliente = Object.assign({}, this.formCliente);
@@ -54,9 +64,13 @@ export class VetRegistrarClienteComponent {
     }).then((result) => {
       // Resultado de la alerta
       if (result.isConfirmed) {
-        this.router.navigate(['/veterinario/clientes/all']);
+        this.router.navigate(['/veterinario/' + this.vet_id + '/clientes/all']);
       }
     });
+  }
+
+  redirect() {
+    this.router.navigate(['/veterinario/' + this.vet_id + '/clientes/all']);
   }
 
 }

@@ -32,7 +32,7 @@ export class AdminMostrarClienteComponent {
             this.listaMascotas = this.cliente.mascotas;
           }            
           else 
-            this.router.navigate(['/id-not-found/admin/cliente/' + id]);
+            this.router.navigate(['/id-not-found/cliente/' + id]);
         }
       );
     });

@@ -31,7 +31,7 @@ export class AdminModificarClienteComponent implements OnInit {
             this.llegaCliente = Object.assign({}, this.clienteAux);
             this.formCliente = Object.assign({}, this.clienteAux);
           } else {
-            this.router.navigate(['/id-not-found/admin/cliente/' + id]);
+            this.router.navigate(['/id-not-found/cliente/' + id]);
           }
         }
       );

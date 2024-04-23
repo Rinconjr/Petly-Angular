@@ -21,7 +21,6 @@ import { ClienteLoginComponent } from './cliente/cliente-login/cliente-login.com
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PageNotFoundComponent } from './errors/page-not-found/page-not-found.component';
-import { CedulaNotFoundComponent } from './errors/cedula-not-found/cedula-not-found.component';
 import { IdNotFoundComponent } from './errors/id-not-found/id-not-found.component';
 import { AdministradorSidebarComponent } from './administrador/administrador-sidebar/administrador-sidebar.component';
 import { AdministradorDashboardComponent } from './administrador/administrador-dashboard/administrador-dashboard.component';
@@ -38,6 +37,7 @@ import { AdminMostrarVeterinariosTodosComponent } from './administrador/admin-mo
 import { AdminMostarVeterinarioComponent } from './administrador/admin-mostar-veterinario/admin-mostar-veterinario.component';
 import { AdminModificarVeterinarioComponent } from './administrador/admin-modificar-veterinario/admin-modificar-veterinario.component';
 import { AdminBarChartComponent } from './administrador/admin-bar-chart/admin-bar-chart.component';
+import { IdNotFoundAdminComponent } from './errors/id-not-found-admin/id-not-found-admin.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +58,6 @@ import { AdminBarChartComponent } from './administrador/admin-bar-chart/admin-ba
     VetLoginComponent,
     ClienteLoginComponent,
     PageNotFoundComponent,
-    CedulaNotFoundComponent,
     IdNotFoundComponent,
     AdministradorSidebarComponent,
     AdministradorDashboardComponent,
@@ -74,7 +73,8 @@ import { AdminBarChartComponent } from './administrador/admin-bar-chart/admin-ba
     AdminMostrarVeterinariosTodosComponent,
     AdminMostarVeterinarioComponent,
     AdminModificarVeterinarioComponent,
-    AdminBarChartComponent
+    AdminBarChartComponent,
+    IdNotFoundAdminComponent
   ],
   imports: [
     BrowserModule,
