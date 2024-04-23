@@ -39,4 +39,13 @@ export class ClienteServiceService {
   findClientPet(id: number, idMascota: number){
     return this.http.get<Cliente>('http://localhost:8090/cliente/' + id + '/mascota/' + idMascota);
   }
+
+  //Mandar cedula del cliente para login mediante metodo post
+  loginClient(cedulaCliente: string) {
+    let BodyData = {
+      cedula: cedulaCliente
+    };
+    console.log(BodyData);
+    return this.http.post('http://localhost:8090/login/cliente', BodyData);
+  }
 }

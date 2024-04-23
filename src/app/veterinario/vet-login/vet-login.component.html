@@ -16,16 +16,16 @@
       <form class="formulario" method="post">
         <div class="datos">
           <label for="cedula">Cédula</label>
-          <input type="text" id="cedula" name="cedula" />
+          <input type="text" id="cedula" name="cedula" [(ngModel)]="cedulaVeterinario"/>
         </div>
         
         <div class="datos">
           <label for="contra" id="contra-label">Contraseña</label>
-          <input type="password" id="contra" name="contrasenia" />
+          <input type="password" id="contra" name="contrasenia" [(ngModel)]="passwordVeterinario"/>
         </div>
 
         <!-- boton de inicio de sesion para veterinario -->
-        <button type="submit" class="boton">
+        <button type="submit" class="boton" (click)="loginVeterinario()">
           Iniciar sesión
         </button>
 

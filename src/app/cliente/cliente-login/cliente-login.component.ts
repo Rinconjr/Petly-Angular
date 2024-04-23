@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Cliente } from 'src/app/models/cliente';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 import { ClienteServiceService } from 'src/app/service/cliente-service.service';
 
 @Component({
@@ -10,8 +11,7 @@ import { ClienteServiceService } from 'src/app/service/cliente-service.service';
 })
 export class ClienteLoginComponent {
   
-  cedulaCliente: string = '';
-  listaClientes!: Cliente[];
+  cedulaCliente: string = "";
 
   constructor(
     private clienteService: ClienteServiceService,
@@ -19,19 +19,23 @@ export class ClienteLoginComponent {
   ) { }
 
   ngOnInit(): void {
-    this.clienteService.findAll().subscribe(
-      (clientes) => this.listaClientes = clientes
-    );
   }
 
   loginCliente() {
-    const clienteEncontrado = this.listaClientes.find(cliente => cliente.cedula === this.cedulaCliente);
-
-    if (clienteEncontrado) {
-      this.router.navigate(['/usuario/' + clienteEncontrado.id]);
-    } else {
-      this.router.navigate(['/cedula-not-found/' + this.cedulaCliente]);
-    }
+    this.clienteService.loginClient(this.cedulaCliente).pipe(
+      catchError((error) => {
+        if (error.status === 400) {
+          this.router.navigate(['/cedula-not-found/' + this.cedulaCliente]);
+        }
+        return throwError(error);
+      })
+    ).subscribe(
+      (cliente) => {
+        if(cliente != null) {
+          this.router.navigate(['/usuario/' + cliente]);
+        }
+      }
+    );
   }
 
 }

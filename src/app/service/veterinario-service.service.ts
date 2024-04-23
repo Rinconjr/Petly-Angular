@@ -39,4 +39,12 @@ export class VeterinarioServiceService {
   inactiveVets() {
     return this.http.get('http://localhost:8090/dashboard/veterinarios/inactivos')
   }
+
+  loginVeterinario(cedulaVet: string, passwordVet: string) {
+    let BodyData = {
+      cedula: cedulaVet,
+      contrasena: passwordVet
+    };
+    return this.http.post('http://localhost:8090/login/veterinario', BodyData);
+  }
 }
