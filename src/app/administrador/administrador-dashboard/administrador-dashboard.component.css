@@ -63,9 +63,9 @@
   /*border: #000000 1px solid;*/
 }
 
-/* .perroGris {
+.perroGris {
   margin-left: 50px;
-} */
+} 
 
 .Titulo-principal {
   font-size: 4.5em;
@@ -78,12 +78,13 @@
 .perroNaranja {
   height: 100%;
   z-index: 2;
+  
+  transform: rotateY(180deg);
 }
 
 .top img {
   height: 80%;
   z-index: 2;
-  transform: rotateY(180deg);
   
 }
 
@@ -185,6 +186,10 @@
   box-shadow: 0px 0px 30px 1px #33f33a;
  }
 
+ .tratStats:hover {
+  box-shadow: 0px 0px 30px 1px #ff3333;
+ }
+
  .card-header {
   width: 100%;
   height: 50%;
@@ -223,6 +228,14 @@
   color: #33f33a;
  }
 
+ .tratIcon {
+  color: #ff3333;
+ }
+
+ .topIcon {
+  width: 25% !important;
+ }
+
  .dato {
   width: 50%;
   height: 100%;
@@ -249,6 +262,15 @@
   text-decoration: underline#33f33a;
  }
 
+ .top3 {
+  width: 75% !important;
+  font-size: 2.8em !important;
+ }
+
+ .tratDato {
+  text-decoration: underline#ff3333;
+ }
+
  .card-body {
   width: 100%;
   height: 50%;
@@ -265,6 +287,14 @@
   text-align: center;
 
   /*border: #000000 1px solid;*/
+ }
+
+ .tratContainer {
+  height: 165px;
+ }
+
+ .tratStats-body {
+  font-size: 0.8em !important;
  }
 
 /* Termina middle */
@@ -300,72 +330,9 @@
   /*border: #000000 1px solid;*/
 }
 
-.tratStats{
-  display: flex;
-  flex-direction: row;
-  width: calc(100% - 7%);
-  height: 155px;
-  background-color: #ffffff;
-  border-radius:20px;
-  transition: all .4s;
-  justify-content: center;
-  align-items: center;
-
-  /*border: #000000 1px solid;*/
- }
-
- .tratStats:hover {
-   box-shadow: 0px 0px 30px 1px #ff3333;
- 
-   /*border: #000000 1px solid;*/
-  }
-
- .tratStats-header {
-  width: 40%;
-  height: 50%;
-  display: flex;
-  flex-direction: row;
-  padding-top: 0px;
-  padding-left: 20px;
-  padding-right: 20px;
-
-  /*border: #000000 1px solid;*/
- }
-
- .tratIcon {
-  color: #ff3333;
-
-  /*border: #000000 1px solid;*/
- }
-
- .tratDato {
-  text-decoration: underline#ff3333;
-
-  /*border: #000000 1px solid;*/
- }
-
- .tratStats-body {
-  width: 60%;
-  height: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-right: 20px;
-
-  /*border: #000000 1px solid;*/
- }
-
- .tratStats-body p {
-  font-size: 1.5em;
-  text-align: center;
-
-  /*border: #000000 1px solid;*/
- }
-
  .tabla-container {
   width: calc(100% - 7%);
-  height: 372px;
+  height: 362px;
   overflow-y: auto;
   border-radius: 10px;
   margin-top: 21px;
@@ -443,4 +410,6 @@ table.tablita {
   transition: all 1s ease;
 
 }
+
+
 

@@ -149,19 +149,40 @@
 
       <!-- <h1 class="catTitle"> Estadísticas Tratamientos</h1> -->
 
-      <div class="tratStats"> 
-        <div class = "tratStats-header">
-          <div class = "icono tratIcon">
-            <i class='bx bx-capsule'></i>
+      <div class = "catWidgets tratContainer">
+
+        <div class="card2 tratStats"> 
+          <div class = "card-header">
+            <div class = "icono tratIcon">
+              <i class='bx bx-capsule'></i>
+            </div>
+            <div class = "dato tratDato">
+              <i let cantVetAct> {{ totalTratUM }}</i>
+            </div>
           </div>
-          <div class = "dato tratDato">
-            <i let cantVetAct> {{ totalTratUM }}</i>
+  
+          <div class = "card-body tratStats-body">
+            <p> Tratamientos suministrados en el ultimo mes </p>
+          </div>
+        </div>
+  
+        <div class="card2 tratStats"> 
+          <div class = "card-header">
+            <div class = "icono tratIcon topIcon">
+              <i class='bx bx-medal'></i>
+            </div>
+            <div class = "dato tratDato top3">
+              <p> Top 3 </p>
+            </div>
+          </div>
+          
+          <div class = "card-body tratStats-body">
+            <p *ngFor="let top of top3trats">
+              {{top[0]}} con {{top[1]}} <br>
+            </p>
           </div>
         </div>
 
-        <div class = "tratStats-body">
-          <p> Tratamientos suministrados en el ultimo mes </p>
-        </div>
       </div>
 
       <div class = "tabla-container">

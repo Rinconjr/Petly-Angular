@@ -26,4 +26,8 @@ export class DrogaServiceService {
   totalVendDrogas() {
     return this.http.get<Droga[]>('http://localhost:8090/dashboard/droga/ventas');
   }
+
+  top3Drogas() {
+    return this.http.get<Droga[]>('http://localhost:8090/dashboard/droga/top');
+  }
 }

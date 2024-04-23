@@ -25,10 +25,10 @@ export class AdminBarChartComponent implements OnInit {
     this.tratamientoService.numTratXTipo().subscribe(
       data => {
         this.cantTratXTipo = data;
-        console.log( this.cantTratXTipo);
+        // console.log( this.cantTratXTipo);
 
         this.cantTratXTipo.forEach((element: any) => {
-          console.log(element.tipo);
+          // console.log(element.tipo);
         })
       }
       

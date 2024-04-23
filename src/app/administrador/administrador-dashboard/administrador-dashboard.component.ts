@@ -21,6 +21,7 @@ export class AdministradorDashboardComponent implements OnInit {
   ventasTotales: any;
   ventasTotalesDash!: string;
   gananciasTotales: any;
+  top3trats: any;
 
   constructor(
     private tratamientoService: TratamientoServiceService,
@@ -52,9 +53,7 @@ export class AdministradorDashboardComponent implements OnInit {
       const listaElement1: any[] = this.cantTratXTipo.map(
         (element: any) => element[1]
       );
-
-      // console.log("Lista de element[0]:", listaElement0);
-      // console.log("Lista de element[1]:", listaElement1);
+      
     });
 
     this.veterinarioService.totalVets().subscribe((data) => {
@@ -79,6 +78,11 @@ export class AdministradorDashboardComponent implements OnInit {
 
     this.drogasService.totalGanDrogas().subscribe((data) => {
       this.gananciasTotales = data.toLocaleString();;
+    });
+
+    this.drogasService.top3Drogas().subscribe((data) => {
+      this.top3trats = data;
+      console.log(this.top3trats);
     });
 
     let sidebar = document.querySelector('.sidebar') as HTMLElement;
