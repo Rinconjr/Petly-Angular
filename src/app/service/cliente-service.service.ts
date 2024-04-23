@@ -45,7 +45,6 @@ export class ClienteServiceService {
     let BodyData = {
       cedula: cedulaCliente
     };
-    console.log(BodyData);
     return this.http.post('http://localhost:8090/login/cliente', BodyData);
   }
 }

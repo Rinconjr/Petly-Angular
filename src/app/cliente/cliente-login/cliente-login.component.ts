@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { ClienteServiceService } from 'src/app/service/cliente-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cliente-login',
@@ -25,7 +26,9 @@ export class ClienteLoginComponent {
     this.clienteService.loginClient(this.cedulaCliente).pipe(
       catchError((error) => {
         if (error.status === 400) {
-          this.router.navigate(['/cedula-not-found/' + this.cedulaCliente]);
+          // console.log(error.error)
+          // this.router.navigate(['/cedula-not-found/' + this.cedulaCliente]);
+          this.mostrarAlerta(error.error);
         }
         return throwError(error);
       })
@@ -36,6 +39,31 @@ export class ClienteLoginComponent {
         }
       }
     );
+  }
+
+  mostrarAlerta(errorMessage: string) {
+    // Popup de alerta
+    Swal.fire({
+      title: '<span style="color: #000000;"> Error </span>',
+      html: errorMessage + '<br>Por favor inténtelo de nuevo',
+      imageUrl: "../../../assets/images/popup.png",
+      imageWidth: 400,
+      imageHeight: 400,
+      imageAlt: 'Custom image',
+      confirmButtonColor: '#3468c0',
+      confirmButtonText: 'Siguiente',
+      customClass: {
+        title: 'custom-title-class',
+        confirmButton: 'custom-confirm-button-class',
+        cancelButton: 'custom-cancel-button-class'
+      },
+      reverseButtons: true,
+    }).then((result) => {
+      // Resultado de la alerta
+      if (result.isConfirmed) {
+        this.router.navigate(['/login/cliente']);
+      }
+    });
   }
 
 }

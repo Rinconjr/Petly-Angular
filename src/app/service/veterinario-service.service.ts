@@ -40,6 +40,7 @@ export class VeterinarioServiceService {
     return this.http.get('http://localhost:8090/dashboard/veterinarios/inactivos')
   }
 
+  //Mandar cedula y contraseña del veterinario para login mediante metodo post
   loginVeterinario(cedulaVet: string, passwordVet: string) {
     let BodyData = {
       cedula: cedulaVet,
