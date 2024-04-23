@@ -49,7 +49,7 @@ export class VetLoginComponent {
       imageHeight: 400,
       imageAlt: 'Custom image',
       confirmButtonColor: '#3468c0',
-      confirmButtonText: 'Siguiente',
+      confirmButtonText: 'Volver',
       customClass: {
         title: 'custom-title-class',
         confirmButton: 'custom-confirm-button-class',
