@@ -33,7 +33,10 @@ export class VetLoginComponent {
     ).subscribe(
       (veterinario) => {
         if(veterinario != null) {
-          this.router.navigate(['/veterinario/' + veterinario + '/mascotas/all']);
+          if(veterinario == 1)
+            this.router.navigate(['/admin/dashboard']);
+          else
+            this.router.navigate(['/veterinario/' + veterinario + '/mascotas/all']);
         }
       }
     );
