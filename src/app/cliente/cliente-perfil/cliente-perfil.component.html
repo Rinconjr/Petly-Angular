@@ -27,7 +27,7 @@
         <tbody>
             <!-- por cada mascota del cliente se crea una fila de la tabla con sus datos (los datos de la base de datos) -->
             <tr *ngFor="let mascota of cliente.mascotas" [id]="'mascota-row-' + mascota.id"> 
-                <td><img class="fotoPerro" alt="Foto Mascota" [src]="mascota.foto"/></td>
+                <td class="elemento"><img class="fotoPerro" alt="Foto Mascota" [src]="mascota.foto"/></td>
                 <td> {{mascota.nombre}} </td>
                 <td> {{mascota.raza}} </td>
                 <td> {{mascota.edad}} </td>
@@ -35,7 +35,7 @@
                 <td> {{mascota.enfermedad}} </td>
                 <td> {{mascota.estado}} </td>
                 <td class="opciones">
-                    <a class="links icono" [routerLink]="['mascota/', mascota.id]">
+                    <a class="links icono verInfo" [routerLink]="['mascota/', mascota.id]">
                         <i class='bx bx-info-circle'></i>
                     </a>
                 </td>

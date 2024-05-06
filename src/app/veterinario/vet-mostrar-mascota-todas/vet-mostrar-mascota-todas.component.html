@@ -48,7 +48,7 @@
             <tbody>
                 <!-- por cada mascota de la base de datos se crea una fila de la tabla con sus datos -->
                 <tr *ngFor="let mascota of listaMascotas" [id]="'mascota-row-' + mascota.id">
-                    <td><img cLass="fotoPerro" [src]="mascota.foto"/></td>
+                    <td class="elemento"><img cLass="fotoPerro" [src]="mascota.foto"/></td>
                     <td> {{mascota.nombre}} </td>
                     <td> {{mascota.raza}} </td>
                     <td> {{mascota.edad}} </td>
