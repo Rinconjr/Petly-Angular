@@ -63,7 +63,7 @@
         <div class = "search">
             <h1>Tratamientos </h1>
             <div class="input-container">
-                <select required placeholder="Nuevo Tratamiento" type="text" [(ngModel)]="droga">
+                <select required placeholder="Nuevo Tratamiento" id="tratamientoNuevo" type="text" [(ngModel)]="droga">
                     <option *ngFor="let droga of listaDrogas" [value]="droga.nombre"> {{droga.nombre}} </option> 
                 </select>
                 <button class="nevoTratamiento-btn" type="button" (click)="crearTratamiento()">
