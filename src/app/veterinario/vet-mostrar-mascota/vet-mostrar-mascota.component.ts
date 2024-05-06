@@ -2,9 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Droga } from 'src/app/models/droga';
 import { Tratamiento } from 'src/app/models/tratamiento';
+import { Veterinario } from 'src/app/models/veterinario';
 import { DrogaServiceService } from 'src/app/service/droga-service.service';
 import { MascotaServiceService } from 'src/app/service/mascota-service.service';
 import { TratamientoServiceService } from 'src/app/service/tratamiento-service.service';
+import { VeterinarioServiceService } from 'src/app/service/veterinario-service.service';
+import emailjs from '@emailjs/browser';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -21,11 +24,13 @@ export class VetMostrarMascotaComponent implements OnInit {
   idMascota!: number;
   listaDrogas!: Droga[];
   vet_id!: number;
+  vet!: Veterinario;
 
   constructor(
     private mascotaService: MascotaServiceService,
     private tratamientoService: TratamientoServiceService,
     private drogaService: DrogaServiceService,
+    private veterinarioService: VeterinarioServiceService,
     private route: ActivatedRoute,
     private router: Router
   ) {  }
@@ -35,6 +40,10 @@ export class VetMostrarMascotaComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       const id = Number(params.get('id'));
       this.vet_id = Number(params.get('vet_id'));
+
+      this.veterinarioService.findById(this.vet_id).subscribe(
+        (llegaVet) => this.vet = llegaVet
+      );
 
       this.idMascota = id;
       
@@ -80,6 +89,7 @@ export class VetMostrarMascotaComponent implements OnInit {
     if (this.listaDrogas.find(droga => droga.nombre === this.droga)) {
       this.mostrarAlerta(this.sendDroga);
       this.tratamientoService.addTreatment(this.sendDroga, this.vet_id, this.idMascota);
+      this.mandarCorreo();
     } else {
       this.mostrarAlertaError(this.sendDroga);
     }
@@ -126,5 +136,22 @@ export class VetMostrarMascotaComponent implements OnInit {
         cancelButton: 'custom-cancel-button-class'
       }
     })
+  }
+
+  mandarCorreo() {
+    emailjs.init('bjXQ5wYpcg9WDZV3V');
+
+    const serviceID = 'default_service';
+    const templateID = 'template_94flrq3';
+
+    const variables = {
+      nombreMascotaCorreo: this.cliente.mascotas[0].nombre,
+      nombreClienteCorreo: this.cliente.nombre,
+      nombreDoctorCorreo: this.vet.nombre,
+      nombreDrogaCorreo: this.sendDroga,
+      mailCliente: this.cliente.correo
+    };
+
+    emailjs.send(serviceID, templateID, variables);
   }
 }
