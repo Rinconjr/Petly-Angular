@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { each } from 'chart.js/dist/helpers/helpers.core';
 import { Tratamiento } from 'src/app/models/tratamiento';
 import { Veterinario } from 'src/app/models/veterinario';
 import { DrogaServiceService } from 'src/app/service/droga-service.service';
@@ -96,6 +97,50 @@ export class AdministradorDashboardComponent implements OnInit {
     });
   }
 
+  generarReporteAnual() {
+    let csvData = 'Mes,Droga,CantidadVendida\n'; // Encabezado CSV
   
+    this.drogasService.reporteAnual().subscribe((data: any[]) => {
+      data.forEach((element: any) => {
+        const mesNombre = this.getMonthName(element[0]); // Obtener nombre del mes
+        const filaCSV = `${mesNombre},${element[1]},${element[2]}\n`; // Construir fila CSV
+        csvData += filaCSV; // Agregar fila al CSV
+      });
+  
+      this.descargarArchivoCSV(csvData, 'reporte_anual.csv'); // Descargar archivo CSV después de procesar los datos
+    });
+  }
+
+  generarGananciasMensuales() {
+    let csvData = 'Mes,Ventas\n'; // Encabezado CSV
+
+    this.drogasService.gananciasMensuales().subscribe((data: any[]) => {
+      data.forEach((element: any) => {
+        const mesNombre = this.getMonthName(element[0]); // Obtener nombre del mes
+        const filaCSV = `${mesNombre},${element[1]}\n`; // Construir fila CSV
+        csvData += filaCSV; // Agregar fila al CSV
+      });
+
+      this.descargarArchivoCSV(csvData, 'ganancias_mensuales.csv'); // Descargar archivo CSV después de procesar los datos
+    });
+  }
+
+  // Función para obtener el nombre del mes a partir de su número
+  getMonthName(monthNumber: number): string {
+    const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+    return meses[monthNumber - 1]; // Restamos 1 porque los meses en JavaScript van de 0 a 11
+  }
+
+  descargarArchivoCSV(data: string, nombre: string) {
+    const blob = new Blob([data], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = nombre;
+    document.body.appendChild(a);
+    a.click();
+    window.URL.revokeObjectURL(url);
+    document.body.removeChild(a);
+  }
   
 }

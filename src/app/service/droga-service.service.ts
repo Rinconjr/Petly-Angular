@@ -30,4 +30,12 @@ export class DrogaServiceService {
   top3Drogas() {
     return this.http.get<Droga[]>('http://localhost:8090/dashboard/droga/top');
   }
+
+  reporteAnual() {
+    return this.http.get<Droga[]>('http://localhost:8090/dashboard/reporte/anual');
+  }
+
+  gananciasMensuales() {
+    return this.http.get<Droga[]>('http://localhost:8090/dashboard/ganancias/mensuales');
+  }
 }

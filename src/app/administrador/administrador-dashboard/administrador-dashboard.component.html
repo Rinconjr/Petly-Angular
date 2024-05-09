@@ -21,11 +21,8 @@
   
   <!-- <h1 class="Titulo-principal">Estadísticas Petly</h1> -->
   <h1 class="Titulo-principal">Bienvenido Admin</h1>
-
   
   <img src="../../../assets/images/Gif103.gif" class="perroNaranja">
-
-    
 
   </div>
   
@@ -108,7 +105,7 @@
 
       <!-- <h1 class="catTitle"> Estadísticas Ventas</h1> -->
       <div class = "catWidgets">
-        <div class="card2 moneyStats"> 
+        <div class="card2 moneyStats" (click)="generarGananciasMensuales()"> 
           <div class = "card-header">
             <div class = "icono moneyIcon">
               <i class='bx bx-money-withdraw'></i> 
@@ -166,7 +163,7 @@
           </div>
         </div>
   
-        <div class="card2 tratStats"> 
+        <div class="card2 tratStats" (click)="generarReporteAnual()"> 
           <div class = "card-header">
             <div class = "icono tratIcon topIcon">
               <i class='bx bx-medal'></i>
