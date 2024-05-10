@@ -35,7 +35,11 @@ export class DrogaServiceService {
     return this.http.get<Droga[]>('http://localhost:8090/dashboard/reporte/anual');
   }
 
-  gananciasMensuales() {
-    return this.http.get<Droga[]>('http://localhost:8090/dashboard/ganancias/mensuales');
+  ventasMensuales() {
+    return this.http.get<Droga[]>('http://localhost:8090/dashboard/ventas/mensuales');
+  }
+
+  gastosIngresos() {
+    return this.http.get<Droga[]>('http://localhost:8090/dashboard/gastos/ingresos');
   }
 }

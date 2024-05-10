@@ -105,7 +105,7 @@
 
       <!-- <h1 class="catTitle"> Estadísticas Ventas</h1> -->
       <div class = "catWidgets">
-        <div class="card2 moneyStats" (click)="generarGananciasMensuales()"> 
+        <div class="card2 moneyStats" (click)="generarVentasMensuales()"> 
           <div class = "card-header">
             <div class = "icono moneyIcon">
               <i class='bx bx-money-withdraw'></i> 
@@ -120,7 +120,7 @@
           </div>
         </div>
   
-        <div class="card2 moneyStats"> 
+        <div class="card2 moneyStats" (click)="reporteGastosIngresos()"> 
           <div class = "card-header">
             <div class = "icono moneyIcon">
               <i class='bx bx-dollar'></i> 
@@ -146,7 +146,7 @@
 
       <!-- <h1 class="catTitle"> Estadísticas Tratamientos</h1> -->
 
-      <div class = "catWidgets tratContainer">
+      <div class = "catWidgets tratContainer" (click)="generarReporteMensual()">
 
         <div class="card2 tratStats"> 
           <div class = "card-header">
