@@ -1,3 +1,7 @@
+<head>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+</head>
+
 <body>
     <!-- Header -->
     <header class="header" id="header">
@@ -34,7 +38,16 @@
       </div>
     </header>
     <!-- termina el Header -->
-  
+
+    <!-- Chat bot dummy -->
+    <a class="chatbot" (click)="chatBotShow()">
+      <i class='bx bxs-chat' [ngClass]="{'iconoChat': !chatBot, 'iconoChatActivo': chatBot}"></i>
+    </a>    
+    
+    <div *ngIf="chatBot" class="chatbot-container">
+      <app-chat-bot></app-chat-bot>
+    </div>
+
     <!-- Contenido principal del landing -->
     <!-- 1ra sección del landing: presentacion del slogan -->
     <section class="tituloPrincipal">

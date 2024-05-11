@@ -38,6 +38,7 @@ import { AdminMostarVeterinarioComponent } from './administrador/admin-mostar-ve
 import { AdminModificarVeterinarioComponent } from './administrador/admin-modificar-veterinario/admin-modificar-veterinario.component';
 import { AdminBarChartComponent } from './administrador/admin-bar-chart/admin-bar-chart.component';
 import { IdNotFoundAdminComponent } from './errors/id-not-found-admin/id-not-found-admin.component';
+import { ChatBotComponent } from './chatbot/chat-bot/chat-bot.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { IdNotFoundAdminComponent } from './errors/id-not-found-admin/id-not-fou
     AdminMostarVeterinarioComponent,
     AdminModificarVeterinarioComponent,
     AdminBarChartComponent,
-    IdNotFoundAdminComponent
+    IdNotFoundAdminComponent,
+    ChatBotComponent
   ],
   imports: [
     BrowserModule,

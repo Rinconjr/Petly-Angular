@@ -8,6 +8,8 @@ import Swal from 'sweetalert2'
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent {
+
+  chatBot: boolean = false;
   
   constructor(
     private router: Router, 
@@ -143,6 +145,15 @@ export class LandingComponent {
   
   scrollToTop(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  chatBotShow() {
+    if(this.chatBot === false){
+      this.chatBot = true;
+    }
+    else{
+      this.chatBot = false;
+    }
   }
   
 }

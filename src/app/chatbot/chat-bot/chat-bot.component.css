@@ -1,0 +1,128 @@
+body {
+    height: 650px;
+    width: 450px;
+    background-color: #ffffff;
+    border: 2px solid #3468c0;
+    border-radius: 30px;
+    position: fixed;
+    bottom: 200px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;;
+}
+
+/* Header */
+
+header {
+    height: 50px;
+    width: 100%;
+    background-color: #3468c0;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.titulo {
+    color: #ffffff;
+    font-size: 25px;
+}
+
+.botGif {
+    height: 65px;
+}
+
+/* Chat */
+
+.chat {
+    height: 550px;
+    width: 100%;
+    padding: 25px;
+}
+
+.saludoBot {
+    width: 300px;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+    background-color: #ffdd95;
+    text-align: justify;
+}
+
+.userQuestion {
+    width: 300px;
+    margin-top: 20px;
+    padding: 10px 20px 10px 20px;
+    position: relative;
+    left: 96px;
+    border-radius: 10px;
+    background-color: #86a7fc;
+    text-align: justify;
+    color: #ffffff;
+}
+
+.botAnswer {
+    width: 300px;
+    margin-top: 20px;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+    background-color: #ffdd95;
+    text-align: justify;
+}
+
+.vacio {
+    display: none;
+}
+
+/* Preguntas */
+
+.preguntas {
+    height: 50px;
+    width: 100%;
+    background-color: #3468c0;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.selectPreguntas {
+    font-size: 20px;
+    width: 335px;
+    height: 35px;
+    border-radius: 50px;
+    border: 2px solid #898989;
+    color: #000000;
+    outline: none;
+    padding-left: 10px;
+    -webkit-appearance: none;
+}
+
+.enviarButton {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.btnPregunta {
+    height: 35px;
+    width: 35px;
+    background-color: #ff9c35;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnPregunta:hover {
+    box-shadow: 0 4px 16px #ff9c35;
+    transition: all 0.2s ease;
+}
