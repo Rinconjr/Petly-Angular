@@ -9,17 +9,9 @@
         <img src="../../../assets/images/gifBot.gif" class="botGif">
     </header>
 
-    <section class="chat">
+    <section class="chat" id="secChat">
         <div class="saludoBot">
             <p>¡Hola! Soy PetlyPal, tu amigable asistente virtual de Petly, donde el amor y la salud se encuentran en cada ladrido. ¿Cómo puedo ayudarte hoy? Estoy aquí para responder todas tus preguntas y para brindarte la mejor atención posible.</p>
-        </div>
-
-        <div [ngClass]="{'vacio': !realizada, 'userQuestion': realizada}">
-            <p id="preguntaUsuario"></p>
-        </div>
-
-        <div [ngClass]="{'vacio': !respondida, 'botAnswer': respondida}">
-            <p id="respuestaBot"></p>
         </div>
     </section>
 

@@ -7,8 +7,6 @@ import { Component } from '@angular/core';
 })
 export class ChatBotComponent {
 
-  realizada: boolean = false;
-  respondida: boolean = false;
   anterior: number = 3;
 
   preguntas: string[] = [
@@ -54,40 +52,62 @@ export class ChatBotComponent {
   ];
 
 
-  hacerPregunta() {
-    this.realizada = false;
-    
-    setTimeout(() => {
-      this.realizada = true;
-    }, 500);
-    
+  hacerPregunta() {    
     const selectElement = document.getElementById("pregunta") as HTMLSelectElement;
     const index = selectElement.selectedIndex;
 
     const pregunta = this.preguntas[index-1];
-    const preguntada = document.getElementById("preguntaUsuario") as HTMLElement;
-    preguntada.innerHTML = pregunta;
+    
+    const seccion = document.getElementById("secChat") as HTMLElement;
+    const divElement = document.createElement("div");
+    divElement.classList.add("userQuestion");
+    const pElement = document.createElement("p");
+    pElement.textContent = pregunta;
+    divElement.appendChild(pElement);
+    seccion.appendChild(divElement);
 
-    this.respondida = false;
+    divElement.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+
+    // Animacion de carga
     setTimeout(() => {
-      this.responder(index-1);
+      const loading = document.createElement("div");
+      loading.classList.add("typing-indicator");
+      for(let i=0; i<5; i++) {
+        const loadingIn = document.createElement("div");
+        loadingIn.classList.add("typing-circle");
+        loading.appendChild(loadingIn);
+      }
+
+      seccion.appendChild(loading);
+
+      loading.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
     }, 1500);
+
+    //Poner la respuesta
+    setTimeout(() => {
+      const divLoading = document.querySelector(".typing-indicator") as HTMLElement;
+      divLoading.remove();
+      this.responder(index-1);
+    }, 5000);
   }
 
   responder(index: number) {
-    const respuesta = document.getElementById("respuestaBot") as HTMLElement;
-
     let randomIndex = Math.floor(Math.random() * 3);
-
     if(randomIndex == this.anterior) {
       while(randomIndex == this.anterior) {
         randomIndex = Math.floor(Math.random() * 3);
       }
     }
-
     this.anterior = randomIndex;
 
-    respuesta.innerHTML = this.respuestas[index][randomIndex];
-    this.respondida = true;
+    const seccion = document.getElementById("secChat") as HTMLElement;
+    const divElement = document.createElement("div");
+    divElement.classList.add("botAnswer");
+    const pElement = document.createElement("p");
+    pElement.textContent = this.respuestas[index][randomIndex];
+    divElement.appendChild(pElement);
+    seccion.appendChild(divElement);
+
+    divElement.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
   }
 }
