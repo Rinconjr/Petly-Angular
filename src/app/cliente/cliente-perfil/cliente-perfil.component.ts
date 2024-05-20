@@ -21,16 +21,14 @@ export class ClientePerfilComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.route.paramMap.subscribe(params => {
-      const id = Number(params.get('id'));
-      
-      this.clienteService.findById(id).subscribe(
-        (llegaCliente) => {
-          this.cliente = llegaCliente; 
-          this.listaMascotas = this.cliente.mascotas;
-        }
-      );
-    });
+    this.clienteService.clienteHome().subscribe(
+      (llegaCliente) => {
+        this.cliente = llegaCliente;
+        this.listaMascotas = this.cliente.mascotas;
+      }
+    );
+
+    
 
     const inputSearch = document.getElementById('myInput') as HTMLInputElement;
     inputSearch.addEventListener('keyup', () => {

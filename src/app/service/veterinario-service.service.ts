@@ -48,4 +48,9 @@ export class VeterinarioServiceService {
     };
     return this.http.post('http://localhost:8090/login/veterinario', BodyData);
   }
+
+  vetHome(): Observable<Veterinario>{
+    return this.http.get<Veterinario>('http://localhost:8090/veterinario/details');
+  }
+
 }

@@ -20,13 +20,11 @@ export class ClienteSidebarComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.route.paramMap.subscribe(params => {
-      const id = Number(params.get('id'));
-      
-      this.clienteService.findById(id).subscribe(
-        (llegaCliente) => this.cliente = llegaCliente
-      );
-    });
+    this.clienteService.clienteHome().subscribe(
+      (llegaCliente) => {
+        this.cliente = llegaCliente;
+      }
+    );
 
     let sidebar = document.querySelector('.sidebar_ok') as HTMLElement;
 

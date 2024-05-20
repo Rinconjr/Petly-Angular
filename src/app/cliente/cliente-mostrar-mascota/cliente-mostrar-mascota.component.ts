@@ -20,26 +20,34 @@ export class ClienteMostrarMascotaComponent implements OnInit {
 
   cliente!: Cliente;
   listaTratamientos?: Tratamiento[];
+  
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      const id = Number(params.get('id'));
-      const idMascota = Number(params.get('id_mascota'));
 
-      this.clienteService.findClientPet(id, idMascota).subscribe(
-        (llegaCliente) => {
-          this.cliente = llegaCliente;
-          console.log(this.cliente.mascotas);
-        }
-      );
+    this.clienteService.clienteHome().subscribe(
+      (llegaCliente) => {
+        this.cliente = llegaCliente;
+        
+        this.route.paramMap.subscribe(params => {
+          const idMascota = Number(params.get('id_mascota'));
+    
+          this.clienteService.findClientPet(this.cliente.id!, idMascota).subscribe(
+            (llegaCliente) => {
+              this.cliente = llegaCliente;
+              console.log(this.cliente.mascotas);
+            }
+          );
+    
+          this.tratamientoService.findByIdPet(this.cliente.id!).subscribe(
+            (llegaLista) => {
+              this.listaTratamientos = llegaLista;
+            }
+          );
+          
+        });
+      }
+    );
 
-      this.tratamientoService.findByIdPet(id).subscribe(
-        (llegaLista) => {
-          this.listaTratamientos = llegaLista;
-        }
-      );
-      
-    });
 
     let sidebar = document.querySelector('.sidebar') as HTMLElement;
 

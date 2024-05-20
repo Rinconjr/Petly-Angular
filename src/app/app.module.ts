@@ -19,7 +19,7 @@ import { VetModificarMascotaComponent } from './veterinario/vet-modificar-mascot
 import { VetLoginComponent } from './veterinario/vet-login/vet-login.component';
 import { ClienteLoginComponent } from './cliente/cliente-login/cliente-login.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { PageNotFoundComponent } from './errors/page-not-found/page-not-found.component';
 import { IdNotFoundComponent } from './errors/id-not-found/id-not-found.component';
 import { AdministradorSidebarComponent } from './administrador/administrador-sidebar/administrador-sidebar.component';
@@ -39,6 +39,7 @@ import { AdminModificarVeterinarioComponent } from './administrador/admin-modifi
 import { AdminBarChartComponent } from './administrador/admin-bar-chart/admin-bar-chart.component';
 import { IdNotFoundAdminComponent } from './errors/id-not-found-admin/id-not-found-admin.component';
 import { ChatBotComponent } from './chatbot/chat-bot/chat-bot.component';
+import { AuthInterceptor } from './helpers/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,13 @@ import { ChatBotComponent } from './chatbot/chat-bot/chat-bot.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

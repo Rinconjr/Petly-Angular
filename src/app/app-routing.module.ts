@@ -49,8 +49,8 @@ const routes: Routes = [
   { path: 'veterinario/:vet_id/clientes/update/:id', component: VetModificarClienteComponent },
   
   //Path para todo lo relacionado al usuario
-  { path: 'usuario/:id', component: ClientePerfilComponent },
-  { path: 'usuario/:id/mascota/:id_mascota', component: ClienteMostrarMascotaComponent },
+  { path: 'usuario', component: ClientePerfilComponent },
+  { path: 'usuario/mascota/:id_mascota', component: ClienteMostrarMascotaComponent },
 
   //Path para todo lo relacionado al administrador
   { path: 'admin/dashboard', component: AdministradorDashboardComponent},

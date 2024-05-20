@@ -4,6 +4,7 @@ import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { ClienteServiceService } from 'src/app/service/cliente-service.service';
 import Swal from 'sweetalert2';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-cliente-login',
@@ -23,7 +24,13 @@ export class ClienteLoginComponent {
   }
 
   loginCliente() {
-    this.clienteService.loginClient(this.cedulaCliente).pipe(
+
+    let user: User = {
+      cedula: this.cedulaCliente,
+      password: ""
+    }
+
+    this.clienteService.loginClient(user).pipe(
       catchError((error) => {
         if (error.status === 400) {
           // console.log(error.error)
@@ -34,7 +41,8 @@ export class ClienteLoginComponent {
     ).subscribe(
       (cliente) => {
         if(cliente != null) {
-          this.router.navigate(['/usuario/' + cliente]);
+          localStorage.setItem('token', String(cliente));
+          this.router.navigate(['/usuario']);
         }
       }
     );
