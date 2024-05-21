@@ -18,6 +18,10 @@ export class VetSidebarComponent implements OnInit {
   vet!: Veterinario;
 
   ngOnInit(): void {
+    if (localStorage.getItem('token') == null) {
+      window.location.href = '/#/login/veterinario';
+    } 
+
     this.veterinarioService.vetHome().subscribe(
       (llegaVet) => {
         this.vet = llegaVet
@@ -33,5 +37,10 @@ export class VetSidebarComponent implements OnInit {
     sidebar.addEventListener('mouseleave', () => {
       sidebar.classList.remove("active");
     });
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    window.location.href = '/';
   }
 }

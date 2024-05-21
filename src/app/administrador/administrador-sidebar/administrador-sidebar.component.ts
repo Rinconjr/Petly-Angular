@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdministradorSidebarComponent implements OnInit {
   ngOnInit(): void {
+    if (localStorage.getItem('token') == null) {
+      window.location.href = '/#/login/veterinario';
+    } 
+
     let sidebar = document.querySelector('.sidebar_ok') as HTMLElement;
 
     sidebar.addEventListener('mouseover', () => {
@@ -16,5 +20,10 @@ export class AdministradorSidebarComponent implements OnInit {
     sidebar.addEventListener('mouseleave', () => {
       sidebar.classList.remove("active");
     });
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    window.location.href = '/';
   }
 }

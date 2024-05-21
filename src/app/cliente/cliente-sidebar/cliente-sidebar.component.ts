@@ -20,6 +20,10 @@ export class ClienteSidebarComponent implements OnInit {
 
   ngOnInit(): void {
 
+    if (localStorage.getItem('token') == null) {
+      window.location.href = '/#/login/cliente';
+    } 
+
     this.clienteService.clienteHome().subscribe(
       (llegaCliente) => {
         this.cliente = llegaCliente;
@@ -35,5 +39,10 @@ export class ClienteSidebarComponent implements OnInit {
     sidebar.addEventListener('mouseleave', () => {
       sidebar.classList.remove("active");
     });
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    window.location.href = '/';
   }
 }

@@ -15,4 +15,8 @@ export class UserServiceService {
     return this.http.get<number>('http://localhost:8090/user/rol/' + cedula);
   }
 
+  encontrarRolToken(): Observable<number> {
+    return this.http.get<number>('http://localhost:8090/user/rolToken');
+  }
+
 }
