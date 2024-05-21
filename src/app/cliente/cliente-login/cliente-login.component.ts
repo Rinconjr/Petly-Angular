@@ -27,7 +27,7 @@ export class ClienteLoginComponent {
 
     let user: User = {
       cedula: this.cedulaCliente,
-      password: ""
+      contrasena: ""
     }
 
     this.clienteService.loginClient(user).pipe(

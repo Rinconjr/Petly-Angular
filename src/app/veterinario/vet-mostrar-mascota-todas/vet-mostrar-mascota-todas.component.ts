@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Mascota } from '../../models/mascota';
 import { MascotaServiceService } from 'src/app/service/mascota-service.service';
+import { Veterinario } from 'src/app/models/veterinario';
+import { VeterinarioServiceService } from 'src/app/service/veterinario-service.service';
 import Swal from 'sweetalert2'
+import { Tratamiento } from 'src/app/models/tratamiento';
 
 @Component({
   selector: 'app-vet-mostrar-mascota-todas',
@@ -12,9 +15,20 @@ export class VetMostrarMascotaTodasComponent implements OnInit {
   listaMascotas!: Mascota[];
   filtroEstado: string = 'Todas'; // Estado inicial del filtro
 
-  constructor(private mascotaService: MascotaServiceService) {}
+  constructor(private mascotaService: MascotaServiceService,
+    private veterinarioService: VeterinarioServiceService
+  ) {}
+
+  veterinario!: Veterinario;
+  listaTratamientos!: Tratamiento[] | undefined;
 
   ngOnInit(): void {
+
+    this.veterinarioService.vetHome().subscribe(
+      (veterinario) => {
+        this.veterinario = veterinario;
+      }
+    );
 
     this.mascotaService.findAll().subscribe(
       (mascotas) => this.listaMascotas = mascotas

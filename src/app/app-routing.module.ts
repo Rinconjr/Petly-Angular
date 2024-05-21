@@ -39,7 +39,8 @@ const routes: Routes = [
   { path: 'login/veterinario', component: VetLoginComponent},
 
   //Path para todo lo relacionado al veterinario
-  { path: 'veterinario/:vet_id/mascotas/all', component:  VetMostrarMascotaTodasComponent },
+  { path: 'veterinario/', component: VetMostrarMascotaTodasComponent},
+  { path: 'veterinario/mascotas/all', component:  VetMostrarMascotaTodasComponent },
   { path: 'veterinario/:vet_id/mascotas/find/:id', component:  VetMostrarMascotaComponent},
   { path: 'veterinario/:vet_id/mascotas/add', component: VetRegistrarMascotaComponent },
   { path: 'veterinario/:vet_id/mascotas/update/:id', component: VetModificarMascotaComponent},
