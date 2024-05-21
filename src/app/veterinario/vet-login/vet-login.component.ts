@@ -5,6 +5,8 @@ import { throwError } from 'rxjs';
 import { VeterinarioServiceService } from 'src/app/service/veterinario-service.service';
 import Swal from 'sweetalert2';
 import { User } from 'src/app/models/user';
+import { UserServiceService } from 'src/app/service/user-service.service';
+
 
 @Component({
   selector: 'app-vet-login',
@@ -19,10 +21,13 @@ export class VetLoginComponent {
   constructor(
     private veterinarioService: VeterinarioServiceService,
     private router: Router,
+    private userService: UserServiceService
   ) { }
 
   ngOnInit(): void {
   }
+  
+  rol: number = 0;
 
   loginVeterinario() {
 
@@ -31,17 +36,22 @@ export class VetLoginComponent {
       contrasena: this.passwordVeterinario
     }
 
-    /*
-    this.veterinarioService.loginVeterinario(user).subscribe(
-      (veterinario) => {
-        if(veterinario != null) {
-          localStorage.setItem('token', String(veterinario));
+    this.userService.encontrarRol(user.cedula).subscribe(
+      (response) => {
+        this.rol = response;
+        if (this.rol == 1) {
+          this.router.navigate(['/admin/dashboard']);
+        }
+        else if (this.rol == 2) {
           this.router.navigate(['/veterinario/mascotas/all']);
         }
+        else {
+          this.mostrarAlerta("Usuario no encontrado");
+        }
       }
-    );
-    */
-
+    )
+    
+    /*
     this.veterinarioService.loginVeterinario(user).pipe(
       catchError((error) => {
         if (error.status === 400) {
@@ -55,11 +65,14 @@ export class VetLoginComponent {
           if(veterinario == 'Admin')
             this.router.navigate(['/admin/dashboard']);
           else
-            this.router.navigate(['/veterinario/' + veterinario + '/mascotas/all']);
+            this.router.navigate(['/veterinario/mascotas/all']);
         }
       }
     );
+    */
+    
   }
+  
 
   mostrarAlerta(errorMessage: string) {
     // Popup de alerta
