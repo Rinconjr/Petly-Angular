@@ -37,13 +37,15 @@ export class VetMostrarMascotaComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.veterinarioService.vetHome().subscribe(
+      (llegaVet) => {
+        this.vet = llegaVet,
+        this.vet_id = this.vet.id
+      }
+    );
+
     this.route.paramMap.subscribe(params => {
       const id = Number(params.get('id'));
-      this.vet_id = Number(params.get('vet_id'));
-
-      this.veterinarioService.findById(this.vet_id).subscribe(
-        (llegaVet) => this.vet = llegaVet
-      );
 
       this.idMascota = id;
       

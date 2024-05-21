@@ -40,10 +40,25 @@ export class VetLoginComponent {
       (response) => {
         this.rol = response;
         if (this.rol == 1) {
-          this.router.navigate(['/admin/dashboard']);
+          this.veterinarioService.loginVeterinario(user).subscribe(
+            (veterinario) => {
+              if(veterinario != null) {
+                localStorage.setItem('token', String(veterinario));
+                this.router.navigate(['/admin/dashboard']);
+              }
+            }
+          );
+
         }
         else if (this.rol == 2) {
-          this.router.navigate(['/veterinario/mascotas/all']);
+          this.veterinarioService.loginVeterinario(user).subscribe(
+            (veterinario) => {
+              if(veterinario != null) {
+                localStorage.setItem('token', String(veterinario));
+                this.router.navigate(['/veterinario/mascotas/all']);                
+              }
+            }
+          );
         }
         else {
           this.mostrarAlerta("Usuario no encontrado");

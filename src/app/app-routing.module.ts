@@ -41,13 +41,13 @@ const routes: Routes = [
   //Path para todo lo relacionado al veterinario
   { path: 'veterinario/', component: VetMostrarMascotaTodasComponent},
   { path: 'veterinario/mascotas/all', component:  VetMostrarMascotaTodasComponent },
-  { path: 'veterinario/:vet_id/mascotas/find/:id', component:  VetMostrarMascotaComponent},
-  { path: 'veterinario/:vet_id/mascotas/add', component: VetRegistrarMascotaComponent },
-  { path: 'veterinario/:vet_id/mascotas/update/:id', component: VetModificarMascotaComponent},
-  { path: 'veterinario/:vet_id/clientes/all', component:  VetMostrarClienteTodosComponent },
-  { path: 'veterinario/:vet_id/clientes/find/:id', component: VetMostrarClienteComponent },
-  { path: 'veterinario/:vet_id/clientes/add', component: VetRegistrarClienteComponent },
-  { path: 'veterinario/:vet_id/clientes/update/:id', component: VetModificarClienteComponent },
+  { path: 'veterinario/mascotas/find/:id', component:  VetMostrarMascotaComponent},
+  { path: 'veterinario/mascotas/add', component: VetRegistrarMascotaComponent },
+  { path: 'veterinario/mascotas/update/:id', component: VetModificarMascotaComponent},
+  { path: 'veterinario/clientes/all', component:  VetMostrarClienteTodosComponent },
+  { path: 'veterinario/clientes/find/:id', component: VetMostrarClienteComponent },
+  { path: 'veterinario/clientes/add', component: VetRegistrarClienteComponent },
+  { path: 'veterinario/clientes/update/:id', component: VetModificarClienteComponent },
   
   //Path para todo lo relacionado al usuario
   { path: 'usuario', component: ClientePerfilComponent },
@@ -70,7 +70,7 @@ const routes: Routes = [
 
   //Path para errores de id
   { path: 'id-not-found/:tipo/:id', component: IdNotFoundAdminComponent },
-  { path: 'id-not-found/:vet_id/:tipo/:id', component: IdNotFoundComponent },
+  { path: 'id-not-found/:tipo/:id', component: IdNotFoundComponent },
   
   //Path de la pagina de error
   //! Dejar siempre al final

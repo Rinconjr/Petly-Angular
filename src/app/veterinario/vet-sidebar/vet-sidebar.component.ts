@@ -18,13 +18,11 @@ export class VetSidebarComponent implements OnInit {
   vet!: Veterinario;
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      const id = Number(params.get('vet_id'));
-      
-      this.veterinarioService.findById(id).subscribe(
-        (llegaVet) => this.vet = llegaVet
-      );
-    });
+    this.veterinarioService.vetHome().subscribe(
+      (llegaVet) => {
+        this.vet = llegaVet
+      }
+    )
 
     let sidebar = document.querySelector('.sidebar_ok') as HTMLElement;
 
