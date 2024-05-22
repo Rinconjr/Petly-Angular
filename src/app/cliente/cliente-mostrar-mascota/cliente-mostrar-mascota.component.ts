@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Cliente } from 'src/app/models/cliente';
 import { Tratamiento } from 'src/app/models/tratamiento';
 import { ClienteServiceService } from 'src/app/service/cliente-service.service';
@@ -15,7 +15,8 @@ export class ClienteMostrarMascotaComponent implements OnInit {
   constructor(
     private clienteService: ClienteServiceService,
     private tratamientoService: TratamientoServiceService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   cliente!: Cliente;
@@ -33,8 +34,12 @@ export class ClienteMostrarMascotaComponent implements OnInit {
     
           this.clienteService.findClientPet(this.cliente.id!, idMascota).subscribe(
             (llegaCliente) => {
-              this.cliente = llegaCliente;
-              console.log(this.cliente.mascotas);
+                this.cliente = llegaCliente;
+            },
+            (error) => {
+              if (error.status === 500) {
+                this.router.navigate(['/id-not-found/veterinario/' + idMascota]);
+              }
             }
           );
     
