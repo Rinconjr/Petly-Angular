@@ -37,7 +37,6 @@ import { AdminMostrarVeterinariosTodosComponent } from './administrador/admin-mo
 import { AdminMostarVeterinarioComponent } from './administrador/admin-mostar-veterinario/admin-mostar-veterinario.component';
 import { AdminModificarVeterinarioComponent } from './administrador/admin-modificar-veterinario/admin-modificar-veterinario.component';
 import { AdminBarChartComponent } from './administrador/admin-bar-chart/admin-bar-chart.component';
-import { IdNotFoundAdminComponent } from './errors/id-not-found-admin/id-not-found-admin.component';
 import { ChatBotComponent } from './chatbot/chat-bot/chat-bot.component';
 import { AuthInterceptor } from './helpers/auth.interceptor';
 
@@ -76,7 +75,6 @@ import { AuthInterceptor } from './helpers/auth.interceptor';
     AdminMostarVeterinarioComponent,
     AdminModificarVeterinarioComponent,
     AdminBarChartComponent,
-    IdNotFoundAdminComponent,
     ChatBotComponent
   ],
   imports: [

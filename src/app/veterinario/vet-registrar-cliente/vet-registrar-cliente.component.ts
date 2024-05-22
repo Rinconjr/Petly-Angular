@@ -64,13 +64,13 @@ export class VetRegistrarClienteComponent {
     }).then((result) => {
       // Resultado de la alerta
       if (result.isConfirmed) {
-        this.router.navigate(['/veterinario/' + this.vet_id + '/clientes/all']);
+        this.router.navigate(['/veterinario/clientes/all']);
       }
     });
   }
 
   redirect() {
-    this.router.navigate(['/veterinario/' + this.vet_id + '/clientes/all']);
+    this.router.navigate(['/veterinario/clientes/all']);
   }
 
 }

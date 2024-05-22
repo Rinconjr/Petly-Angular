@@ -84,7 +84,7 @@ export class VetRegistrarMascotaComponent {
     }).then((result) => {
       // Resultado de la alerta
       if (result.isConfirmed) {
-        this.router.navigate(['/veterinario/' + this.vet_id + '/mascotas/all']);
+        this.router.navigate(['/veterinario/mascotas/all']);
       }
     });
   }
@@ -112,6 +112,6 @@ export class VetRegistrarMascotaComponent {
   }
 
   redirect() {
-    this.router.navigate(['/veterinario/' + this.vet_id + '/mascotas/all']);
+    this.router.navigate(['/veterinario/mascotas/all']);
   }
 }

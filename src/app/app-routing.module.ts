@@ -28,7 +28,6 @@ import { AdminMostrarVeterinariosTodosComponent } from './administrador/admin-mo
 import { AdminRegistrarVeterinarioComponent } from './administrador/admin-registrar-veterinario/admin-registrar-veterinario.component';
 import { AdminMostarVeterinarioComponent } from './administrador/admin-mostar-veterinario/admin-mostar-veterinario.component';
 import { AdminModificarVeterinarioComponent } from './administrador/admin-modificar-veterinario/admin-modificar-veterinario.component';
-import { IdNotFoundAdminComponent } from './errors/id-not-found-admin/id-not-found-admin.component';
 
 const routes: Routes = [
   //Path para la landing page
@@ -69,7 +68,6 @@ const routes: Routes = [
   { path: 'admin/veterinarios/update/:id', component: AdminModificarVeterinarioComponent},
 
   //Path para errores de id
-  { path: 'id-not-found/:tipo/:id', component: IdNotFoundAdminComponent },
   { path: 'id-not-found/:tipo/:id', component: IdNotFoundComponent },
   
   //Path de la pagina de error
