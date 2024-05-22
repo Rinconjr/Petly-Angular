@@ -32,9 +32,9 @@ export class ClienteLoginComponent {
 
     this.clienteService.loginClient(user).pipe(
       catchError((error) => {
-        if (error.status === 400) {
+        if (error.status === 401) {
           // console.log(error.error)
-          this.mostrarAlerta(error.error);
+          this.mostrarAlerta("Usuario no encontrado");
         }
         return throwError(error);
       })

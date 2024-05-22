@@ -148,6 +148,12 @@
     cursor: default;
 }
 
+.sidebar_ok .correo {
+    word-break: break-word;
+    line-height: normal;
+    font-size: 1em;
+}
+
 .sidebar_ok i {
     min-width: 50px;
     text-align: center;

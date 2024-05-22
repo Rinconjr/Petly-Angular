@@ -40,7 +40,15 @@ export class VetLoginComponent {
       (response) => {
         this.rol = response;
         if (this.rol == 1) {
-          this.veterinarioService.loginVeterinario(user).subscribe(
+          this.veterinarioService.loginVeterinario(user).pipe(
+            catchError((error) => {
+              if (error.status === 401) {
+                // console.log(error.error)
+                this.mostrarAlerta("Usuario no encontrado");
+              }
+              return throwError(error);
+            })
+          ).subscribe(
             (veterinario) => {
               if(veterinario != null) {
                 localStorage.setItem('token', String(veterinario));
@@ -51,7 +59,15 @@ export class VetLoginComponent {
 
         }
         else if (this.rol == 2) {
-          this.veterinarioService.loginVeterinario(user).subscribe(
+          this.veterinarioService.loginVeterinario(user).pipe(
+            catchError((error) => {
+              if (error.status === 401) {
+                // console.log(error.error)
+                this.mostrarAlerta("Usuario no encontrado");
+              }
+              return throwError(error);
+            })
+          ).subscribe(
             (veterinario) => {
               if(veterinario != null) {
                 localStorage.setItem('token', String(veterinario));
