@@ -278,6 +278,12 @@
   font-size: 25px;
 }
 
+.input-container .label-readonly {
+  top: -20px;
+  font-size: 20px;
+  color: #3468c0;
+}
+
 .input-container input[type="text"]:focus ~ .label,
 .input-container input[type="text"]:valid ~ .label,
 .input-container input[type="number"]:focus ~ .label,
@@ -298,6 +304,10 @@
   background-color: #ff9c35;
   transform: scaleX(0);
   transition: all 0.3s ease;
+}
+
+.input-container .underline-readonly {
+  transform: scaleX(1);
 }
 
 .input-container input[type="text"]:focus ~ .underline,
