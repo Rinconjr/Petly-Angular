@@ -1,5 +1,8 @@
 import { Component, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
+import { ClienteServiceService } from 'src/app/service/cliente-service.service';
+import { UserServiceService } from 'src/app/service/user-service.service';
+import { VeterinarioServiceService } from 'src/app/service/veterinario-service.service';
 import Swal from 'sweetalert2'
 
 @Component({
@@ -13,7 +16,8 @@ export class LandingComponent {
   
   constructor(
     private router: Router, 
-    private elementRef: ElementRef
+    private elementRef: ElementRef,
+    private userService: UserServiceService
   ) {}
 
   
@@ -153,6 +157,30 @@ export class LandingComponent {
     }
     else{
       this.chatBot = false;
+    }
+  }
+
+  login() {
+    const token = localStorage.getItem('token');
+
+    if(token == null){
+      this.router.navigate(['/login/cliente']);
+    } else {
+      this.userService.encontrarRolToken().subscribe(
+        (rol) => {
+          console.log(rol);
+
+          if(rol == 1){
+            this.router.navigate(['/admin/dashboard']);
+          }
+          else if(rol == 2){
+            this.router.navigate(['/veterinario/mascotas/all']);
+          }
+          else if(rol == 3){
+            this.router.navigate(['/usuario']);
+          }
+        }
+      );
     }
   }
   

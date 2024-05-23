@@ -70,10 +70,22 @@
   input[type="search"]::-webkit-search-cancel-button {
     -webkit-appearance: none;
   }
+
+  .table-container {
+    width: 100%;
+    max-height: 780px;
+    overflow:scroll;
+    border-radius: 10px;
+  }
+  
+  .table-container::-webkit-scrollbar {
+    display: none;
+  }
   
   table.tablita {
     font-size: 1.5em;
     width: 100%;
+    overflow-y: scroll;
     border-collapse: separate;
     border-spacing: 0px;
   }
@@ -94,6 +106,8 @@
   }
   
   .tablita th {
+    position: sticky; /* Fija el encabezado en su tamaño */ 
+    top: 0;
     background-color: #ff9c35;
     color: white;
   }

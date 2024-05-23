@@ -34,7 +34,7 @@ export class VetModificarMascotaComponent implements OnInit {
             this.mascotaAux = mascota;
             this.formMascota = Object.assign({}, this.mascotaAux);
           } else {
-            this.router.navigate(['/id-not-found/' + this.vet_id + '/mascota/' + id]);
+            this.router.navigate(['/id-not-found/mascota/' + id]);
           }
         }
       );
@@ -86,7 +86,7 @@ export class VetModificarMascotaComponent implements OnInit {
     }).then((result) => {
       // Resultado de la alerta
       if (result.isConfirmed) {
-        this.router.navigate(['/veterinario/' + this.vet_id + '/mascotas/all']);
+        this.router.navigate(['/veterinario/mascotas/all']);
       }
     });
   }

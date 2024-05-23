@@ -46,9 +46,12 @@ export class AdminMostarVeterinarioComponent implements AfterViewInit {
           if(llegaVet) {
             this.veterinario = llegaVet;
             this.listaTratamientos = this.veterinario.tratamientos;
-          }            
-          else 
+          }
+        },
+        (error) => {
+          if (error.status === 404) {
             this.router.navigate(['/id-not-found/veterinario/' + id]);
+          }
         }
       );
 

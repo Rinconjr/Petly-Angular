@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Veterinario } from '../models/veterinario';
 import { Observable } from 'rxjs';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -40,12 +41,14 @@ export class VeterinarioServiceService {
     return this.http.get('http://localhost:8090/dashboard/veterinarios/inactivos')
   }
 
-  //Mandar cedula y contraseña del veterinario para login mediante metodo post
-  loginVeterinario(cedulaVet: string, passwordVet: string) {
-    let BodyData = {
-      cedula: cedulaVet,
-      contrasena: passwordVet
-    };
-    return this.http.post('http://localhost:8090/login/veterinario', BodyData);
+  loginVeterinario(user:User): Observable<String>{
+    return this.http.post('http://localhost:8090/login/veterinario', user, {
+      responseType: 'text'    
+    });
   }
+
+  vetHome(): Observable<Veterinario>{
+    return this.http.get<Veterinario>('http://localhost:8090/veterinario/details');
+  }
+
 }

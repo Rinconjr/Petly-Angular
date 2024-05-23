@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Cliente } from 'src/app/models/cliente';
 import { Tratamiento } from 'src/app/models/tratamiento';
 import { ClienteServiceService } from 'src/app/service/cliente-service.service';
@@ -15,31 +15,44 @@ export class ClienteMostrarMascotaComponent implements OnInit {
   constructor(
     private clienteService: ClienteServiceService,
     private tratamientoService: TratamientoServiceService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   cliente!: Cliente;
   listaTratamientos?: Tratamiento[];
+  
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      const id = Number(params.get('id'));
-      const idMascota = Number(params.get('id_mascota'));
 
-      this.clienteService.findClientPet(id, idMascota).subscribe(
-        (llegaCliente) => {
-          this.cliente = llegaCliente;
-          console.log(this.cliente.mascotas);
-        }
-      );
+    this.clienteService.clienteHome().subscribe(
+      (llegaCliente) => {
+        this.cliente = llegaCliente;
+        
+        this.route.paramMap.subscribe(params => {
+          const idMascota = Number(params.get('id_mascota'));
+    
+          this.clienteService.findClientPet(this.cliente.id!, idMascota).subscribe(
+            (llegaCliente) => {
+                this.cliente = llegaCliente;
+            },
+            (error) => {
+              if (error.status === 500) {
+                this.router.navigate(['/id-not-found/veterinario/' + idMascota]);
+              }
+            }
+          );
+    
+          this.tratamientoService.findByIdPet(idMascota).subscribe(
+            (llegaLista) => {
+              this.listaTratamientos = llegaLista;
+            }
+          );
+          
+        });
+      }
+    );
 
-      this.tratamientoService.findByIdPet(id).subscribe(
-        (llegaLista) => {
-          this.listaTratamientos = llegaLista;
-        }
-      );
-      
-    });
 
     let sidebar = document.querySelector('.sidebar') as HTMLElement;
 

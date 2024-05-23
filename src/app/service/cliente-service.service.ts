@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Cliente } from '../models/cliente';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -41,10 +42,21 @@ export class ClienteServiceService {
   }
 
   //Mandar cedula del cliente para login mediante metodo post
+  /*
   loginClient(cedulaCliente: string) {
     let BodyData = {
       cedula: cedulaCliente
     };
     return this.http.post('http://localhost:8090/login/cliente', BodyData);
+  }
+  */
+  loginClient(user:User): Observable<String>{
+    return this.http.post('http://localhost:8090/login/cliente', user, {
+      responseType: 'text'
+    });
+  }
+
+  clienteHome(): Observable<Cliente>{
+    return this.http.get<Cliente>('http://localhost:8090/cliente/details');
   }
 }

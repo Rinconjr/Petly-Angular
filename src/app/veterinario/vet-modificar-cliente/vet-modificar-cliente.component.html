@@ -22,9 +22,9 @@
 
                 <!-- Campo para modificar la cedula del cliente -->
                 <div class="form-group input-container">
-                    <input type="text" id="cedula" name="cedula" [(ngModel)]="formCliente.cedula" required>
-                    <label class="label" for="cedula">Cedula Cliente</label>
-                    <div class="underline"></div>
+                    <input type="text" id="cedula" name="cedula" [(ngModel)]="formCliente.cedula" readonly>
+                    <label class="label label-readonly" for="cedula">Cedula Cliente</label>
+                    <div class="underline underline-readonly"></div>
                 </div>
                 
                 <!-- Campo para modificar el nombre del cliente -->

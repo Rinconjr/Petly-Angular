@@ -22,9 +22,9 @@
 
                 <!-- Campo para modificar la cedula del veterinario -->
                 <div class="form-group input-container">
-                    <input type="text" id="cedula" name="cedula" [(ngModel)]="formVet.cedula" required>
-                    <label class="label" for="cedula">Cedula veterinario</label>
-                    <div class="underline"></div>
+                    <input type="text" id="cedula" name="cedula" [(ngModel)]="formVet.cedula" readonly>
+                    <label class="label label-readonly" for="cedula">Cedula veterinario</label>
+                    <div class="underline underline-readonly"></div>
                 </div>
                 
                 <!-- Campo para modificar el nombre del veterinario -->

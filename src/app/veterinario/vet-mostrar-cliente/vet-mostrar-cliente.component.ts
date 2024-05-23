@@ -34,7 +34,7 @@ export class VetMostrarClienteComponent implements OnInit {
             this.listaMascotas = this.cliente.mascotas;
           }            
           else 
-            this.router.navigate(['/id-not-found/' + this.vet_id + '/cliente/' + id]);
+            this.router.navigate(['/id-not-found/cliente/' + id]);
         }
       );
     });
