@@ -43,7 +43,7 @@ export class ClienteMostrarMascotaComponent implements OnInit {
             }
           );
     
-          this.tratamientoService.findByIdPet(this.cliente.id!).subscribe(
+          this.tratamientoService.findByIdPet(idMascota).subscribe(
             (llegaLista) => {
               this.listaTratamientos = llegaLista;
             }
